@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#E60012">
+<title>English Review · Clase 04</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--red:#E60012;--red-dark:#bd0010;--red-soft:#fff0f1;--white:#fff;--bg:#f5f6f8;--text:#17191f;--muted:#70757f;--line:#e6e8ec;--success:#169c56;--success-soft:#eaf9f1;--blue:#1769e0;--blue-soft:#edf5ff;--shadow:0 18px 55px rgba(20,24,32,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,sans-serif;background:radial-gradient(circle at top left,rgba(230,0,18,.08),transparent 30%),var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+button,input{font:inherit}button{cursor:pointer}
+.app{max-width:1500px;margin:auto;padding:28px}
+.header{background:#fff;border-radius:28px;padding:26px 30px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:16px}
+.logo{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:var(--red);color:#fff;font-size:25px;font-weight:900;box-shadow:0 10px 30px rgba(230,0,18,.25)}
+.brand-text small{display:block;color:var(--red);font-size:13px;font-weight:900;letter-spacing:1.5px;margin-bottom:4px}
+.brand-text h1{font-size:26px;font-weight:900}
+.brand-text p{color:var(--muted);margin-top:4px;font-size:14px}
+.toolbar{margin-top:20px;background:#fff;border-radius:22px;padding:17px;display:grid;grid-template-columns:minmax(240px,1fr) auto;gap:16px;align-items:center;box-shadow:0 10px 35px rgba(0,0,0,.06)}
+.search-wrap{position:relative}.search-wrap span{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:#999;font-size:20px}
+.search{width:100%;border:1px solid var(--line);background:#f8f9fa;border-radius:15px;padding:15px 18px 15px 52px;font-size:16px;outline:none}
+.search:focus{background:#fff;border-color:rgba(230,0,18,.45);box-shadow:0 0 0 4px rgba(230,0,18,.06)}
+.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{border:1px solid var(--line);background:#fff;border-radius:13px;padding:12px 15px;font-weight:800;color:#555}.filter.active{background:#17191f;color:#fff;border-color:#17191f}
+.stats{margin-top:20px;display:grid;grid-template-columns:repeat(5,1fr);gap:15px}.stat{background:#fff;border-radius:20px;padding:20px;border:1px solid rgba(0,0,0,.04)}.stat-value{font-size:30px;line-height:1;font-weight:900}.stat-label{color:var(--muted);font-size:13px;font-weight:700;margin-top:8px}
+.review-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr);gap:20px;margin-top:20px}
+.study-panel{background:#fff;min-height:550px;border-radius:28px;padding:25px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.study-panel:before{content:"";position:absolute;width:240px;height:240px;background:rgba(230,0,18,.05);border-radius:50%;right:-80px;top:-100px}
+.study-top{display:flex;justify-content:space-between;align-items:center;gap:15px;position:relative;z-index:2;flex-wrap:wrap}
+.study-top-left,.study-top-right{display:flex;align-items:center;gap:10px;min-width:0}.study-top-right{margin-left:auto}
+.home-btn{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:9px 13px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--text);text-decoration:none;font-size:12px;font-weight:900;white-space:nowrap;box-shadow:0 5px 14px rgba(0,0,0,.04);transition:.2s}
+.home-btn:hover{transform:translateY(-2px);color:var(--red);border-color:rgba(230,0,18,.30)}
+.type-badge{background:var(--red-soft);color:var(--red);border-radius:999px;padding:9px 14px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:1px}
+.counter{color:var(--muted);font-weight:800;font-size:13px;white-space:nowrap}
+.language-switch{padding:5px;background:#f0f1f3;border-radius:14px;display:flex;gap:6px;flex-shrink:0}
+.lang-btn{border:0;padding:9px 13px;border-radius:10px;font-size:11px;font-weight:900;background:transparent;color:var(--muted);white-space:nowrap;transition:.2s}.lang-btn.active{background:var(--red);color:#fff;box-shadow:0 7px 20px rgba(230,0,18,.22)}
+.flash-card{min-height:360px;margin-top:22px;border:2px solid #f0f0f2;background:linear-gradient(145deg,#fff,#fafafa);border-radius:26px;padding:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transition:.3s}.flash-card:hover{border-color:rgba(230,0,18,.20)}
+.card-label{font-size:12px;font-weight:900;letter-spacing:2px;color:var(--red);margin-bottom:18px}.main-text{font-size:clamp(34px,5vw,64px);font-weight:900;line-height:1.08;letter-spacing:-2px;max-width:900px}.pronunciation{font-size:21px;color:var(--muted);margin-top:18px;font-weight:700}
+.context-box{margin-top:18px;padding:12px 16px;border-radius:14px;background:var(--blue-soft);color:var(--blue);font-weight:800;font-size:13px;display:none}.hidden-answer{filter:blur(13px);user-select:none}
+.study-actions{margin-top:20px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.action{border:0;padding:14px 18px;border-radius:14px;background:#f1f2f4;font-weight:900;color:#333;transition:.2s}.action:hover{transform:translateY(-2px)}.action.primary{background:var(--red);color:#fff}.action.success{background:var(--success-soft);color:var(--success)}
+.side{display:flex;flex-direction:column;gap:20px}.side-card{background:#fff;border-radius:24px;padding:23px;border:1px solid rgba(0,0,0,.04);box-shadow:0 10px 35px rgba(0,0,0,.05)}.side-title{font-size:15px;font-weight:900;margin-bottom:15px}
+.progress-wrap{height:12px;border-radius:999px;background:#eceef1;overflow:hidden}.progress-bar{height:100%;width:0;background:var(--red);border-radius:999px;transition:.3s}.progress-text{margin-top:10px;font-size:13px;color:var(--muted);font-weight:700}
+.tip{padding:15px;border-radius:16px;background:var(--red-soft);color:#4b2428;font-size:14px;line-height:1.7}
+.library{margin-top:20px;background:#fff;border-radius:28px;padding:25px;box-shadow:var(--shadow)}.library-header{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:20px}.library-header h2{font-size:22px}.library-header span{color:var(--muted);font-size:13px;font-weight:700}
+.card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.mini-card{min-height:145px;padding:20px;border:1px solid var(--line);border-radius:20px;background:#fff;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:.25s}.mini-card:hover{transform:translateY(-4px);border-color:rgba(230,0,18,.35);box-shadow:0 12px 25px rgba(0,0,0,.07)}.mini-type{font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--red)}.mini-main{font-size:22px;font-weight:900;line-height:1.15;margin-top:12px}.mini-sub{color:var(--muted);font-size:13px;margin-top:8px;font-weight:600}
+.floating-next-class{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:999;display:flex;align-items:center;gap:9px;padding:14px 18px;border-radius:17px;background:var(--red);color:#fff;text-decoration:none;font-size:14px;font-weight:900;line-height:1.15;box-shadow:0 16px 38px rgba(230,0,18,.28);transition:.22s}.floating-next-class:hover{transform:translateY(-3px);background:var(--red-dark)}.floating-next-class small{display:block;margin-bottom:3px;font-size:9px;font-weight:800;letter-spacing:.7px;opacity:.82}
+.empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted);font-weight:700}
+@media(max-width:1100px){.review-layout{grid-template-columns:1fr}.card-grid{grid-template-columns:repeat(3,1fr)}.stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:800px){.app{padding:15px}.toolbar{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.card-grid{grid-template-columns:repeat(2,1fr)}.flash-card{min-height:330px;padding:28px 20px}}
+@media(max-width:600px){
+.app{padding:10px}.header,.toolbar,.study-panel,.side-card,.library{border-radius:20px}.header{padding:17px}.logo{width:48px;height:48px;border-radius:14px;font-size:21px}.brand{gap:12px;min-width:0}.brand-text{min-width:0}.brand-text small{font-size:10px;letter-spacing:1px}.brand-text h1{font-size:18px;line-height:1.2}.brand-text p{font-size:12px;line-height:1.4}
+.toolbar{padding:12px;margin-top:12px;gap:10px}.filters{flex-wrap:nowrap;overflow-x:auto;padding-bottom:3px;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}.filter{flex:0 0 auto;padding:10px 12px;font-size:12px}
+.stats{margin-top:12px;gap:8px}.stat{padding:14px 12px;border-radius:16px}.stat-value{font-size:24px}.stat-label{font-size:11px}.review-layout{margin-top:12px;gap:12px}.study-panel{padding:14px}.study-top-left,.study-top-right{width:100%;justify-content:space-between}.study-top-right{margin-left:0}.lang-btn{padding:8px 10px;font-size:10px}
+.flash-card{min-height:260px;margin-top:14px;padding:24px 14px;border-radius:20px}.main-text{font-size:clamp(31px,10vw,45px);letter-spacing:-1px;overflow-wrap:anywhere}.pronunciation{font-size:18px;margin-top:13px}
+.study-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}.study-actions .action{width:100%;padding:12px 8px;font-size:12px}.study-actions #nextBtn{grid-column:1/-1}.side{gap:12px}.library{margin-top:12px;padding:15px}.library-header h2{font-size:18px}.card-grid{gap:9px}.mini-card{min-height:125px;padding:15px;border-radius:16px}.mini-main{font-size:18px}
+.floating-next-class{right:max(10px,env(safe-area-inset-right));bottom:max(10px,env(safe-area-inset-bottom));padding:12px 14px;border-radius:15px;font-size:12px}
+}
+@media(max-width:390px){.stats{grid-template-columns:1fr 1fr}.lang-btn{padding:7px 8px;font-size:9px}.home-btn,.type-badge{font-size:10px}.floating-next-class small{display:none}}
+</style>
+</head>
+<body>
+<div class="app">
+
+<header class="header">
+  <div class="brand">
+    <div class="logo">4</div>
+    <div class="brand-text">
+      <small>ENGLISH COURSE · A0 → B2</small>
+      <h1>Clase 04 · Afirmativas con To Be</h1>
+      <p>Sujeto + am / is / are + complemento</p>
+    </div>
+  </div>
+</header>
+
+<section class="toolbar">
+  <div class="search-wrap"><span>⌕</span><input id="search" class="search" placeholder="Buscar palabra, frase, pregunta o respuesta..."></div>
+  <div class="filters">
+    <button class="filter active" data-filter="all">Todo</button>
+    <button class="filter" data-filter="word">Palabras</button>
+    <button class="filter" data-filter="phrase">Frases</button>
+    <button class="filter" data-filter="sentence">Oraciones</button>
+    <button class="filter" data-filter="question">Preguntas</button>
+    <button class="filter" data-filter="answer">Respuestas</button>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stat"><div class="stat-value" id="totalItems">0</div><div class="stat-label">Total</div></div>
+  <div class="stat"><div class="stat-value" id="wordCount">0</div><div class="stat-label">Palabras</div></div>
+  <div class="stat"><div class="stat-value" id="phraseCount">0</div><div class="stat-label">Frases y oraciones</div></div>
+  <div class="stat"><div class="stat-value" id="questionCount">0</div><div class="stat-label">Preguntas y respuestas</div></div>
+  <div class="stat"><div class="stat-value" id="reviewedCount">0</div><div class="stat-label">Repasadas</div></div>
+</section>
+
+<section class="review-layout">
+  <div class="study-panel">
+    <div class="study-top">
+      <div class="study-top-left">
+        <a class="home-btn" href="index.html">← index</a>
+        <div class="type-badge" id="typeBadge">PALABRA</div>
+      </div>
+      <div class="study-top-right">
+        <div class="language-switch">
+          <button class="lang-btn active" data-lang="en">🇬🇧 ENGLISH</button>
+          <button class="lang-btn" data-lang="es">🇪🇸 ESPAÑOL</button>
+        </div>
+        <div class="counter" id="counter">1 / 1</div>
+      </div>
+    </div>
+
+    <div class="flash-card">
+      <div class="card-label" id="cardLabel">ENGLISH</div>
+      <div class="main-text" id="mainText">I am happy.</div>
+      <div class="pronunciation" id="pronunciation">ai am jápi</div>
+      <div class="context-box" id="contextBox"></div>
+    </div>
+
+    <div class="study-actions">
+      <button class="action" id="prevBtn">← Anterior</button>
+      <button class="action" id="speakBtn">🔊 Escuchar</button>
+      <button class="action" id="hideBtn">👁 Ocultar</button>
+      <button class="action success" id="learnedBtn">✓ Repasada</button>
+      <button class="action primary" id="nextBtn">Siguiente →</button>
+    </div>
+  </div>
+
+  <aside class="side">
+    <div class="side-card">
+      <div class="side-title">Progreso de repaso</div>
+      <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+      <div class="progress-text" id="progressText">0% completado</div>
+    </div>
+
+    <div class="side-card">
+      <div class="side-title">Modo de estudio</div>
+      <div style="display:grid;gap:10px">
+        <button class="action primary" id="randomBtn">🔀 Tarjeta aleatoria</button>
+        <button class="action" id="resetProgress">↻ Reiniciar progreso</button>
+      </div>
+    </div>
+
+    <div class="side-card">
+      <div class="side-title">Regla clave</div>
+      <div class="tip">
+        <b>SUJETO + TO BE + COMPLEMENTO</b><br><br>
+        I <b>am</b> happy.<br>
+        She <b>is</b> Peruvian.<br>
+        They <b>are</b> students.<br><br>
+        ❌ I student.<br>
+        ✅ I am a student.
+      </div>
+    </div>
+  </aside>
+</section>
+
+<section class="library">
+  <div class="library-header">
+    <h2>Biblioteca completa · Clase 04</h2>
+    <span id="libraryCount">0 elementos</span>
+  </div>
+  <div class="card-grid" id="cardGrid"></div>
+</section>
+
+</div>
+
+<a class="floating-next-class" href="clase5.html">
+  <span><small>CLASE SIGUIENTE</small>Clase 5 →</span>
+</a>
+
+<script>
+const data = [
+{type:"word",en:"am",es:"soy / estoy",pron:"am",context:""},
+{type:"word",en:"is",es:"es / está",pron:"is",context:""},
+{type:"word",en:"are",es:"eres / estás / somos / son / están",pron:"ar",context:""},
+{type:"word",en:"happy",es:"feliz",pron:"jápi",context:""},
+{type:"word",en:"ready",es:"listo / lista",pron:"rédi",context:""},
+{type:"word",en:"busy",es:"ocupado / ocupada",pron:"bízi",context:""},
+{type:"word",en:"tired",es:"cansado / cansada",pron:"táierd",context:""},
+{type:"word",en:"student",es:"estudiante",pron:"stiudent",context:""},
+{type:"word",en:"teacher",es:"profesor / profesora",pron:"tícher",context:""},
+{type:"word",en:"friend",es:"amigo / amiga",pron:"frend",context:""},
+{type:"word",en:"Peruvian",es:"peruano / peruana",pron:"perúvian",context:""},
+{type:"word",en:"available",es:"disponible",pron:"avéilabol",context:""},
+{type:"word",en:"responsible",es:"responsable",pron:"rispónsabol",context:""},
+{type:"word",en:"correct",es:"correcto / correcta",pron:"korékt",context:""},
+{type:"word",en:"important",es:"importante",pron:"impórtant",context:""},
+{type:"word",en:"easy",es:"fácil",pron:"ízi",context:""},
+{type:"word",en:"work",es:"trabajo",pron:"uork",context:""},
+{type:"word",en:"class",es:"clase",pron:"klas",context:""},
+{type:"word",en:"learning",es:"aprendiendo",pron:"lérning",context:""},
+{type:"phrase",en:"at work",es:"en el trabajo",pron:"at uork",context:""},
+{type:"phrase",en:"in Lima",es:"en Lima",pron:"in Líma",context:""},
+{type:"phrase",en:"in Peru",es:"en Perú",pron:"in Perú",context:""},
+{type:"phrase",en:"in class",es:"en clase",pron:"in klas",context:""},
+{type:"phrase",en:"a student",es:"un estudiante",pron:"a stiudent",context:""},
+{type:"phrase",en:"a teacher",es:"un profesor / una profesora",pron:"a tícher",context:""},
+{type:"phrase",en:"I am",es:"yo soy / estoy",pron:"ai am",context:"I usa am."},
+{type:"phrase",en:"You are",es:"tú eres / estás",pron:"iu ar",context:"You usa are."},
+{type:"phrase",en:"He is",es:"él es / está",pron:"ji is",context:"He usa is."},
+{type:"phrase",en:"She is",es:"ella es / está",pron:"shi is",context:"She usa is."},
+{type:"phrase",en:"It is",es:"eso es / está",pron:"it is",context:"It usa is."},
+{type:"phrase",en:"We are",es:"nosotros somos / estamos",pron:"ui ar",context:"We usa are."},
+{type:"phrase",en:"They are",es:"ellos son / están",pron:"dei ar",context:"They usa are."},
+{type:"phrase",en:"I"m",es:"yo soy / estoy",pron:"aim",context:"Contracción de I am."},
+{type:"phrase",en:"You"re",es:"tú eres / estás",pron:"yur",context:"Contracción de You are."},
+{type:"phrase",en:"He"s",es:"él es / está",pron:"jis",context:"Contracción de He is."},
+{type:"phrase",en:"She"s",es:"ella es / está",pron:"shis",context:"Contracción de She is."},
+{type:"phrase",en:"It"s",es:"eso es / está",pron:"its",context:"Contracción de It is."},
+{type:"phrase",en:"We"re",es:"nosotros somos / estamos",pron:"uir",context:"Contracción de We are."},
+{type:"phrase",en:"They"re",es:"ellos son / están",pron:"deir",context:"Contracción de They are."},
+{type:"sentence",en:"I am Alvaro.",es:"Yo soy Álvaro.",pron:"ai am Álvaro",context:""},
+{type:"sentence",en:"I am a student.",es:"Soy estudiante.",pron:"ai am a stiudent",context:""},
+{type:"sentence",en:"I am Peruvian.",es:"Soy peruano.",pron:"ai am perúvian",context:""},
+{type:"sentence",en:"I am happy.",es:"Estoy feliz.",pron:"ai am jápi",context:""},
+{type:"sentence",en:"I am ready.",es:"Estoy listo.",pron:"ai am rédi",context:""},
+{type:"sentence",en:"I am at work.",es:"Estoy en el trabajo.",pron:"ai am at uork",context:""},
+{type:"sentence",en:"I am in Lima.",es:"Estoy en Lima.",pron:"ai am in Líma",context:""},
+{type:"sentence",en:"I am responsible.",es:"Soy responsable.",pron:"ai am rispónsabol",context:""},
+{type:"sentence",en:"I am available.",es:"Estoy disponible.",pron:"ai am avéilabol",context:""},
+{type:"sentence",en:"I am learning English.",es:"Estoy aprendiendo inglés.",pron:"ai am lérning ínglish",context:"Acción en progreso; se verá más adelante."},
+{type:"sentence",en:"I"m ready.",es:"Estoy listo.",pron:"aim rédi",context:"Forma natural en conversación."},
+{type:"sentence",en:"I"m available.",es:"Estoy disponible.",pron:"aim avéilabol",context:"Muy útil en trabajo."},
+{type:"sentence",en:"I"m at work.",es:"Estoy en el trabajo.",pron:"aim at uork",context:"Forma natural."},
+{type:"sentence",en:"He is my friend.",es:"Él es mi amigo.",pron:"ji is mai frend",context:""},
+{type:"sentence",en:"She is a teacher.",es:"Ella es profesora.",pron:"shi is a tícher",context:""},
+{type:"sentence",en:"It is easy.",es:"Es fácil.",pron:"it is ízi",context:""},
+{type:"sentence",en:"He is tired.",es:"Él está cansado.",pron:"ji is táierd",context:""},
+{type:"sentence",en:"She is busy.",es:"Ella está ocupada.",pron:"shi is bízi",context:""},
+{type:"sentence",en:"It is important.",es:"Es importante.",pron:"it is impórtant",context:""},
+{type:"sentence",en:"He is Peruvian.",es:"Él es peruano.",pron:"ji is perúvian",context:""},
+{type:"sentence",en:"She is in Peru.",es:"Ella está en Perú.",pron:"shi is in Perú",context:""},
+{type:"sentence",en:"It is correct.",es:"Es correcto.",pron:"it is korékt",context:""},
+{type:"sentence",en:"He is ready.",es:"Él está listo.",pron:"ji is rédi",context:""},
+{type:"sentence",en:"He"s tired.",es:"Él está cansado.",pron:"jis táierd",context:"Contracción de He is."},
+{type:"sentence",en:"She"s busy.",es:"Ella está ocupada.",pron:"shis bízi",context:"Contracción de She is."},
+{type:"sentence",en:"It"s easy.",es:"Es fácil.",pron:"its ízi",context:"Contracción de It is."},
+{type:"sentence",en:"You are a student.",es:"Tú eres estudiante.",pron:"iu ar a stiudent",context:""},
+{type:"sentence",en:"We are ready.",es:"Estamos listos.",pron:"ui ar rédi",context:""},
+{type:"sentence",en:"They are friends.",es:"Ellos son amigos.",pron:"dei ar frends",context:""},
+{type:"sentence",en:"You are responsible.",es:"Tú eres responsable.",pron:"iu ar rispónsabol",context:""},
+{type:"sentence",en:"We are in Lima.",es:"Estamos en Lima.",pron:"ui ar in Líma",context:""},
+{type:"sentence",en:"They are Peruvian.",es:"Ellos son peruanos.",pron:"dei ar perúvian",context:""},
+{type:"sentence",en:"You are busy.",es:"Estás ocupado.",pron:"iu ar bízi",context:""},
+{type:"sentence",en:"We are students.",es:"Somos estudiantes.",pron:"ui ar stiudents",context:""},
+{type:"sentence",en:"They are at work.",es:"Ellos están en el trabajo.",pron:"dei ar at uork",context:""},
+{type:"sentence",en:"You are correct.",es:"Estás en lo correcto.",pron:"iu ar korékt",context:""},
+{type:"sentence",en:"You"re ready.",es:"Estás listo.",pron:"yur rédi",context:"Contracción."},
+{type:"sentence",en:"We"re students.",es:"Somos estudiantes.",pron:"uir stiudents",context:"Contracción."},
+{type:"sentence",en:"They"re friends.",es:"Ellos son amigos.",pron:"deir frends",context:"Contracción."},
+{type:"question",en:"Are you ready?",es:"¿Estás listo?",pron:"ar iu rédi",context:""},
+{type:"answer",en:"Yes, I am ready.",es:"Sí, estoy listo.",pron:"ies, ai am rédi",context:"Respuesta completa."},
+{type:"answer",en:"Yes, I am.",es:"Sí.",pron:"ies, ai am",context:"Respuesta corta."},
+{type:"question",en:"Are you a student?",es:"¿Eres estudiante?",pron:"ar iu a stiudent",context:""},
+{type:"answer",en:"Yes, I am a student.",es:"Sí, soy estudiante.",pron:"ies, ai am a stiudent",context:""},
+{type:"question",en:"Is she a teacher?",es:"¿Ella es profesora?",pron:"is shi a tícher",context:""},
+{type:"answer",en:"Yes, she is.",es:"Sí.",pron:"ies, shi is",context:"Respuesta corta."},
+{type:"answer",en:"Yes, she is a teacher.",es:"Sí, ella es profesora.",pron:"ies, shi is a tícher",context:""},
+{type:"question",en:"Is he tired?",es:"¿Él está cansado?",pron:"is ji táierd",context:""},
+{type:"answer",en:"Yes, he is tired.",es:"Sí, él está cansado.",pron:"ies, ji is táierd",context:""},
+{type:"question",en:"Are they at work?",es:"¿Ellos están en el trabajo?",pron:"ar dei at uork",context:""},
+{type:"answer",en:"Yes, they are at work.",es:"Sí, ellos están en el trabajo.",pron:"ies, dei ar at uork",context:""},
+{type:"question",en:"Are we in class?",es:"¿Estamos en clase?",pron:"ar ui in klas",context:""},
+{type:"answer",en:"Yes, we are in class.",es:"Sí, estamos en clase.",pron:"ies, ui ar in klas",context:""},
+{type:"question",en:"Are you available?",es:"¿Estás disponible?",pron:"ar iu avéilabol",context:""},
+{type:"answer",en:"Yes, I"m available.",es:"Sí, estoy disponible.",pron:"ies, aim avéilabol",context:"Respuesta natural."},
+{type:"question",en:"Is it correct?",es:"¿Es correcto?",pron:"is it korékt",context:""},
+{type:"answer",en:"Yes, it is correct.",es:"Sí, es correcto.",pron:"ies, it is korékt",context:""},
+{type:"question",en:"Are they responsible?",es:"¿Ellos son responsables?",pron:"ar dei rispónsabol",context:""},
+{type:"answer",en:"Yes, they are responsible.",es:"Sí, ellos son responsables.",pron:"ies, dei ar rispónsabol",context:""},
+{type:"phrase",en:"I"m ready.",es:"Estoy listo.",pron:"aim rédi",context:""},
+{type:"phrase",en:"She"s busy.",es:"Ella está ocupada.",pron:"shis bízi",context:""},
+{type:"phrase",en:"We"re students.",es:"Somos estudiantes.",pron:"uir stiudents",context:""},
+{type:"phrase",en:"They"re friends.",es:"Ellos son amigos.",pron:"deir frends",context:""},
+{type:"phrase",en:"I"m available.",es:"Estoy disponible.",pron:"aim avéilabol",context:""},
+{type:"phrase",en:"You"re correct.",es:"Estás en lo correcto.",pron:"yur korékt",context:""},
+{type:"phrase",en:"We"re in class.",es:"Estamos en clase.",pron:"uir in klas",context:""},
+{type:"phrase",en:"They"re at work.",es:"Ellos están en el trabajo.",pron:"deir at uork",context:""},
+{type:"question",en:"Hello, Alvaro. Are you ready?",es:"Hola, Álvaro. ¿Estás listo?",pron:"jelóu Álvaro. ar iu rédi",context:"Conversación de la clase."},
+{type:"sentence",en:"Good. You are a student.",es:"Bien. Tú eres estudiante.",pron:"gud. iu ar a stiudent",context:""},
+{type:"answer",en:"Yes, I am a student. I am Peruvian.",es:"Sí, soy estudiante. Soy peruano.",pron:"ies, ai am a stiudent. ai am perúvian",context:""},
+{type:"sentence",en:"Excellent. We are in class.",es:"Excelente. Estamos en clase.",pron:"ékselent. ui ar in klas",context:""}
+];
+
+let language="en";
+let filter="all";
+let currentIndex=0;
+let hidden=false;
+let reviewed=JSON.parse(localStorage.getItem("lesson04PremiumReviewed")||"[]");
+
+const mainText=document.getElementById("mainText");
+const pronunciation=document.getElementById("pronunciation");
+const typeBadge=document.getElementById("typeBadge");
+const counter=document.getElementById("counter");
+const cardLabel=document.getElementById("cardLabel");
+const cardGrid=document.getElementById("cardGrid");
+const contextBox=document.getElementById("contextBox");
+const search=document.getElementById("search");
+const totalItems=document.getElementById("totalItems");
+const wordCount=document.getElementById("wordCount");
+const phraseCount=document.getElementById("phraseCount");
+const questionCount=document.getElementById("questionCount");
+const reviewedCount=document.getElementById("reviewedCount");
+const progressBar=document.getElementById("progressBar");
+const progressText=document.getElementById("progressText");
+const libraryCount=document.getElementById("libraryCount");
+
+function getFilteredData(){
+  const q=search.value.toLowerCase().trim();
+  return data.filter(item=>{
+    const typeMatch=filter==="all"||item.type===filter;
+    const searchMatch=item.en.toLowerCase().includes(q)||item.es.toLowerCase().includes(q)||item.pron.toLowerCase().includes(q)||(item.context||"").toLowerCase().includes(q);
+    return typeMatch&&searchMatch;
+  });
+}
+
+function typeName(type){
+  return {word:"PALABRA",phrase:"FRASE",sentence:"ORACIÓN",question:"PREGUNTA",answer:"RESPUESTA"}[type]||"REPASO";
+}
+
+function renderMainCard(){
+  const list=getFilteredData();
+  if(!list.length){
+    mainText.textContent="Sin resultados"; pronunciation.textContent=""; contextBox.style.display="none"; typeBadge.textContent="—"; counter.textContent="0 / 0"; return;
+  }
+  if(currentIndex>=list.length) currentIndex=0;
+  const item=list[currentIndex];
+  typeBadge.textContent=typeName(item.type);
+  counter.textContent=`${currentIndex+1} / ${list.length}`;
+  cardLabel.textContent=language==="en"?"ENGLISH":"ESPAÑOL";
+  mainText.textContent=language==="en"?item.en:item.es;
+  pronunciation.textContent=language==="en"?item.pron:"";
+  if(item.context){contextBox.textContent=item.context;contextBox.style.display="block";} else contextBox.style.display="none";
+  hidden=false; mainText.classList.remove("hidden-answer"); document.getElementById("hideBtn").textContent="👁 Ocultar";
+}
+
+function renderLibrary(){
+  const list=getFilteredData(); cardGrid.innerHTML=""; libraryCount.textContent=`${list.length} elementos`;
+  if(!list.length){cardGrid.innerHTML='<div class="empty">No se encontraron resultados.</div>';return;}
+  list.forEach((item,index)=>{
+    const card=document.createElement("div"); card.className="mini-card";
+    const primary=language==="en"?item.en:item.es;
+    const secondary=language==="en"?item.pron:item.en;
+    card.innerHTML=`<div><div class="mini-type">${typeName(item.type)}</div><div class="mini-main">${primary}</div></div><div class="mini-sub">${secondary}</div>`;
+    card.addEventListener("click",()=>{currentIndex=index;renderMainCard();window.scrollTo({top:290,behavior:"smooth"});});
+    cardGrid.appendChild(card);
+  });
+}
+
+function renderStats(){
+  totalItems.textContent=data.length;
+  wordCount.textContent=data.filter(x=>x.type==="word").length;
+  phraseCount.textContent=data.filter(x=>x.type==="phrase"||x.type==="sentence").length;
+  questionCount.textContent=data.filter(x=>x.type==="question"||x.type==="answer").length;
+  reviewedCount.textContent=reviewed.length;
+  const percent=Math.round(reviewed.length/data.length*100);
+  progressBar.style.width=percent+"%";
+  progressText.textContent=`${percent}% completado · ${reviewed.length} de ${data.length}`;
+}
+
+document.querySelectorAll(".lang-btn").forEach(btn=>btn.addEventListener("click",()=>{
+  language=btn.dataset.lang; document.querySelectorAll(".lang-btn").forEach(b=>b.classList.remove("active")); btn.classList.add("active"); renderMainCard();renderLibrary();
+}));
+
+document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{
+  filter=btn.dataset.filter; currentIndex=0; document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active")); btn.classList.add("active"); renderMainCard();renderLibrary();
+}));
+
+search.addEventListener("input",()=>{currentIndex=0;renderMainCard();renderLibrary();});
+document.getElementById("nextBtn").addEventListener("click",()=>{const list=getFilteredData();if(!list.length)return;currentIndex=(currentIndex+1)%list.length;renderMainCard();});
+document.getElementById("prevBtn").addEventListener("click",()=>{const list=getFilteredData();if(!list.length)return;currentIndex=(currentIndex-1+list.length)%list.length;renderMainCard();});
+document.getElementById("randomBtn").addEventListener("click",()=>{const list=getFilteredData();if(!list.length)return;currentIndex=Math.floor(Math.random()*list.length);renderMainCard();});
+document.getElementById("hideBtn").addEventListener("click",()=>{hidden=!hidden;mainText.classList.toggle("hidden-answer",hidden);document.getElementById("hideBtn").textContent=hidden?"👁 Mostrar":"👁 Ocultar";});
+document.getElementById("learnedBtn").addEventListener("click",()=>{
+  const list=getFilteredData(); if(!list.length)return; const idx=data.indexOf(list[currentIndex]);
+  if(!reviewed.includes(idx)){reviewed.push(idx);localStorage.setItem("lesson04PremiumReviewed",JSON.stringify(reviewed));}
+  renderStats(); currentIndex=(currentIndex+1)%list.length; renderMainCard();
+});
+document.getElementById("resetProgress").addEventListener("click",()=>{reviewed=[];localStorage.removeItem("lesson04PremiumReviewed");renderStats();});
+document.getElementById("speakBtn").addEventListener("click",()=>{
+  const list=getFilteredData();if(!list.length)return;if(!("speechSynthesis" in window))return alert("Tu navegador no permite reproducción de voz.");
+  speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(list[currentIndex].en);u.lang="en-US";u.rate=.75;speechSynthesis.speak(u);
+});
+document.addEventListener("keydown",e=>{if(document.activeElement===search)return;if(e.key==="ArrowRight")document.getElementById("nextBtn").click();if(e.key==="ArrowLeft")document.getElementById("prevBtn").click();if(e.key.toLowerCase()==="r")document.getElementById("randomBtn").click();if(e.key===" "){e.preventDefault();document.getElementById("hideBtn").click();}});
+
+renderStats();renderMainCard();renderLibrary();
+</script>
+</body>
+</html>

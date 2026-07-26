@@ -1,0 +1,2289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#E60012">
+<title>English Journey · 84 Clases</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --red:#E60012;
+  --red2:#ff2636;
+  --dark:#111318;
+  --text:#17191f;
+  --muted:#747984;
+  --bg:#f4f5f7;
+  --white:#fff;
+  --line:#e7e9ed;
+  --soft:#fff1f2;
+  --shadow:0 20px 60px rgba(17,19,24,.10);
+  --shadow2:0 12px 30px rgba(17,19,24,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,system-ui,sans-serif;
+  min-height:100vh;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(230,0,18,.11), transparent 26%),
+    radial-gradient(circle at 90% 8%, rgba(0,0,0,.04), transparent 25%),
+    var(--bg);
+  overflow-x:hidden;
+}
+button,input{font:inherit}
+button{cursor:pointer}
+.shell{max-width:1520px;margin:auto;padding:24px}
+/* HERO */
+.hero{
+  position:relative;
+  overflow:hidden;
+  border-radius:34px;
+  min-height:360px;
+  padding:34px;
+  background:
+    linear-gradient(135deg,#17191f 0%,#20232a 58%,#2b0b0e 100%);
+  color:#fff;
+  box-shadow:0 28px 70px rgba(17,19,24,.18);
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  width:440px;height:440px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(230,0,18,.48),rgba(230,0,18,0));
+  right:-90px;top:-210px;
+  filter:blur(2px);
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:34px 34px;
+  mask-image:linear-gradient(to bottom,black,transparent);
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:end}
+.hero-left{padding:10px 0 5px}
+.brand-line{display:flex;align-items:center;gap:14px}
+.brand-mark{
+  width:58px;height:58px;border-radius:18px;
+  display:grid;place-items:center;
+  background:var(--red);font-size:19px;font-weight:900;
+  box-shadow:0 16px 34px rgba(230,0,18,.28)
+}
+.kicker{font-size:12px;letter-spacing:1.8px;font-weight:900;color:#ff8791}
+.hero h1{font-size:clamp(36px,5vw,66px);line-height:.98;letter-spacing:-2.4px;margin-top:18px;max-width:850px}
+.hero h1 span{color:#ff3948}
+.hero-copy{margin-top:16px;color:#c8cbd1;max-width:720px;font-size:16px;line-height:1.65}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.hero-btn{
+  border:0;text-decoration:none;
+  padding:14px 18px;border-radius:14px;
+  font-weight:900;font-size:13px;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:.22s ease
+}
+.hero-btn.primary{background:var(--red);color:#fff;box-shadow:0 12px 28px rgba(230,0,18,.26)}
+.hero-btn.secondary{background:rgba(255,255,255,.09);color:#fff;border:1px solid rgba(255,255,255,.11);backdrop-filter:blur(10px)}
+.hero-btn:hover{transform:translateY(-2px)}
+/* hero status */
+.hero-panel{
+  background:rgba(255,255,255,.075);
+  border:1px solid rgba(255,255,255,.11);
+  border-radius:26px;padding:21px;
+  backdrop-filter:blur(15px)
+}
+.panel-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.panel-title{font-size:13px;font-weight:900;color:#fff}
+.panel-percent{font-size:28px;font-weight:900}
+.progress-shell{height:11px;background:rgba(255,255,255,.12);border-radius:999px;margin-top:14px;overflow:hidden}
+.progress-bar{height:100%;width:0;background:linear-gradient(90deg,#ff2435,#ff6673);border-radius:999px;transition:.5s ease}
+.panel-sub{margin-top:9px;font-size:11px;color:#aeb3bd}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:16px}
+.hero-stat{padding:13px;border-radius:16px;background:rgba(255,255,255,.06);text-align:center}
+.hero-stat strong{display:block;font-size:20px}
+.hero-stat span{display:block;margin-top:4px;color:#b8bdc6;font-size:10px;font-weight:800}
+/* quick continue */
+.continue-card{
+  margin-top:14px;background:#fff;color:var(--text);border-radius:18px;padding:15px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  text-decoration:none;transition:.2s
+}
+.continue-card:hover{transform:translateY(-2px)}
+.continue-card small{display:block;color:var(--red);font-size:9px;font-weight:900;letter-spacing:1px}
+.continue-card strong{display:block;margin-top:3px;font-size:14px}
+.continue-arrow{width:36px;height:36px;border-radius:12px;background:var(--soft);display:grid;place-items:center;color:var(--red);font-weight:900}
+/* control bar */
+.control{
+  position:sticky;top:10px;z-index:30;
+  margin-top:18px;padding:13px;
+  background:rgba(255,255,255,.88);
+  border:1px solid rgba(255,255,255,.75);
+  backdrop-filter:blur(18px);
+  border-radius:22px;
+  box-shadow:0 12px 35px rgba(17,19,24,.08);
+  display:grid;grid-template-columns:minmax(260px,1fr) auto;gap:12px
+}
+.search-wrap{position:relative}
+.search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:#8f949d;font-size:17px}
+.search{
+  width:100%;border:1px solid var(--line);background:#f7f8f9;border-radius:14px;
+  padding:14px 15px 14px 44px;outline:none;font-size:14px
+}
+.search:focus{background:#fff;border-color:rgba(230,0,18,.35);box-shadow:0 0 0 4px rgba(230,0,18,.06)}
+.filter-row{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.filter{
+  border:1px solid var(--line);background:#fff;padding:11px 13px;border-radius:12px;
+  font-size:12px;font-weight:900;color:#555;transition:.2s
+}
+.filter.active{background:var(--dark);color:#fff;border-color:var(--dark)}
+.filter:hover{transform:translateY(-1px)}
+/* stage strip */
+.journey{
+  margin-top:18px;background:#fff;border-radius:25px;padding:19px 20px;box-shadow:var(--shadow2)
+}
+.journey-head{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:16px}
+.journey-head h2{font-size:18px}
+.journey-head p{font-size:11px;color:var(--muted);margin-top:4px}
+.journey-line{display:grid;grid-template-columns:14fr 14fr 21fr 35fr;gap:8px}
+.journey-step{position:relative;padding:14px 15px;border-radius:15px;background:#f7f8f9;overflow:hidden}
+.journey-step::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--red)}
+.journey-step b{font-size:13px}
+.journey-step span{display:block;color:var(--muted);font-size:10px;font-weight:700;margin-top:4px}
+/* lesson section */
+.section-head{margin:26px 2px 14px;display:flex;justify-content:space-between;align-items:end;gap:14px}
+.section-head h2{font-size:26px;letter-spacing:-.5px}
+.section-head p{color:var(--muted);font-size:12px;margin-top:5px}
+.section-count{font-size:12px;color:var(--muted);font-weight:900}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.lesson-card{
+  position:relative;overflow:hidden;min-height:218px;
+  background:#fff;border:1px solid var(--line);border-radius:24px;padding:20px;
+  color:inherit;text-decoration:none;
+  display:flex;flex-direction:column;justify-content:space-between;
+  box-shadow:0 6px 20px rgba(17,19,24,.025);
+  transition:transform .23s ease,box-shadow .23s ease,border-color .23s ease
+}
+.lesson-glow{
+  position:absolute;width:110px;height:110px;border-radius:50%;
+  background:rgba(230,0,18,.07);right:-40px;top:-45px;transition:.25s
+}
+.lesson-card:hover{transform:translateY(-6px);border-color:rgba(230,0,18,.32);box-shadow:0 18px 42px rgba(17,19,24,.10)}
+.lesson-card:hover .lesson-glow{transform:scale(1.5);background:rgba(230,0,18,.11)}
+.lesson-head{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+.lesson-number{font-size:11px;font-weight:900;color:var(--red);letter-spacing:1.2px}
+.lesson-icon{
+  min-width:40px;height:40px;padding:0 10px;border-radius:13px;background:var(--soft);
+  color:var(--red);display:grid;place-items:center;font-size:11px;font-weight:900
+}
+.lesson-body{position:relative;z-index:2;margin-top:18px}
+.lesson-meta{display:flex;align-items:center;gap:7px;margin-bottom:8px}
+.badge{font-size:9px;font-weight:900;color:#fff;background:var(--red);border-radius:999px;padding:5px 7px}
+.stage{font-size:9px;color:#8b9098;font-weight:800;text-transform:uppercase;letter-spacing:.6px}
+.lesson-card h3{font-size:23px;letter-spacing:-.4px}
+.lesson-card p{font-size:12px;color:var(--muted);line-height:1.45;margin-top:8px;min-height:35px}
+.lesson-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:20px;padding-top:13px;border-top:1px solid #f0f1f3;position:relative;z-index:2}
+.lesson-footer>span:first-child{font-size:10px;color:#8a8f97;font-weight:800}
+.go{font-size:11px;font-weight:900;color:var(--red)}
+.go b{font-size:15px}
+.empty{display:none;background:#fff;border-radius:22px;padding:50px;text-align:center;color:var(--muted);font-weight:800}
+/* floating utility */
+.float-top{
+  position:fixed;right:18px;bottom:18px;z-index:40;
+  width:48px;height:48px;border:0;border-radius:16px;background:var(--red);color:#fff;
+  font-weight:900;box-shadow:0 14px 32px rgba(230,0,18,.28);transition:.2s
+}
+.float-top:hover{transform:translateY(-3px)}
+/* skeleton effect */
+@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.lesson-card{animation:appear .35s ease both}
+.lesson-card:nth-child(4n+2){animation-delay:.03s}
+.lesson-card:nth-child(4n+3){animation-delay:.06s}
+.lesson-card:nth-child(4n+4){animation-delay:.09s}
+/* responsive */
+@media(max-width:1150px){
+  .hero-inner{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:850px){
+  .shell{padding:14px}
+  .hero{padding:24px;border-radius:26px}
+  .control{position:static;grid-template-columns:1fr}
+  .filter-row{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .filter-row::-webkit-scrollbar{display:none}
+  .filter{flex:0 0 auto}
+  .journey-line{grid-template-columns:1fr 1fr}
+  .grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  .shell{padding:9px}
+  .hero{padding:19px;border-radius:22px;min-height:auto}
+  .brand-mark{width:48px;height:48px;border-radius:15px;font-size:16px}
+  .hero h1{font-size:34px;letter-spacing:-1.4px}
+  .hero-copy{font-size:13px}
+  .hero-actions{display:grid;grid-template-columns:1fr 1fr}
+  .hero-btn{justify-content:center;padding:12px}
+  .hero-panel{padding:16px;border-radius:20px}
+  .hero-stats{gap:6px}
+  .hero-stat{padding:10px 6px}
+  .journey{padding:15px;border-radius:20px}
+  .journey-line{grid-template-columns:1fr}
+  .section-head{align-items:flex-start}
+  .section-head h2{font-size:21px}
+  .grid{gap:9px}
+  .lesson-card{min-height:180px;padding:15px;border-radius:18px}
+  .lesson-card h3{font-size:20px}
+  .lesson-card p{font-size:11px}
+  .lesson-icon{height:34px;min-width:34px;border-radius:10px}
+}
+@media(max-width:380px){
+  .grid{grid-template-columns:1fr}
+  .hero-actions{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<main class="shell">
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="brand-line">
+        <div class="brand-mark">EN</div>
+        <div>
+          <div class="kicker">ENGLISH JOURNEY · A0 → B2</div>
+        </div>
+      </div>
+
+      <h1>Domina inglés en <span>84 clases</span></h1>
+      <p class="hero-copy">
+        Una ruta completa, visual y progresiva. Empieza desde cero, avanza clase por clase
+        y llega a un nivel B2 con práctica, vocabulario, pronunciación y conversación real.
+      </p>
+
+      <div class="hero-actions">
+        <a class="hero-btn primary" href="clase1.html">▶ Empezar curso</a>
+        <button class="hero-btn secondary" id="randomClass">⤨ Clase aleatoria</button>
+      </div>
+    </div>
+
+    <aside class="hero-panel">
+      <div class="panel-top">
+        <div>
+          <div class="panel-title">Tu progreso</div>
+          <div class="panel-sub" id="progressText">0 de 84 clases iniciadas</div>
+        </div>
+        <div class="panel-percent" id="progressPercent">0%</div>
+      </div>
+
+      <div class="progress-shell">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>84</strong><span>CLASES</span></div>
+        <div class="hero-stat"><strong>A0</strong><span>INICIO</span></div>
+        <div class="hero-stat"><strong>B2</strong><span>META</span></div>
+      </div>
+
+      <a class="continue-card" id="continueCard" href="clase1.html">
+        <div>
+          <small>CONTINUAR</small>
+          <strong id="continueText">Clase 1 · Empezar</strong>
+        </div>
+        <span class="continue-arrow">→</span>
+      </a>
+    </aside>
+  </div>
+</section>
+
+<section class="control">
+  <div class="search-wrap">
+    <span class="search-icon">⌕</span>
+    <input id="search" class="search" placeholder="Buscar clase, tema o nivel..." autocomplete="off">
+  </div>
+
+  <div class="filter-row">
+    <button class="filter active" data-range="all">Todas</button>
+    <button class="filter" data-range="1-14">A0–A1</button>
+    <button class="filter" data-range="15-28">A2</button>
+    <button class="filter" data-range="29-49">B1</button>
+    <button class="filter" data-range="50-84">B2</button>
+  </div>
+</section>
+
+<section class="journey">
+  <div class="journey-head">
+    <div>
+      <h2>Ruta de aprendizaje</h2>
+      <p>Visualiza rápidamente cómo avanza el curso.</p>
+    </div>
+  </div>
+
+  <div class="journey-line">
+    <div class="journey-step"><b>A0–A1 · Clases 1–14</b><span>Fundamentos y supervivencia básica.</span></div>
+    <div class="journey-step"><b>A2 · Clases 15–28</b><span>Comunicación cotidiana y confianza.</span></div>
+    <div class="journey-step"><b>B1 · Clases 29–49</b><span>Fluidez funcional y conversaciones reales.</span></div>
+    <div class="journey-step"><b>B2 · Clases 50–84</b><span>Dominio intermedio alto y consolidación.</span></div>
+  </div>
+</section>
+
+<div class="section-head">
+  <div>
+    <h2>Explora las 84 clases</h2>
+    <p>Abre cualquier clase y continúa tu ruta.</p>
+  </div>
+  <div class="section-count" id="count">84 clases</div>
+</div>
+
+<section class="grid" id="grid">
+
+    <a class="lesson-card" href="clase1.html"
+       data-class="1" data-level="A0"
+       data-search="clase 1 A0 Inicio Alfabeto y primeras frases Empieza aquí">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">01</div>
+        <div class="lesson-icon">ABC</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A0</span>
+          <span class="stage">Inicio</span>
+        </div>
+        <h3>Clase 1</h3>
+        <p>Alfabeto y primeras frases</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Empieza aquí</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase2.html"
+       data-class="2" data-level="A0"
+       data-search="clase 2 A0 Fundamentos Pronombres personales Base esencial">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">02</div>
+        <div class="lesson-icon">I/You</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A0</span>
+          <span class="stage">Fundamentos</span>
+        </div>
+        <h3>Clase 2</h3>
+        <p>Pronombres personales</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Base esencial</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase3.html"
+       data-class="3" data-level="A0"
+       data-search="clase 3 A0 Fundamentos Verbo To Be Muy importante">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">03</div>
+        <div class="lesson-icon">BE</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A0</span>
+          <span class="stage">Fundamentos</span>
+        </div>
+        <h3>Clase 3</h3>
+        <p>Verbo To Be</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Muy importante</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase4.html"
+       data-class="4" data-level="A1"
+       data-search="clase 4 A1 Base Saludos y presentaciones Fundamentos">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">04</div>
+        <div class="lesson-icon">A1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A1</span>
+          <span class="stage">Base</span>
+        </div>
+        <h3>Clase 4</h3>
+        <p>Saludos y presentaciones</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fundamentos</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase5.html"
+       data-class="5" data-level="A1"
+       data-search="clase 5 A1 Base Artículos a / an Fundamentos">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">05</div>
+        <div class="lesson-icon">A1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A1</span>
+          <span class="stage">Base</span>
+        </div>
+        <h3>Clase 5</h3>
+        <p>Artículos a / an</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fundamentos</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase6.html"
+       data-class="6" data-level="A1"
+       data-search="clase 6 A1 Base This / That Fundamentos">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">06</div>
+        <div class="lesson-icon">A1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A1</span>
+          <span class="stage">Base</span>
+        </div>
+        <h3>Clase 6</h3>
+        <p>This / That</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fundamentos</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase7.html"
+       data-class="7" data-level="A1"
+       data-search="clase 7 A1 Base Plural básico Fundamentos">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">07</div>
+        <div class="lesson-icon">A1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A1</span>
+          <span class="stage">Base</span>
+        </div>
+        <h3>Clase 7</h3>
+        <p>Plural básico</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fundamentos</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase8.html"
+       data-class="8" data-level="A1"
+       data-search="clase 8 A1 Base There is / There are Fundamentos">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">08</div>
+        <div class="lesson-icon">A1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A1</span>
+          <span class="stage">Base</span>
+        </div>
+        <h3>Clase 8</h3>
+        <p>There is / There are</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fundamentos</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase9.html"
+       data-class="9" data-level="A1"
+       data-search="clase 9 A1 Base Have / Has Fundamentos">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">09</div>
+        <div class="lesson-icon">A1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A1</span>
+          <span class="stage">Base</span>
+        </div>
+        <h3>Clase 9</h3>
+        <p>Have / Has</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fundamentos</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase10.html"
+       data-class="10" data-level="A1"
+       data-search="clase 10 A1 Base Adjetivos básicos Fundamentos">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">10</div>
+        <div class="lesson-icon">A1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A1</span>
+          <span class="stage">Base</span>
+        </div>
+        <h3>Clase 10</h3>
+        <p>Adjetivos básicos</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fundamentos</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase11.html"
+       data-class="11" data-level="A1"
+       data-search="clase 11 A1 Base Preposiciones básicas Fundamentos">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">11</div>
+        <div class="lesson-icon">A1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A1</span>
+          <span class="stage">Base</span>
+        </div>
+        <h3>Clase 11</h3>
+        <p>Preposiciones básicas</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fundamentos</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase12.html"
+       data-class="12" data-level="A1"
+       data-search="clase 12 A1 Base Preguntas simples Fundamentos">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">12</div>
+        <div class="lesson-icon">A1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A1</span>
+          <span class="stage">Base</span>
+        </div>
+        <h3>Clase 12</h3>
+        <p>Preguntas simples</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fundamentos</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase13.html"
+       data-class="13" data-level="A1"
+       data-search="clase 13 A1 Base Números y edad Fundamentos">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">13</div>
+        <div class="lesson-icon">A1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A1</span>
+          <span class="stage">Base</span>
+        </div>
+        <h3>Clase 13</h3>
+        <p>Números y edad</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fundamentos</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase14.html"
+       data-class="14" data-level="A1"
+       data-search="clase 14 A1 Base Rutinas básicas Fundamentos">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">14</div>
+        <div class="lesson-icon">A1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A1</span>
+          <span class="stage">Base</span>
+        </div>
+        <h3>Clase 14</h3>
+        <p>Rutinas básicas</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fundamentos</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase15.html"
+       data-class="15" data-level="A2"
+       data-search="clase 15 A2 Elemental Rutinas y hábitos Comunicación">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">15</div>
+        <div class="lesson-icon">A2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A2</span>
+          <span class="stage">Elemental</span>
+        </div>
+        <h3>Clase 15</h3>
+        <p>Rutinas y hábitos</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Comunicación</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase16.html"
+       data-class="16" data-level="A2"
+       data-search="clase 16 A2 Elemental Presente simple Comunicación">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">16</div>
+        <div class="lesson-icon">A2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A2</span>
+          <span class="stage">Elemental</span>
+        </div>
+        <h3>Clase 16</h3>
+        <p>Presente simple</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Comunicación</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase17.html"
+       data-class="17" data-level="A2"
+       data-search="clase 17 A2 Elemental Do / Does Comunicación">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">17</div>
+        <div class="lesson-icon">A2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A2</span>
+          <span class="stage">Elemental</span>
+        </div>
+        <h3>Clase 17</h3>
+        <p>Do / Does</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Comunicación</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase18.html"
+       data-class="18" data-level="A2"
+       data-search="clase 18 A2 Elemental Adverbios de frecuencia Comunicación">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">18</div>
+        <div class="lesson-icon">A2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A2</span>
+          <span class="stage">Elemental</span>
+        </div>
+        <h3>Clase 18</h3>
+        <p>Adverbios de frecuencia</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Comunicación</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase19.html"
+       data-class="19" data-level="A2"
+       data-search="clase 19 A2 Elemental Can / Can't Comunicación">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">19</div>
+        <div class="lesson-icon">A2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A2</span>
+          <span class="stage">Elemental</span>
+        </div>
+        <h3>Clase 19</h3>
+        <p>Can / Can't</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Comunicación</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase20.html"
+       data-class="20" data-level="A2"
+       data-search="clase 20 A2 Elemental Familia y personas Comunicación">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">20</div>
+        <div class="lesson-icon">A2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A2</span>
+          <span class="stage">Elemental</span>
+        </div>
+        <h3>Clase 20</h3>
+        <p>Familia y personas</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Comunicación</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase21.html"
+       data-class="21" data-level="A2"
+       data-search="clase 21 A2 Elemental Casa y ciudad Comunicación">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">21</div>
+        <div class="lesson-icon">A2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A2</span>
+          <span class="stage">Elemental</span>
+        </div>
+        <h3>Clase 21</h3>
+        <p>Casa y ciudad</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Comunicación</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase22.html"
+       data-class="22" data-level="A2"
+       data-search="clase 22 A2 Elemental Compras y precios Comunicación">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">22</div>
+        <div class="lesson-icon">A2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A2</span>
+          <span class="stage">Elemental</span>
+        </div>
+        <h3>Clase 22</h3>
+        <p>Compras y precios</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Comunicación</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase23.html"
+       data-class="23" data-level="A2"
+       data-search="clase 23 A2 Elemental Comida y pedidos Comunicación">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">23</div>
+        <div class="lesson-icon">A2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A2</span>
+          <span class="stage">Elemental</span>
+        </div>
+        <h3>Clase 23</h3>
+        <p>Comida y pedidos</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Comunicación</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase24.html"
+       data-class="24" data-level="A2"
+       data-search="clase 24 A2 Elemental Tiempo y horarios Comunicación">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">24</div>
+        <div class="lesson-icon">A2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A2</span>
+          <span class="stage">Elemental</span>
+        </div>
+        <h3>Clase 24</h3>
+        <p>Tiempo y horarios</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Comunicación</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase25.html"
+       data-class="25" data-level="A2"
+       data-search="clase 25 A2 Elemental Pasado básico Comunicación">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">25</div>
+        <div class="lesson-icon">A2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A2</span>
+          <span class="stage">Elemental</span>
+        </div>
+        <h3>Clase 25</h3>
+        <p>Pasado básico</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Comunicación</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase26.html"
+       data-class="26" data-level="A2"
+       data-search="clase 26 A2 Elemental Conversaciones cotidianas Comunicación">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">26</div>
+        <div class="lesson-icon">A2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A2</span>
+          <span class="stage">Elemental</span>
+        </div>
+        <h3>Clase 26</h3>
+        <p>Conversaciones cotidianas</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Comunicación</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase27.html"
+       data-class="27" data-level="A2"
+       data-search="clase 27 A2 Elemental Rutinas y hábitos Comunicación">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">27</div>
+        <div class="lesson-icon">A2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A2</span>
+          <span class="stage">Elemental</span>
+        </div>
+        <h3>Clase 27</h3>
+        <p>Rutinas y hábitos</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Comunicación</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase28.html"
+       data-class="28" data-level="A2"
+       data-search="clase 28 A2 Elemental Presente simple Comunicación">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">28</div>
+        <div class="lesson-icon">A2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">A2</span>
+          <span class="stage">Elemental</span>
+        </div>
+        <h3>Clase 28</h3>
+        <p>Presente simple</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Comunicación</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase29.html"
+       data-class="29" data-level="B1"
+       data-search="clase 29 B1 Intermedio Pasado simple Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">29</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 29</h3>
+        <p>Pasado simple</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase30.html"
+       data-class="30" data-level="B1"
+       data-search="clase 30 B1 Intermedio Futuro con going to Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">30</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 30</h3>
+        <p>Futuro con going to</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase31.html"
+       data-class="31" data-level="B1"
+       data-search="clase 31 B1 Intermedio Will Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">31</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 31</h3>
+        <p>Will</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase32.html"
+       data-class="32" data-level="B1"
+       data-search="clase 32 B1 Intermedio Comparativos Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">32</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 32</h3>
+        <p>Comparativos</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase33.html"
+       data-class="33" data-level="B1"
+       data-search="clase 33 B1 Intermedio Superlativos Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">33</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 33</h3>
+        <p>Superlativos</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase34.html"
+       data-class="34" data-level="B1"
+       data-search="clase 34 B1 Intermedio Present continuous Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">34</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 34</h3>
+        <p>Present continuous</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase35.html"
+       data-class="35" data-level="B1"
+       data-search="clase 35 B1 Intermedio Present perfect básico Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">35</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 35</h3>
+        <p>Present perfect básico</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase36.html"
+       data-class="36" data-level="B1"
+       data-search="clase 36 B1 Intermedio Experiencias Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">36</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 36</h3>
+        <p>Experiencias</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase37.html"
+       data-class="37" data-level="B1"
+       data-search="clase 37 B1 Intermedio Viajes Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">37</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 37</h3>
+        <p>Viajes</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase38.html"
+       data-class="38" data-level="B1"
+       data-search="clase 38 B1 Intermedio Trabajo Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">38</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 38</h3>
+        <p>Trabajo</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase39.html"
+       data-class="39" data-level="B1"
+       data-search="clase 39 B1 Intermedio Opiniones Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">39</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 39</h3>
+        <p>Opiniones</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase40.html"
+       data-class="40" data-level="B1"
+       data-search="clase 40 B1 Intermedio Conectores Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">40</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 40</h3>
+        <p>Conectores</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase41.html"
+       data-class="41" data-level="B1"
+       data-search="clase 41 B1 Intermedio Conversaciones reales Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">41</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 41</h3>
+        <p>Conversaciones reales</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase42.html"
+       data-class="42" data-level="B1"
+       data-search="clase 42 B1 Intermedio Listening práctico Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">42</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 42</h3>
+        <p>Listening práctico</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase43.html"
+       data-class="43" data-level="B1"
+       data-search="clase 43 B1 Intermedio Pasado simple Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">43</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 43</h3>
+        <p>Pasado simple</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase44.html"
+       data-class="44" data-level="B1"
+       data-search="clase 44 B1 Intermedio Futuro con going to Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">44</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 44</h3>
+        <p>Futuro con going to</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase45.html"
+       data-class="45" data-level="B1"
+       data-search="clase 45 B1 Intermedio Will Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">45</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 45</h3>
+        <p>Will</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase46.html"
+       data-class="46" data-level="B1"
+       data-search="clase 46 B1 Intermedio Comparativos Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">46</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 46</h3>
+        <p>Comparativos</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase47.html"
+       data-class="47" data-level="B1"
+       data-search="clase 47 B1 Intermedio Superlativos Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">47</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 47</h3>
+        <p>Superlativos</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase48.html"
+       data-class="48" data-level="B1"
+       data-search="clase 48 B1 Intermedio Present continuous Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">48</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 48</h3>
+        <p>Present continuous</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase49.html"
+       data-class="49" data-level="B1"
+       data-search="clase 49 B1 Intermedio Present perfect básico Fluidez">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">49</div>
+        <div class="lesson-icon">B1</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B1</span>
+          <span class="stage">Intermedio</span>
+        </div>
+        <h3>Clase 49</h3>
+        <p>Present perfect básico</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Fluidez</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase50.html"
+       data-class="50" data-level="B2"
+       data-search="clase 50 B2 Intermedio alto Present perfect Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">50</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 50</h3>
+        <p>Present perfect</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase51.html"
+       data-class="51" data-level="B2"
+       data-search="clase 51 B2 Intermedio alto Past continuous Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">51</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 51</h3>
+        <p>Past continuous</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase52.html"
+       data-class="52" data-level="B2"
+       data-search="clase 52 B2 Intermedio alto Condicionales Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">52</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 52</h3>
+        <p>Condicionales</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase53.html"
+       data-class="53" data-level="B2"
+       data-search="clase 53 B2 Intermedio alto Modales Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">53</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 53</h3>
+        <p>Modales</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase54.html"
+       data-class="54" data-level="B2"
+       data-search="clase 54 B2 Intermedio alto Reported speech Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">54</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 54</h3>
+        <p>Reported speech</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase55.html"
+       data-class="55" data-level="B2"
+       data-search="clase 55 B2 Intermedio alto Passive voice Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">55</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 55</h3>
+        <p>Passive voice</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase56.html"
+       data-class="56" data-level="B2"
+       data-search="clase 56 B2 Intermedio alto Phrasal verbs Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">56</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 56</h3>
+        <p>Phrasal verbs</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase57.html"
+       data-class="57" data-level="B2"
+       data-search="clase 57 B2 Intermedio alto Inglés laboral Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">57</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 57</h3>
+        <p>Inglés laboral</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase58.html"
+       data-class="58" data-level="B2"
+       data-search="clase 58 B2 Intermedio alto Reuniones Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">58</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 58</h3>
+        <p>Reuniones</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase59.html"
+       data-class="59" data-level="B2"
+       data-search="clase 59 B2 Intermedio alto Presentaciones Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">59</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 59</h3>
+        <p>Presentaciones</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase60.html"
+       data-class="60" data-level="B2"
+       data-search="clase 60 B2 Intermedio alto Emails Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">60</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 60</h3>
+        <p>Emails</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase61.html"
+       data-class="61" data-level="B2"
+       data-search="clase 61 B2 Intermedio alto Opiniones avanzadas Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">61</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 61</h3>
+        <p>Opiniones avanzadas</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase62.html"
+       data-class="62" data-level="B2"
+       data-search="clase 62 B2 Intermedio alto Debate Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">62</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 62</h3>
+        <p>Debate</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase63.html"
+       data-class="63" data-level="B2"
+       data-search="clase 63 B2 Intermedio alto Conversación profesional Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">63</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 63</h3>
+        <p>Conversación profesional</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase64.html"
+       data-class="64" data-level="B2"
+       data-search="clase 64 B2 Intermedio alto Present perfect Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">64</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 64</h3>
+        <p>Present perfect</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase65.html"
+       data-class="65" data-level="B2"
+       data-search="clase 65 B2 Intermedio alto Past continuous Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">65</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 65</h3>
+        <p>Past continuous</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase66.html"
+       data-class="66" data-level="B2"
+       data-search="clase 66 B2 Intermedio alto Condicionales Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">66</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 66</h3>
+        <p>Condicionales</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase67.html"
+       data-class="67" data-level="B2"
+       data-search="clase 67 B2 Intermedio alto Modales Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">67</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 67</h3>
+        <p>Modales</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase68.html"
+       data-class="68" data-level="B2"
+       data-search="clase 68 B2 Intermedio alto Reported speech Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">68</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 68</h3>
+        <p>Reported speech</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase69.html"
+       data-class="69" data-level="B2"
+       data-search="clase 69 B2 Intermedio alto Passive voice Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">69</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 69</h3>
+        <p>Passive voice</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase70.html"
+       data-class="70" data-level="B2"
+       data-search="clase 70 B2 Intermedio alto Phrasal verbs Avanzando">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">70</div>
+        <div class="lesson-icon">B2</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Intermedio alto</span>
+        </div>
+        <h3>Clase 70</h3>
+        <p>Phrasal verbs</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Avanzando</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase71.html"
+       data-class="71" data-level="B2"
+       data-search="clase 71 B2 Consolidación Fluidez avanzada Dominio">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">71</div>
+        <div class="lesson-icon">B2+</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Consolidación</span>
+        </div>
+        <h3>Clase 71</h3>
+        <p>Fluidez avanzada</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Dominio</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase72.html"
+       data-class="72" data-level="B2"
+       data-search="clase 72 B2 Consolidación Debate Dominio">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">72</div>
+        <div class="lesson-icon">B2+</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Consolidación</span>
+        </div>
+        <h3>Clase 72</h3>
+        <p>Debate</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Dominio</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase73.html"
+       data-class="73" data-level="B2"
+       data-search="clase 73 B2 Consolidación Presentaciones ejecutivas Dominio">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">73</div>
+        <div class="lesson-icon">B2+</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Consolidación</span>
+        </div>
+        <h3>Clase 73</h3>
+        <p>Presentaciones ejecutivas</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Dominio</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase74.html"
+       data-class="74" data-level="B2"
+       data-search="clase 74 B2 Consolidación Negociación Dominio">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">74</div>
+        <div class="lesson-icon">B2+</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Consolidación</span>
+        </div>
+        <h3>Clase 74</h3>
+        <p>Negociación</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Dominio</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase75.html"
+       data-class="75" data-level="B2"
+       data-search="clase 75 B2 Consolidación Entrevistas Dominio">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">75</div>
+        <div class="lesson-icon">B2+</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Consolidación</span>
+        </div>
+        <h3>Clase 75</h3>
+        <p>Entrevistas</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Dominio</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase76.html"
+       data-class="76" data-level="B2"
+       data-search="clase 76 B2 Consolidación Comprensión oral Dominio">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">76</div>
+        <div class="lesson-icon">B2+</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Consolidación</span>
+        </div>
+        <h3>Clase 76</h3>
+        <p>Comprensión oral</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Dominio</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase77.html"
+       data-class="77" data-level="B2"
+       data-search="clase 77 B2 Consolidación Expresión escrita Dominio">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">77</div>
+        <div class="lesson-icon">B2+</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Consolidación</span>
+        </div>
+        <h3>Clase 77</h3>
+        <p>Expresión escrita</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Dominio</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase78.html"
+       data-class="78" data-level="B2"
+       data-search="clase 78 B2 Consolidación Gramática integrada Dominio">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">78</div>
+        <div class="lesson-icon">B2+</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Consolidación</span>
+        </div>
+        <h3>Clase 78</h3>
+        <p>Gramática integrada</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Dominio</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase79.html"
+       data-class="79" data-level="B2"
+       data-search="clase 79 B2 Consolidación Vocabulario avanzado Dominio">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">79</div>
+        <div class="lesson-icon">B2+</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Consolidación</span>
+        </div>
+        <h3>Clase 79</h3>
+        <p>Vocabulario avanzado</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Dominio</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase80.html"
+       data-class="80" data-level="B2"
+       data-search="clase 80 B2 Consolidación Simulación real Dominio">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">80</div>
+        <div class="lesson-icon">B2+</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Consolidación</span>
+        </div>
+        <h3>Clase 80</h3>
+        <p>Simulación real</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Dominio</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase81.html"
+       data-class="81" data-level="B2"
+       data-search="clase 81 B2 Consolidación Repaso integral Dominio">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">81</div>
+        <div class="lesson-icon">B2+</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Consolidación</span>
+        </div>
+        <h3>Clase 81</h3>
+        <p>Repaso integral</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Dominio</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase82.html"
+       data-class="82" data-level="B2"
+       data-search="clase 82 B2 Consolidación Preparación B2 Dominio">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">82</div>
+        <div class="lesson-icon">B2+</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Consolidación</span>
+        </div>
+        <h3>Clase 82</h3>
+        <p>Preparación B2</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Dominio</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase83.html"
+       data-class="83" data-level="B2"
+       data-search="clase 83 B2 Consolidación Consolidación final Dominio">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">83</div>
+        <div class="lesson-icon">B2+</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Consolidación</span>
+        </div>
+        <h3>Clase 83</h3>
+        <p>Consolidación final</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Dominio</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+    <a class="lesson-card" href="clase84.html"
+       data-class="84" data-level="B2"
+       data-search="clase 84 B2 Consolidación Evaluación final Dominio">
+      <div class="lesson-glow"></div>
+      <div class="lesson-head">
+        <div class="lesson-number">84</div>
+        <div class="lesson-icon">B2+</div>
+      </div>
+      <div class="lesson-body">
+        <div class="lesson-meta">
+          <span class="badge">B2</span>
+          <span class="stage">Consolidación</span>
+        </div>
+        <h3>Clase 84</h3>
+        <p>Evaluación final</p>
+      </div>
+      <div class="lesson-footer">
+        <span>Dominio</span>
+        <span class="go">Abrir <b>→</b></span>
+      </div>
+    </a>
+    
+</section>
+
+<div class="empty" id="empty">No encontramos clases con ese criterio.</div>
+
+</main>
+
+<button class="float-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba">↑</button>
+
+<script>
+const cards=[...document.querySelectorAll('.lesson-card')];
+const search=document.getElementById('search');
+const count=document.getElementById('count');
+const empty=document.getElementById('empty');
+let range='all';
+
+function applyFilters(){
+  const q=search.value.toLowerCase().trim();
+  let visible=0;
+
+  cards.forEach(card=>{
+    const n=Number(card.dataset.class);
+    const matchesText=card.dataset.search.toLowerCase().includes(q);
+    let matchesRange=true;
+
+    if(range!=='all'){
+      const [a,b]=range.split('-').map(Number);
+      matchesRange=n>=a && n<=b;
+    }
+
+    const show=matchesText && matchesRange;
+    card.style.display=show?'flex':'none';
+    if(show) visible++;
+  });
+
+  count.textContent=visible+' '+(visible===1?'clase':'clases');
+  empty.style.display=visible?'none':'block';
+}
+
+search.addEventListener('input',applyFilters);
+
+document.querySelectorAll('.filter').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    range=btn.dataset.range;
+    applyFilters();
+  });
+});
+
+document.getElementById('randomClass').addEventListener('click',()=>{
+  const n=Math.floor(Math.random()*84)+1;
+  location.href='clase'+n+'.html';
+});
+
+/* Progreso: detecta las clases que ya tienen actividad guardada */
+let started=[];
+for(let i=1;i<=84;i++){
+  const candidates=[
+    `lesson${String(i).padStart(2,'0')}PremiumReviewed`,
+    `lesson${i}PremiumReviewed`
+  ];
+
+  const hasActivity=candidates.some(k=>{
+    try{
+      const v=JSON.parse(localStorage.getItem(k)||'[]');
+      return Array.isArray(v) && v.length>0;
+    }catch{
+      return false;
+    }
+  });
+
+  if(hasActivity) started.push(i);
+}
+
+const startedCount=started.length;
+const pct=Math.round(startedCount/84*100);
+
+document.getElementById('progressText').textContent=
+  startedCount+' de 84 clases iniciadas';
+
+document.getElementById('progressPercent').textContent=pct+'%';
+document.getElementById('progressBar').style.width=pct+'%';
+
+const next=Math.min((started.length?Math.max(...started)+1:1),84);
+const continueCard=document.getElementById('continueCard');
+continueCard.href='clase'+next+'.html';
+document.getElementById('continueText').textContent=
+  started.length ? 'Clase '+next+' · Continuar ruta' : 'Clase 1 · Empezar';
+</script>
+
+</body>
+</html>

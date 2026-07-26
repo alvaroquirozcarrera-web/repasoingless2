@@ -1,0 +1,4207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>English Review · Clase 03 · To Be</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --red:#E60012;
+    --red-dark:#bd0010;
+    --red-soft:#fff0f1;
+    --white:#ffffff;
+    --bg:#f5f6f8;
+    --text:#17191f;
+    --muted:#70757f;
+    --line:#e6e8ec;
+    --success:#169c56;
+    --success-soft:#eaf9f1;
+    --blue:#1769e0;
+    --blue-soft:#edf5ff;
+    --shadow:0 18px 55px rgba(20,24,32,.10);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(230,0,18,.08), transparent 30%),
+        var(--bg);
+    color:var(--text);
+    min-height:100vh;
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.app{
+    max-width:1500px;
+    margin:auto;
+    padding:28px;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+    background:var(--white);
+    border-radius:28px;
+    padding:26px 30px;
+    box-shadow:var(--shadow);
+    border:1px solid rgba(0,0,0,.04);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.logo{
+    width:58px;
+    height:58px;
+    border-radius:18px;
+
+    display:grid;
+    place-items:center;
+
+    background:var(--red);
+    color:white;
+
+    font-size:25px;
+    font-weight:900;
+
+    box-shadow:0 10px 30px rgba(230,0,18,.25);
+}
+
+.brand-text small{
+    display:block;
+    color:var(--red);
+
+    font-size:13px;
+    font-weight:900;
+    letter-spacing:1.5px;
+
+    margin-bottom:4px;
+}
+
+.brand-text h1{
+    font-size:26px;
+    font-weight:900;
+}
+
+.brand-text p{
+    color:var(--muted);
+    margin-top:4px;
+    font-size:14px;
+}
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
+
+.language-switch{
+    padding:7px;
+    background:#f0f1f3;
+    border-radius:18px;
+
+    display:flex;
+    gap:6px;
+}
+
+.lang-btn{
+    border:0;
+
+    padding:14px 23px;
+
+    border-radius:13px;
+
+    font-size:14px;
+    font-weight:900;
+
+    background:transparent;
+    color:var(--muted);
+
+    transition:.25s ease;
+}
+
+.lang-btn.active{
+    background:var(--red);
+    color:white;
+
+    box-shadow:0 7px 20px rgba(230,0,18,.22);
+}
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.toolbar{
+    margin-top:20px;
+
+    background:white;
+    border-radius:22px;
+
+    padding:17px;
+
+    display:grid;
+    grid-template-columns:minmax(240px,1fr) auto;
+
+    gap:16px;
+    align-items:center;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.06);
+}
+
+.search-wrap{
+    position:relative;
+}
+
+.search-wrap span{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+
+    color:#999;
+    font-size:20px;
+}
+
+.search{
+    width:100%;
+
+    border:1px solid var(--line);
+    background:#f8f9fa;
+
+    border-radius:15px;
+
+    padding:15px 18px 15px 52px;
+
+    font-size:16px;
+    outline:none;
+
+    transition:.2s;
+}
+
+.search:focus{
+    background:white;
+    border-color:rgba(230,0,18,.45);
+
+    box-shadow:0 0 0 4px rgba(230,0,18,.06);
+}
+
+.filters{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.filter{
+    border:1px solid var(--line);
+
+    background:white;
+
+    border-radius:13px;
+
+    padding:12px 15px;
+
+    font-weight:800;
+    color:#555;
+}
+
+.filter.active{
+    background:#17191f;
+    color:white;
+    border-color:#17191f;
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+    margin-top:20px;
+
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+
+    gap:15px;
+}
+
+.stat{
+    background:white;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    border:1px solid rgba(0,0,0,.04);
+}
+
+.stat-value{
+    font-size:30px;
+    line-height:1;
+    font-weight:900;
+}
+
+.stat-label{
+    color:var(--muted);
+
+    font-size:13px;
+    font-weight:700;
+
+    margin-top:8px;
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.review-layout{
+    display:grid;
+
+    grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr);
+
+    gap:20px;
+
+    margin-top:20px;
+}
+
+.study-panel{
+    background:white;
+
+    min-height:550px;
+
+    border-radius:28px;
+
+    padding:25px;
+
+    box-shadow:var(--shadow);
+
+    position:relative;
+    overflow:hidden;
+}
+
+.study-panel::before{
+    content:"";
+
+    position:absolute;
+
+    width:240px;
+    height:240px;
+
+    background:rgba(230,0,18,.05);
+
+    border-radius:50%;
+
+    right:-80px;
+    top:-100px;
+}
+
+.study-top{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    gap:15px;
+
+    position:relative;
+    z-index:2;
+}
+
+.type-badge{
+    background:var(--red-soft);
+    color:var(--red);
+
+    border-radius:999px;
+
+    padding:9px 14px;
+
+    font-size:12px;
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+}
+
+.counter{
+    color:var(--muted);
+    font-weight:800;
+    font-size:13px;
+}
+
+/* =========================================================
+   FLASH CARD
+========================================================= */
+
+.flash-card{
+    min-height:360px;
+
+    margin-top:22px;
+
+    border:2px solid #f0f0f2;
+
+    background:
+        linear-gradient(145deg,#fff,#fafafa);
+
+    border-radius:26px;
+
+    padding:40px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    transition:.3s;
+}
+
+.flash-card:hover{
+    border-color:rgba(230,0,18,.20);
+}
+
+.card-label{
+    font-size:12px;
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    color:var(--red);
+
+    margin-bottom:18px;
+}
+
+.main-text{
+    font-size:clamp(34px,5vw,64px);
+
+    font-weight:900;
+
+    line-height:1.08;
+
+    letter-spacing:-2px;
+
+    max-width:900px;
+}
+
+.pronunciation{
+    font-size:21px;
+
+    color:var(--muted);
+
+    margin-top:18px;
+
+    font-weight:700;
+}
+
+.context-box{
+    margin-top:18px;
+
+    padding:12px 16px;
+
+    border-radius:14px;
+
+    background:var(--blue-soft);
+
+    color:var(--blue);
+
+    font-weight:800;
+
+    font-size:13px;
+
+    display:none;
+}
+
+.hidden-answer{
+    filter:blur(13px);
+    user-select:none;
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.study-actions{
+    margin-top:20px;
+
+    display:flex;
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+}
+
+.action{
+    border:0;
+
+    padding:14px 18px;
+
+    border-radius:14px;
+
+    background:#f1f2f4;
+
+    font-weight:900;
+
+    color:#333;
+
+    transition:.2s;
+}
+
+.action:hover{
+    transform:translateY(-2px);
+}
+
+.action.primary{
+    background:var(--red);
+    color:white;
+}
+
+.action.success{
+    background:var(--success-soft);
+    color:var(--success);
+}
+
+/* =========================================================
+   SIDE
+========================================================= */
+
+.side{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.side-card{
+    background:white;
+
+    border-radius:24px;
+
+    padding:23px;
+
+    border:1px solid rgba(0,0,0,.04);
+
+    box-shadow:0 10px 35px rgba(0,0,0,.05);
+}
+
+.side-title{
+    font-size:15px;
+    font-weight:900;
+
+    margin-bottom:15px;
+}
+
+.progress-wrap{
+    height:12px;
+
+    border-radius:999px;
+
+    background:#eceef1;
+
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+
+    width:0%;
+
+    background:var(--red);
+
+    border-radius:999px;
+
+    transition:.3s;
+}
+
+.progress-text{
+    margin-top:10px;
+
+    font-size:13px;
+
+    color:var(--muted);
+
+    font-weight:700;
+}
+
+.tip{
+    padding:15px;
+
+    border-radius:16px;
+
+    background:var(--red-soft);
+
+    color:#4b2428;
+
+    font-size:14px;
+
+    line-height:1.7;
+}
+
+/* =========================================================
+   LIBRARY
+========================================================= */
+
+.library{
+    margin-top:20px;
+
+    background:white;
+
+    border-radius:28px;
+
+    padding:25px;
+
+    box-shadow:var(--shadow);
+}
+
+.library-header{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:20px;
+}
+
+.library-header h2{
+    font-size:22px;
+}
+
+.library-header span{
+    color:var(--muted);
+
+    font-size:13px;
+
+    font-weight:700;
+}
+
+.card-grid{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:14px;
+}
+
+.mini-card{
+    min-height:145px;
+
+    padding:20px;
+
+    border:1px solid var(--line);
+
+    border-radius:20px;
+
+    background:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.mini-card:hover{
+    transform:translateY(-4px);
+
+    border-color:rgba(230,0,18,.35);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.07);
+}
+
+.mini-type{
+    font-size:10px;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    color:var(--red);
+}
+
+.mini-main{
+    font-size:22px;
+
+    font-weight:900;
+
+    line-height:1.15;
+
+    margin-top:12px;
+}
+
+.mini-sub{
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-top:8px;
+
+    font-weight:600;
+}
+
+.empty{
+    grid-column:1/-1;
+
+    text-align:center;
+
+    padding:60px 20px;
+
+    color:var(--muted);
+
+    font-weight:700;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1100px){
+
+    .review-layout{
+        grid-template-columns:1fr;
+    }
+
+    .card-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .stats{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+@media(max-width:800px){
+
+    .app{
+        padding:15px;
+    }
+
+    .toolbar{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .card-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .flash-card{
+        min-height:330px;
+        padding:28px 20px;
+    }
+}
+
+@media(max-width:520px){
+
+    .card-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .language-switch{
+        width:100%;
+    }
+
+    .lang-btn{
+        flex:1;
+    }
+
+    .main-text{
+        font-size:38px;
+    }
+}
+
+
+/* =========================================================
+   NAVEGACIÓN PREMIUM + RESPONSIVE UNIVERSAL
+========================================================= */
+.study-top{
+    flex-wrap:wrap;
+}
+
+.study-top-left,
+.study-top-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:0;
+}
+
+.study-top-right{
+    margin-left:auto;
+}
+
+.board-language{
+    padding:5px;
+    border-radius:14px;
+    flex-shrink:0;
+}
+
+.board-language .lang-btn{
+    padding:9px 13px;
+    border-radius:10px;
+    font-size:11px;
+    white-space:nowrap;
+}
+
+.home-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:38px;
+    padding:9px 13px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:#fff;
+    color:var(--text);
+    text-decoration:none;
+    font-size:12px;
+    font-weight:900;
+    white-space:nowrap;
+    box-shadow:0 5px 14px rgba(0,0,0,.04);
+    transition:.2s ease;
+}
+
+.home-btn:hover{
+    transform:translateY(-2px);
+    color:var(--red);
+    border-color:rgba(230,0,18,.30);
+}
+
+.floating-next-class{
+    position:fixed;
+    right:max(18px, env(safe-area-inset-right));
+    bottom:max(18px, env(safe-area-inset-bottom));
+    z-index:999;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:14px 18px;
+    border-radius:17px;
+    background:var(--red);
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:900;
+    line-height:1.15;
+    box-shadow:0 16px 38px rgba(230,0,18,.28);
+    transition:.22s ease;
+}
+
+.floating-next-class:hover{
+    transform:translateY(-3px);
+}
+
+.floating-next-class small{
+    display:block;
+    margin-bottom:3px;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.7px;
+    opacity:.82;
+}
+
+@media(max-width:900px){
+    .header{
+        padding:20px;
+    }
+
+    .brand-text h1{
+        font-size:22px;
+    }
+
+    .review-layout{
+        grid-template-columns:1fr;
+    }
+
+    .study-panel{
+        min-height:auto;
+    }
+
+    .flash-card{
+        min-height:300px;
+    }
+}
+
+@media(max-width:600px){
+    body{
+        overflow-x:hidden;
+    }
+
+    .app{
+        width:100%;
+        padding:10px;
+    }
+
+    .header,
+    .toolbar,
+    .study-panel,
+    .side-card,
+    .library{
+        border-radius:20px;
+    }
+
+    .header{
+        padding:17px;
+    }
+
+    .logo{
+        width:48px;
+        height:48px;
+        border-radius:14px;
+        font-size:21px;
+    }
+
+    .brand{
+        gap:12px;
+        min-width:0;
+    }
+
+    .brand-text{
+        min-width:0;
+    }
+
+    .brand-text small{
+        font-size:10px;
+        letter-spacing:1px;
+    }
+
+    .brand-text h1{
+        font-size:18px;
+        line-height:1.2;
+    }
+
+    .brand-text p{
+        font-size:12px;
+        line-height:1.4;
+    }
+
+    .toolbar{
+        padding:12px;
+        margin-top:12px;
+        gap:10px;
+    }
+
+    .filters{
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        padding-bottom:3px;
+        scrollbar-width:none;
+    }
+
+    .filters::-webkit-scrollbar{
+        display:none;
+    }
+
+    .filter{
+        flex:0 0 auto;
+        padding:10px 12px;
+        font-size:12px;
+    }
+
+    .stats{
+        margin-top:12px;
+        gap:8px;
+    }
+
+    .stat{
+        padding:14px 12px;
+        border-radius:16px;
+    }
+
+    .stat-value{
+        font-size:24px;
+    }
+
+    .stat-label{
+        font-size:11px;
+    }
+
+    .review-layout{
+        margin-top:12px;
+        gap:12px;
+    }
+
+    .study-panel{
+        padding:14px;
+    }
+
+    .study-top{
+        align-items:stretch;
+    }
+
+    .study-top-left,
+    .study-top-right{
+        width:100%;
+        justify-content:space-between;
+    }
+
+    .study-top-right{
+        margin-left:0;
+    }
+
+    .board-language{
+        width:auto;
+    }
+
+    .board-language .lang-btn{
+        flex:0 0 auto;
+        padding:8px 10px;
+        font-size:10px;
+    }
+
+    .counter{
+        white-space:nowrap;
+    }
+
+    .flash-card{
+        min-height:260px;
+        margin-top:14px;
+        padding:24px 14px;
+        border-radius:20px;
+    }
+
+    .card-label{
+        margin-bottom:12px;
+    }
+
+    .main-text{
+        font-size:clamp(31px,10vw,45px);
+        letter-spacing:-1px;
+        overflow-wrap:anywhere;
+    }
+
+    .pronunciation{
+        font-size:18px;
+        margin-top:13px;
+    }
+
+    .study-actions{
+        display:grid;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:8px;
+        margin-top:12px;
+    }
+
+    .study-actions .action{
+        width:100%;
+        padding:12px 8px;
+        font-size:12px;
+    }
+
+    .study-actions #nextBtn{
+        grid-column:1/-1;
+    }
+
+    .side{
+        gap:12px;
+    }
+
+    .library{
+        margin-top:12px;
+        padding:15px;
+    }
+
+    .library-header{
+        align-items:flex-start;
+    }
+
+    .library-header h2{
+        font-size:18px;
+    }
+
+    .card-grid{
+        gap:9px;
+    }
+
+    .mini-card{
+        min-height:125px;
+        padding:15px;
+        border-radius:16px;
+    }
+
+    .mini-main{
+        font-size:18px;
+    }
+
+    .floating-next-class{
+        right:max(10px, env(safe-area-inset-right));
+        bottom:max(10px, env(safe-area-inset-bottom));
+        padding:12px 14px;
+        border-radius:15px;
+        font-size:12px;
+    }
+}
+
+@media(max-width:390px){
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .study-top-right{
+        align-items:center;
+        gap:6px;
+    }
+
+    .board-language{
+        gap:3px;
+        padding:4px;
+    }
+
+    .board-language .lang-btn{
+        padding:7px 8px;
+        font-size:9px;
+    }
+
+    .home-btn,
+    .type-badge{
+        font-size:10px;
+    }
+
+    .floating-next-class small{
+        display:none;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header class="header">
+
+    <div class="brand">
+
+        <div class="logo">
+            3
+        </div>
+
+        <div class="brand-text">
+
+            <small>
+                ENGLISH COURSE · A0 → B2
+            </small>
+
+            <h1>
+                Clase 03 · Verbo To Be
+            </h1>
+
+            <p>
+                Am · Is · Are · Ser · Estar
+            </p>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<section class="toolbar">
+
+    <div class="search-wrap">
+
+        <span>
+            ⌕
+        </span>
+
+        <input
+        id="search"
+        class="search"
+        type="text"
+        placeholder="Buscar palabra, frase, pregunta o respuesta...">
+
+    </div>
+
+    <div class="filters">
+
+        <button
+        class="filter active"
+        data-filter="all">
+            Todo
+        </button>
+
+        <button
+        class="filter"
+        data-filter="word">
+            Palabras
+        </button>
+
+        <button
+        class="filter"
+        data-filter="phrase">
+            Frases
+        </button>
+
+        <button
+        class="filter"
+        data-filter="sentence">
+            Oraciones
+        </button>
+
+        <button
+        class="filter"
+        data-filter="question">
+            Preguntas
+        </button>
+
+        <button
+        class="filter"
+        data-filter="answer">
+            Respuestas
+        </button>
+
+    </div>
+
+</section>
+
+
+<section class="stats">
+
+    <div class="stat">
+
+        <div
+        class="stat-value"
+        id="totalItems">
+            0
+        </div>
+
+        <div class="stat-label">
+            Total
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div
+        class="stat-value"
+        id="wordCount">
+            0
+        </div>
+
+        <div class="stat-label">
+            Palabras
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div
+        class="stat-value"
+        id="phraseCount">
+            0
+        </div>
+
+        <div class="stat-label">
+            Frases y oraciones
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div
+        class="stat-value"
+        id="questionCount">
+            0
+        </div>
+
+        <div class="stat-label">
+            Preguntas y respuestas
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div
+        class="stat-value"
+        id="reviewedCount">
+            0
+        </div>
+
+        <div class="stat-label">
+            Repasadas
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="review-layout">
+
+<div class="study-panel">
+
+    <div class="study-top">
+
+        <div class="study-top-left">
+            <a class="home-btn" href="index.html" aria-label="Regresar al inicio">
+                ← index
+            </a>
+
+            <div class="type-badge" id="typeBadge">
+                PALABRA
+            </div>
+        </div>
+
+        <div class="study-top-right">
+            <div class="language-switch board-language" aria-label="Cambiar idioma">
+                <button class="lang-btn active" data-lang="en">🇬🇧 ENGLISH</button>
+                <button class="lang-btn" data-lang="es">🇪🇸 ESPAÑOL</button>
+            </div>
+
+            <div class="counter" id="counter">
+                1 / 1
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="flash-card">
+
+        <div
+        class="card-label"
+        id="cardLabel">
+            ENGLISH
+        </div>
+
+        <div
+        class="main-text"
+        id="mainText">
+            I am
+        </div>
+
+        <div
+        class="pronunciation"
+        id="pronunciation">
+            ai am
+        </div>
+
+        <div
+        class="context-box"
+        id="contextBox">
+        </div>
+
+    </div>
+
+
+    <div class="study-actions">
+
+        <button
+        class="action"
+        id="prevBtn">
+            ← Anterior
+        </button>
+
+        <button
+        class="action"
+        id="speakBtn">
+            🔊 Escuchar
+        </button>
+
+        <button
+        class="action"
+        id="hideBtn">
+            👁 Ocultar
+        </button>
+
+        <button
+        class="action success"
+        id="learnedBtn">
+            ✓ Repasada
+        </button>
+
+        <button
+        class="action primary"
+        id="nextBtn">
+            Siguiente →
+        </button>
+
+    </div>
+
+</div>
+
+
+<aside class="side">
+
+    <div class="side-card">
+
+        <div class="side-title">
+            Progreso de repaso
+        </div>
+
+        <div class="progress-wrap">
+
+            <div
+            class="progress-bar"
+            id="progressBar">
+            </div>
+
+        </div>
+
+        <div
+        class="progress-text"
+        id="progressText">
+            0% completado
+        </div>
+
+    </div>
+
+
+    <div class="side-card">
+
+        <div class="side-title">
+            Modo de estudio
+        </div>
+
+        <div style="display:grid;gap:10px;">
+
+            <button
+            class="action primary"
+            id="randomBtn">
+                🔀 Tarjeta aleatoria
+            </button>
+
+            <button
+            class="action"
+            id="resetProgress">
+                ↻ Reiniciar progreso
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="side-card">
+
+        <div class="side-title">
+            Regla clave
+        </div>
+
+        <div class="tip">
+
+            <b>I → AM</b><br>
+            I am happy.
+
+            <br><br>
+
+            <b>HE / SHE / IT → IS</b><br>
+            She is happy.
+
+            <br><br>
+
+            <b>YOU / WE / THEY → ARE</b><br>
+            They are happy.
+
+            <br><br>
+
+            ❌ I is happy.<br>
+            ✅ I am happy.
+
+        </div>
+
+    </div>
+
+</aside>
+
+</section>
+
+
+<section class="library">
+
+    <div class="library-header">
+
+        <h2>
+            Biblioteca completa · Clase 03
+        </h2>
+
+        <span id="libraryCount">
+            0 elementos
+        </span>
+
+    </div>
+
+    <div
+    class="card-grid"
+    id="cardGrid">
+    </div>
+
+</section>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   CLASE 03 · VERBO TO BE
+========================================================= */
+
+const data = [
+
+/* =========================================================
+   1. TO BE
+========================================================= */
+
+{
+type:"word",
+en:"to be",
+es:"ser / estar",
+pron:"tu bi"
+},
+
+{
+type:"word",
+en:"be",
+es:"ser / estar",
+pron:"bi"
+},
+
+{
+type:"word",
+en:"am",
+es:"soy / estoy",
+pron:"am"
+},
+
+{
+type:"word",
+en:"is",
+es:"es / está",
+pron:"is"
+},
+
+{
+type:"word",
+en:"are",
+es:"eres / estás / somos / están / son",
+pron:"ar"
+},
+
+
+/* =========================================================
+   2. PRONOMBRES
+========================================================= */
+
+{
+type:"word",
+en:"I",
+es:"yo",
+pron:"ai"
+},
+
+{
+type:"word",
+en:"you",
+es:"tú / usted / ustedes",
+pron:"iu"
+},
+
+{
+type:"word",
+en:"he",
+es:"él",
+pron:"ji"
+},
+
+{
+type:"word",
+en:"she",
+es:"ella",
+pron:"shi"
+},
+
+{
+type:"word",
+en:"it",
+es:"eso / ello",
+pron:"it"
+},
+
+{
+type:"word",
+en:"we",
+es:"nosotros / nosotras",
+pron:"ui"
+},
+
+{
+type:"word",
+en:"they",
+es:"ellos / ellas",
+pron:"dei"
+},
+
+
+/* =========================================================
+   3. VOCABULARIO PRINCIPAL
+========================================================= */
+
+{
+type:"word",
+en:"happy",
+es:"feliz",
+pron:"jápi"
+},
+
+{
+type:"word",
+en:"sad",
+es:"triste",
+pron:"sad"
+},
+
+{
+type:"word",
+en:"tired",
+es:"cansado / cansada",
+pron:"táierd"
+},
+
+{
+type:"word",
+en:"ready",
+es:"listo / lista",
+pron:"rédi"
+},
+
+{
+type:"word",
+en:"fine",
+es:"bien",
+pron:"fain"
+},
+
+{
+type:"word",
+en:"important",
+es:"importante",
+pron:"impórtant"
+},
+
+{
+type:"word",
+en:"easy",
+es:"fácil",
+pron:"ísi"
+},
+
+{
+type:"word",
+en:"useful",
+es:"útil",
+pron:"iúsful"
+},
+
+{
+type:"word",
+en:"student",
+es:"estudiante",
+pron:"stiudent"
+},
+
+{
+type:"word",
+en:"students",
+es:"estudiantes",
+pron:"stiudents"
+},
+
+{
+type:"word",
+en:"teacher",
+es:"profesor / profesora",
+pron:"tícher"
+},
+
+{
+type:"word",
+en:"friend",
+es:"amigo / amiga",
+pron:"frend"
+},
+
+{
+type:"word",
+en:"friends",
+es:"amigos / amigas",
+pron:"frends"
+},
+
+{
+type:"word",
+en:"Peruvian",
+es:"peruano / peruana",
+pron:"perúvian"
+},
+
+{
+type:"word",
+en:"in",
+es:"en / dentro de",
+pron:"in"
+},
+
+{
+type:"word",
+en:"here",
+es:"aquí",
+pron:"jíer"
+},
+
+{
+type:"word",
+en:"there",
+es:"allí",
+pron:"der"
+},
+
+{
+type:"word",
+en:"old",
+es:"viejo / de edad",
+pron:"ould"
+},
+
+{
+type:"word",
+en:"class",
+es:"clase",
+pron:"klas"
+},
+
+{
+type:"word",
+en:"parents",
+es:"padres",
+pron:"pérents"
+},
+
+{
+type:"word",
+en:"English",
+es:"inglés",
+pron:"ínglish"
+},
+
+{
+type:"word",
+en:"Lima",
+es:"Lima",
+pron:"Líma"
+},
+
+{
+type:"word",
+en:"Peru",
+es:"Perú",
+pron:"Perú"
+},
+
+
+/* =========================================================
+   4. FORMAS DEL TO BE
+========================================================= */
+
+{
+type:"phrase",
+en:"I am",
+es:"yo soy / yo estoy",
+pron:"ai am"
+},
+
+{
+type:"phrase",
+en:"You are",
+es:"tú eres / tú estás",
+pron:"iu ar"
+},
+
+{
+type:"phrase",
+en:"He is",
+es:"él es / él está",
+pron:"ji is"
+},
+
+{
+type:"phrase",
+en:"She is",
+es:"ella es / ella está",
+pron:"shi is"
+},
+
+{
+type:"phrase",
+en:"It is",
+es:"eso es / eso está",
+pron:"it is"
+},
+
+{
+type:"phrase",
+en:"We are",
+es:"nosotros somos / estamos",
+pron:"ui ar"
+},
+
+{
+type:"phrase",
+en:"They are",
+es:"ellos son / están",
+pron:"dei ar"
+},
+
+
+/* =========================================================
+   5. CONTRACCIONES
+========================================================= */
+
+{
+type:"phrase",
+en:"I'm",
+es:"yo soy / estoy",
+pron:"aim",
+context:"Contracción de I am."
+},
+
+{
+type:"phrase",
+en:"You're",
+es:"tú eres / estás",
+pron:"yur",
+context:"Contracción de You are."
+},
+
+{
+type:"phrase",
+en:"He's",
+es:"él es / está",
+pron:"jis",
+context:"Contracción de He is."
+},
+
+{
+type:"phrase",
+en:"She's",
+es:"ella es / está",
+pron:"shis",
+context:"Contracción de She is."
+},
+
+{
+type:"phrase",
+en:"It's",
+es:"eso es / está",
+pron:"its",
+context:"Contracción de It is."
+},
+
+{
+type:"phrase",
+en:"We're",
+es:"somos / estamos",
+pron:"uir",
+context:"Contracción de We are."
+},
+
+{
+type:"phrase",
+en:"They're",
+es:"ellos son / están",
+pron:"deir",
+context:"Contracción de They are."
+},
+
+
+/* =========================================================
+   6. I + AM
+========================================================= */
+
+{
+type:"sentence",
+en:"I am Alvaro.",
+es:"Soy Álvaro.",
+pron:"ai am Álvaro"
+},
+
+{
+type:"sentence",
+en:"I am a student.",
+es:"Soy estudiante.",
+pron:"ai am a stiudent"
+},
+
+{
+type:"sentence",
+en:"I am happy.",
+es:"Estoy feliz.",
+pron:"ai am jápi"
+},
+
+{
+type:"sentence",
+en:"I am sad.",
+es:"Estoy triste.",
+pron:"ai am sad"
+},
+
+{
+type:"sentence",
+en:"I am tired.",
+es:"Estoy cansado.",
+pron:"ai am táierd"
+},
+
+{
+type:"sentence",
+en:"I am ready.",
+es:"Estoy listo.",
+pron:"ai am rédi"
+},
+
+{
+type:"sentence",
+en:"I am in Lima.",
+es:"Estoy en Lima.",
+pron:"ai am in Líma"
+},
+
+{
+type:"sentence",
+en:"I am Peruvian.",
+es:"Soy peruano.",
+pron:"ai am perúvian"
+},
+
+{
+type:"sentence",
+en:"I am here.",
+es:"Estoy aquí.",
+pron:"ai am jíer"
+},
+
+{
+type:"sentence",
+en:"I am 22 years old.",
+es:"Tengo 22 años.",
+pron:"ai am tuénti-tu yirs ould"
+},
+
+{
+type:"sentence",
+en:"I am fine.",
+es:"Estoy bien.",
+pron:"ai am fain"
+},
+
+{
+type:"sentence",
+en:"I'm happy.",
+es:"Estoy feliz.",
+pron:"aim jápi"
+},
+
+{
+type:"sentence",
+en:"I'm ready.",
+es:"Estoy listo.",
+pron:"aim rédi"
+},
+
+{
+type:"sentence",
+en:"I'm in Lima.",
+es:"Estoy en Lima.",
+pron:"aim in Líma"
+},
+
+{
+type:"sentence",
+en:"I'm Peruvian.",
+es:"Soy peruano.",
+pron:"aim perúvian"
+},
+
+
+/* =========================================================
+   7. HE + IS
+========================================================= */
+
+{
+type:"sentence",
+en:"He is a student.",
+es:"Él es estudiante.",
+pron:"ji is a stiudent"
+},
+
+{
+type:"sentence",
+en:"He is happy.",
+es:"Él está feliz.",
+pron:"ji is jápi"
+},
+
+{
+type:"sentence",
+en:"He is sad.",
+es:"Él está triste.",
+pron:"ji is sad"
+},
+
+{
+type:"sentence",
+en:"He is tired.",
+es:"Él está cansado.",
+pron:"ji is táierd"
+},
+
+{
+type:"sentence",
+en:"He is ready.",
+es:"Él está listo.",
+pron:"ji is rédi"
+},
+
+{
+type:"sentence",
+en:"He is in class.",
+es:"Él está en clase.",
+pron:"ji is in klas"
+},
+
+{
+type:"sentence",
+en:"He is here.",
+es:"Él está aquí.",
+pron:"ji is jíer"
+},
+
+{
+type:"sentence",
+en:"He is Peruvian.",
+es:"Él es peruano.",
+pron:"ji is perúvian"
+},
+
+{
+type:"sentence",
+en:"He's happy.",
+es:"Él está feliz.",
+pron:"jis jápi"
+},
+
+{
+type:"sentence",
+en:"He's a student.",
+es:"Él es estudiante.",
+pron:"jis a stiudent"
+},
+
+
+/* =========================================================
+   8. SHE + IS
+========================================================= */
+
+{
+type:"sentence",
+en:"She is a teacher.",
+es:"Ella es profesora.",
+pron:"shi is a tícher"
+},
+
+{
+type:"sentence",
+en:"She is happy.",
+es:"Ella está feliz.",
+pron:"shi is jápi"
+},
+
+{
+type:"sentence",
+en:"She is tired.",
+es:"Ella está cansada.",
+pron:"shi is táierd"
+},
+
+{
+type:"sentence",
+en:"She is ready.",
+es:"Ella está lista.",
+pron:"shi is rédi"
+},
+
+{
+type:"sentence",
+en:"She is in Lima.",
+es:"Ella está en Lima.",
+pron:"shi is in Líma"
+},
+
+{
+type:"sentence",
+en:"She is here.",
+es:"Ella está aquí.",
+pron:"shi is jíer"
+},
+
+{
+type:"sentence",
+en:"She is Peruvian.",
+es:"Ella es peruana.",
+pron:"shi is perúvian"
+},
+
+{
+type:"sentence",
+en:"She's happy.",
+es:"Ella está feliz.",
+pron:"shis jápi"
+},
+
+{
+type:"sentence",
+en:"She's a teacher.",
+es:"Ella es profesora.",
+pron:"shis a tícher"
+},
+
+
+/* =========================================================
+   9. IT + IS
+========================================================= */
+
+{
+type:"sentence",
+en:"It is a book.",
+es:"Es un libro.",
+pron:"it is a buk"
+},
+
+{
+type:"sentence",
+en:"It is important.",
+es:"Es importante.",
+pron:"it is impórtant"
+},
+
+{
+type:"sentence",
+en:"It is easy.",
+es:"Es fácil.",
+pron:"it is ísi"
+},
+
+{
+type:"sentence",
+en:"It is here.",
+es:"Está aquí.",
+pron:"it is jíer"
+},
+
+{
+type:"sentence",
+en:"It is there.",
+es:"Está allí.",
+pron:"it is der"
+},
+
+{
+type:"sentence",
+en:"It's important.",
+es:"Es importante.",
+pron:"its impórtant"
+},
+
+{
+type:"sentence",
+en:"It's easy.",
+es:"Es fácil.",
+pron:"its ísi"
+},
+
+
+/* =========================================================
+   10. YOU + ARE
+========================================================= */
+
+{
+type:"sentence",
+en:"You are a student.",
+es:"Tú eres estudiante.",
+pron:"iu ar a stiudent"
+},
+
+{
+type:"sentence",
+en:"You are here.",
+es:"Tú estás aquí.",
+pron:"iu ar jíer"
+},
+
+{
+type:"sentence",
+en:"You are happy.",
+es:"Tú estás feliz.",
+pron:"iu ar jápi"
+},
+
+{
+type:"sentence",
+en:"You are tired.",
+es:"Tú estás cansado.",
+pron:"iu ar táierd"
+},
+
+{
+type:"sentence",
+en:"You are ready.",
+es:"Tú estás listo.",
+pron:"iu ar rédi"
+},
+
+{
+type:"sentence",
+en:"You are my teacher.",
+es:"Usted es mi profesor.",
+pron:"iu ar mai tícher"
+},
+
+{
+type:"sentence",
+en:"You're ready.",
+es:"Estás listo.",
+pron:"yur rédi"
+},
+
+{
+type:"sentence",
+en:"You're here.",
+es:"Estás aquí.",
+pron:"yur jíer"
+},
+
+
+/* =========================================================
+   11. WE + ARE
+========================================================= */
+
+{
+type:"sentence",
+en:"We are friends.",
+es:"Somos amigos.",
+pron:"ui ar frends"
+},
+
+{
+type:"sentence",
+en:"We are students.",
+es:"Somos estudiantes.",
+pron:"ui ar stiudents"
+},
+
+{
+type:"sentence",
+en:"We are in Peru.",
+es:"Estamos en Perú.",
+pron:"ui ar in Perú"
+},
+
+{
+type:"sentence",
+en:"We are happy.",
+es:"Estamos felices.",
+pron:"ui ar jápi"
+},
+
+{
+type:"sentence",
+en:"We are tired.",
+es:"Estamos cansados.",
+pron:"ui ar táierd"
+},
+
+{
+type:"sentence",
+en:"We are ready.",
+es:"Estamos listos.",
+pron:"ui ar rédi"
+},
+
+{
+type:"sentence",
+en:"We are Peruvian.",
+es:"Somos peruanos.",
+pron:"ui ar perúvian"
+},
+
+{
+type:"sentence",
+en:"We're friends.",
+es:"Somos amigos.",
+pron:"uir frends"
+},
+
+{
+type:"sentence",
+en:"We're ready.",
+es:"Estamos listos.",
+pron:"uir rédi"
+},
+
+
+/* =========================================================
+   12. THEY + ARE
+========================================================= */
+
+{
+type:"sentence",
+en:"They are students.",
+es:"Ellos son estudiantes.",
+pron:"dei ar stiudents"
+},
+
+{
+type:"sentence",
+en:"They are happy.",
+es:"Ellos están felices.",
+pron:"dei ar jápi"
+},
+
+{
+type:"sentence",
+en:"They are ready.",
+es:"Ellos están listos.",
+pron:"dei ar rédi"
+},
+
+{
+type:"sentence",
+en:"They are tired.",
+es:"Ellos están cansados.",
+pron:"dei ar táierd"
+},
+
+{
+type:"sentence",
+en:"They are there.",
+es:"Ellos están allí.",
+pron:"dei ar der"
+},
+
+{
+type:"sentence",
+en:"They are here.",
+es:"Ellos están aquí.",
+pron:"dei ar jíer"
+},
+
+{
+type:"sentence",
+en:"They are Peruvian.",
+es:"Ellos son peruanos.",
+pron:"dei ar perúvian"
+},
+
+{
+type:"sentence",
+en:"They're students.",
+es:"Ellos son estudiantes.",
+pron:"deir stiudents"
+},
+
+{
+type:"sentence",
+en:"They're ready.",
+es:"Ellos están listos.",
+pron:"deir rédi"
+},
+
+
+/* =========================================================
+   13. OTROS SUJETOS
+========================================================= */
+
+{
+type:"sentence",
+en:"English is important.",
+es:"El inglés es importante.",
+pron:"ínglish is impórtant"
+},
+
+{
+type:"sentence",
+en:"English is useful.",
+es:"El inglés es útil.",
+pron:"ínglish is iúsful"
+},
+
+{
+type:"sentence",
+en:"My parents are Peruvian.",
+es:"Mis padres son peruanos.",
+pron:"mai pérents ar perúvian"
+},
+
+
+/* =========================================================
+   14. PROFESIÓN / IDENTIDAD
+========================================================= */
+
+{
+type:"phrase",
+en:"a student",
+es:"un estudiante",
+pron:"a stiudent"
+},
+
+{
+type:"phrase",
+en:"a teacher",
+es:"un profesor / una profesora",
+pron:"a tícher"
+},
+
+{
+type:"sentence",
+en:"I am a student.",
+es:"Soy estudiante.",
+pron:"ai am a stiudent"
+},
+
+{
+type:"sentence",
+en:"She is a teacher.",
+es:"Ella es profesora.",
+pron:"shi is a tícher"
+},
+
+{
+type:"sentence",
+en:"He is a student.",
+es:"Él es estudiante.",
+pron:"ji is a stiudent"
+},
+
+
+/* =========================================================
+   15. EDAD
+========================================================= */
+
+{
+type:"phrase",
+en:"years old",
+es:"años de edad",
+pron:"yirs ould"
+},
+
+{
+type:"sentence",
+en:"I am 22 years old.",
+es:"Tengo 22 años.",
+pron:"ai am tuénti-tu yirs ould"
+},
+
+{
+type:"sentence",
+en:"He is 22 years old.",
+es:"Él tiene 22 años.",
+pron:"ji is tuénti-tu yirs ould"
+},
+
+{
+type:"sentence",
+en:"She is 22 years old.",
+es:"Ella tiene 22 años.",
+pron:"shi is tuénti-tu yirs ould"
+},
+
+
+/* =========================================================
+   16. NACIONALIDAD
+========================================================= */
+
+{
+type:"sentence",
+en:"I am Peruvian.",
+es:"Soy peruano.",
+pron:"ai am perúvian"
+},
+
+{
+type:"sentence",
+en:"She is Peruvian.",
+es:"Ella es peruana.",
+pron:"shi is perúvian"
+},
+
+{
+type:"sentence",
+en:"We are Peruvian.",
+es:"Somos peruanos.",
+pron:"ui ar perúvian"
+},
+
+{
+type:"sentence",
+en:"They are Peruvian.",
+es:"Ellos son peruanos.",
+pron:"dei ar perúvian"
+},
+
+
+/* =========================================================
+   17. UBICACIÓN
+========================================================= */
+
+{
+type:"sentence",
+en:"I am in Lima.",
+es:"Estoy en Lima.",
+pron:"ai am in Líma"
+},
+
+{
+type:"sentence",
+en:"She is in Lima.",
+es:"Ella está en Lima.",
+pron:"shi is in Líma"
+},
+
+{
+type:"sentence",
+en:"He is in class.",
+es:"Él está en clase.",
+pron:"ji is in klas"
+},
+
+{
+type:"sentence",
+en:"We are in Peru.",
+es:"Estamos en Perú.",
+pron:"ui ar in Perú"
+},
+
+{
+type:"sentence",
+en:"They are there.",
+es:"Ellos están allí.",
+pron:"dei ar der"
+},
+
+{
+type:"sentence",
+en:"You are here.",
+es:"Tú estás aquí.",
+pron:"iu ar jíer"
+},
+
+
+/* =========================================================
+   18. NO USAR TO BE CON VERBO SIMPLE
+========================================================= */
+
+{
+type:"sentence",
+en:"I study English.",
+es:"Estudio inglés.",
+pron:"ai stádi ínglish",
+context:"Correcto. No decimos: I am study English."
+},
+
+{
+type:"sentence",
+en:"I have a book.",
+es:"Tengo un libro.",
+pron:"ai jav a buk",
+context:"Correcto. Have ya es el verbo."
+},
+
+{
+type:"sentence",
+en:"She likes English.",
+es:"A ella le gusta el inglés.",
+pron:"shi laiks ínglish",
+context:"Correcto. No decimos: She is likes English."
+},
+
+
+/* =========================================================
+   19. PREGUNTAS BÁSICAS
+========================================================= */
+
+{
+type:"question",
+en:"How are you?",
+es:"¿Cómo estás?",
+pron:"jau ar iu"
+},
+
+{
+type:"question",
+en:"Are you a student?",
+es:"¿Eres estudiante?",
+pron:"ar iu a stiudent"
+},
+
+{
+type:"question",
+en:"Are you happy?",
+es:"¿Estás feliz?",
+pron:"ar iu jápi"
+},
+
+{
+type:"question",
+en:"Are you ready?",
+es:"¿Estás listo?",
+pron:"ar iu rédi"
+},
+
+{
+type:"question",
+en:"Are you tired?",
+es:"¿Estás cansado?",
+pron:"ar iu táierd"
+},
+
+{
+type:"question",
+en:"Are you Peruvian?",
+es:"¿Eres peruano?",
+pron:"ar iu perúvian"
+},
+
+{
+type:"question",
+en:"Are you in Lima?",
+es:"¿Estás en Lima?",
+pron:"ar iu in Líma"
+},
+
+{
+type:"question",
+en:"Is he a student?",
+es:"¿Él es estudiante?",
+pron:"is ji a stiudent"
+},
+
+{
+type:"question",
+en:"Is he happy?",
+es:"¿Él está feliz?",
+pron:"is ji jápi"
+},
+
+{
+type:"question",
+en:"Is she a teacher?",
+es:"¿Ella es profesora?",
+pron:"is shi a tícher"
+},
+
+{
+type:"question",
+en:"Is she tired?",
+es:"¿Ella está cansada?",
+pron:"is shi táierd"
+},
+
+{
+type:"question",
+en:"Is it important?",
+es:"¿Es importante?",
+pron:"is it impórtant"
+},
+
+{
+type:"question",
+en:"Is English important?",
+es:"¿El inglés es importante?",
+pron:"is ínglish impórtant"
+},
+
+{
+type:"question",
+en:"Are we ready?",
+es:"¿Estamos listos?",
+pron:"ar ui rédi"
+},
+
+{
+type:"question",
+en:"Are they students?",
+es:"¿Ellos son estudiantes?",
+pron:"ar dei stiudents"
+},
+
+{
+type:"question",
+en:"Are they happy?",
+es:"¿Ellos están felices?",
+pron:"ar dei jápi"
+},
+
+{
+type:"question",
+en:"Are they there?",
+es:"¿Ellos están allí?",
+pron:"ar dei der"
+},
+
+
+/* =========================================================
+   20. RESPUESTAS CON I
+========================================================= */
+
+{
+type:"answer",
+en:"I am fine, thank you.",
+es:"Estoy bien, gracias.",
+pron:"ai am fain, zank iu",
+context:"Respuesta natural a: How are you?"
+},
+
+{
+type:"answer",
+en:"I'm fine, thank you.",
+es:"Estoy bien, gracias.",
+pron:"aim fain, zank iu",
+context:"Versión con contracción."
+},
+
+{
+type:"answer",
+en:"I am happy.",
+es:"Estoy feliz.",
+pron:"ai am jápi",
+context:"Respuesta posible a: How are you?"
+},
+
+{
+type:"answer",
+en:"I'm good.",
+es:"Estoy bien.",
+pron:"aim gud",
+context:"Respuesta muy común en conversación."
+},
+
+{
+type:"answer",
+en:"I'm tired.",
+es:"Estoy cansado.",
+pron:"aim táierd",
+context:"Respuesta posible a: How are you?"
+},
+
+
+/* =========================================================
+   21. YES / NO · YOU
+========================================================= */
+
+{
+type:"answer",
+en:"Yes, I am.",
+es:"Sí.",
+pron:"ies, ai am",
+context:"Respuesta corta a preguntas con Are you...?"
+},
+
+{
+type:"answer",
+en:"No, I am not.",
+es:"No.",
+pron:"nou, ai am not",
+context:"Respuesta negativa a preguntas con Are you...?"
+},
+
+{
+type:"answer",
+en:"Yes, I am a student.",
+es:"Sí, soy estudiante.",
+pron:"ies, ai am a stiudent",
+context:"Respuesta completa a: Are you a student?"
+},
+
+{
+type:"answer",
+en:"Yes, I am ready.",
+es:"Sí, estoy listo.",
+pron:"ies, ai am rédi"
+},
+
+{
+type:"answer",
+en:"No, I am not tired.",
+es:"No, no estoy cansado.",
+pron:"nou, ai am not táierd"
+},
+
+
+/* =========================================================
+   22. YES / NO · HE
+========================================================= */
+
+{
+type:"answer",
+en:"Yes, he is.",
+es:"Sí.",
+pron:"ies, ji is",
+context:"Respuesta corta a una pregunta con Is he...?"
+},
+
+{
+type:"answer",
+en:"No, he is not.",
+es:"No.",
+pron:"nou, ji is not"
+},
+
+{
+type:"answer",
+en:"No, he isn't.",
+es:"No.",
+pron:"nou, ji ízent",
+context:"Forma contraída de he is not."
+},
+
+{
+type:"answer",
+en:"Yes, he is a student.",
+es:"Sí, él es estudiante.",
+pron:"ies, ji is a stiudent"
+},
+
+
+/* =========================================================
+   23. YES / NO · SHE
+========================================================= */
+
+{
+type:"answer",
+en:"Yes, she is.",
+es:"Sí.",
+pron:"ies, shi is"
+},
+
+{
+type:"answer",
+en:"No, she is not.",
+es:"No.",
+pron:"nou, shi is not"
+},
+
+{
+type:"answer",
+en:"No, she isn't.",
+es:"No.",
+pron:"nou, shi ízent"
+},
+
+{
+type:"answer",
+en:"Yes, she is a teacher.",
+es:"Sí, ella es profesora.",
+pron:"ies, shi is a tícher"
+},
+
+
+/* =========================================================
+   24. YES / NO · IT
+========================================================= */
+
+{
+type:"answer",
+en:"Yes, it is.",
+es:"Sí.",
+pron:"ies, it is"
+},
+
+{
+type:"answer",
+en:"No, it is not.",
+es:"No.",
+pron:"nou, it is not"
+},
+
+{
+type:"answer",
+en:"No, it isn't.",
+es:"No.",
+pron:"nou, it ízent"
+},
+
+
+/* =========================================================
+   25. YES / NO · WE
+========================================================= */
+
+{
+type:"answer",
+en:"Yes, we are.",
+es:"Sí.",
+pron:"ies, ui ar"
+},
+
+{
+type:"answer",
+en:"No, we are not.",
+es:"No.",
+pron:"nou, ui ar not"
+},
+
+{
+type:"answer",
+en:"No, we aren't.",
+es:"No.",
+pron:"nou, ui arent"
+},
+
+
+/* =========================================================
+   26. YES / NO · THEY
+========================================================= */
+
+{
+type:"answer",
+en:"Yes, they are.",
+es:"Sí.",
+pron:"ies, dei ar"
+},
+
+{
+type:"answer",
+en:"No, they are not.",
+es:"No.",
+pron:"nou, dei ar not"
+},
+
+{
+type:"answer",
+en:"No, they aren't.",
+es:"No.",
+pron:"nou, dei arent"
+},
+
+{
+type:"answer",
+en:"Yes, they are students.",
+es:"Sí, ellos son estudiantes.",
+pron:"ies, dei ar stiudents"
+},
+
+
+/* =========================================================
+   27. PREGUNTAS DE UBICACIÓN
+========================================================= */
+
+{
+type:"question",
+en:"Where are you?",
+es:"¿Dónde estás?",
+pron:"uer ar iu"
+},
+
+{
+type:"question",
+en:"Where is he?",
+es:"¿Dónde está él?",
+pron:"uer is ji"
+},
+
+{
+type:"question",
+en:"Where is she?",
+es:"¿Dónde está ella?",
+pron:"uer is shi"
+},
+
+{
+type:"question",
+en:"Where are they?",
+es:"¿Dónde están ellos?",
+pron:"uer ar dei"
+},
+
+{
+type:"answer",
+en:"I am in Lima.",
+es:"Estoy en Lima.",
+pron:"ai am in Líma",
+context:"Respuesta a: Where are you?"
+},
+
+{
+type:"answer",
+en:"I'm in Lima.",
+es:"Estoy en Lima.",
+pron:"aim in Líma"
+},
+
+{
+type:"answer",
+en:"He is here.",
+es:"Él está aquí.",
+pron:"ji is jíer"
+},
+
+{
+type:"answer",
+en:"She is in class.",
+es:"Ella está en clase.",
+pron:"shi is in klas"
+},
+
+{
+type:"answer",
+en:"They are there.",
+es:"Ellos están allí.",
+pron:"dei ar der"
+},
+
+
+/* =========================================================
+   28. PREGUNTAS DE ESTADO
+========================================================= */
+
+{
+type:"question",
+en:"How is he?",
+es:"¿Cómo está él?",
+pron:"jau is ji"
+},
+
+{
+type:"question",
+en:"How is she?",
+es:"¿Cómo está ella?",
+pron:"jau is shi"
+},
+
+{
+type:"question",
+en:"How are they?",
+es:"¿Cómo están ellos?",
+pron:"jau ar dei"
+},
+
+{
+type:"answer",
+en:"He is happy.",
+es:"Él está feliz.",
+pron:"ji is jápi"
+},
+
+{
+type:"answer",
+en:"She is tired.",
+es:"Ella está cansada.",
+pron:"shi is táierd"
+},
+
+{
+type:"answer",
+en:"They are ready.",
+es:"Ellos están listos.",
+pron:"dei ar rédi"
+},
+
+
+/* =========================================================
+   29. DIÁLOGO DE LA CLASE
+========================================================= */
+
+{
+type:"question",
+en:"Hello, Alvaro. How are you?",
+es:"Hola, Álvaro. ¿Cómo estás?",
+pron:"jelóu Álvaro, jau ar iu"
+},
+
+{
+type:"answer",
+en:"I am fine, thank you.",
+es:"Estoy bien, gracias.",
+pron:"ai am fain, zank iu"
+},
+
+{
+type:"question",
+en:"Are you a student?",
+es:"¿Eres estudiante?",
+pron:"ar iu a stiudent"
+},
+
+{
+type:"answer",
+en:"Yes, I am a student.",
+es:"Sí, soy estudiante.",
+pron:"ies, ai am a stiudent"
+},
+
+{
+type:"question",
+en:"Is English important?",
+es:"¿El inglés es importante?",
+pron:"is ínglish impórtant"
+},
+
+{
+type:"answer",
+en:"Yes, English is important.",
+es:"Sí, el inglés es importante.",
+pron:"ies, ínglish is impórtant"
+},
+
+
+/* =========================================================
+   30. CONTRACCIONES EN ORACIONES
+========================================================= */
+
+{
+type:"sentence",
+en:"I'm a student.",
+es:"Soy estudiante.",
+pron:"aim a stiudent"
+},
+
+{
+type:"sentence",
+en:"You're my teacher.",
+es:"Eres mi profesor.",
+pron:"yur mai tícher"
+},
+
+{
+type:"sentence",
+en:"He's happy.",
+es:"Él está feliz.",
+pron:"jis jápi"
+},
+
+{
+type:"sentence",
+en:"She's tired.",
+es:"Ella está cansada.",
+pron:"shis táierd"
+},
+
+{
+type:"sentence",
+en:"It's important.",
+es:"Es importante.",
+pron:"its impórtant"
+},
+
+{
+type:"sentence",
+en:"We're ready.",
+es:"Estamos listos.",
+pron:"uir rédi"
+},
+
+{
+type:"sentence",
+en:"They're students.",
+es:"Ellos son estudiantes.",
+pron:"deir stiudents"
+},
+
+
+/* =========================================================
+   31. FRASES EXTRA ÚTILES DEL MISMO TEMA
+========================================================= */
+
+{
+type:"phrase",
+en:"I'm fine.",
+es:"Estoy bien.",
+pron:"aim fain"
+},
+
+{
+type:"phrase",
+en:"I'm good.",
+es:"Estoy bien.",
+pron:"aim gud"
+},
+
+{
+type:"phrase",
+en:"I'm happy.",
+es:"Estoy feliz.",
+pron:"aim jápi"
+},
+
+{
+type:"phrase",
+en:"I'm tired.",
+es:"Estoy cansado.",
+pron:"aim táierd"
+},
+
+{
+type:"phrase",
+en:"I'm ready.",
+es:"Estoy listo.",
+pron:"aim rédi"
+},
+
+{
+type:"phrase",
+en:"You're right.",
+es:"Tienes razón.",
+pron:"yur rait"
+},
+
+{
+type:"phrase",
+en:"It's okay.",
+es:"Está bien.",
+pron:"its oukéi"
+},
+
+{
+type:"phrase",
+en:"We're ready.",
+es:"Estamos listos.",
+pron:"uir rédi"
+},
+
+{
+type:"phrase",
+en:"They're here.",
+es:"Ellos están aquí.",
+pron:"deir jíer"
+},
+
+
+/* =========================================================
+   32. CONTRASTES IMPORTANTES
+========================================================= */
+
+{
+type:"phrase",
+en:"I → am",
+es:"Con I usamos am.",
+pron:"ai, am"
+},
+
+{
+type:"phrase",
+en:"He → is",
+es:"Con he usamos is.",
+pron:"ji, is"
+},
+
+{
+type:"phrase",
+en:"She → is",
+es:"Con she usamos is.",
+pron:"shi, is"
+},
+
+{
+type:"phrase",
+en:"It → is",
+es:"Con it usamos is.",
+pron:"it, is"
+},
+
+{
+type:"phrase",
+en:"You → are",
+es:"Con you usamos are.",
+pron:"iu, ar"
+},
+
+{
+type:"phrase",
+en:"We → are",
+es:"Con we usamos are.",
+pron:"ui, ar"
+},
+
+{
+type:"phrase",
+en:"They → are",
+es:"Con they usamos are.",
+pron:"dei, ar"
+}
+
+];
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let language = "en";
+
+let filter = "all";
+
+let currentIndex = 0;
+
+let hidden = false;
+
+let reviewed =
+JSON.parse(
+    localStorage.getItem(
+        "lesson03PremiumReviewed"
+    ) || "[]"
+);
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const mainText =
+document.getElementById(
+    "mainText"
+);
+
+const pronunciation =
+document.getElementById(
+    "pronunciation"
+);
+
+const typeBadge =
+document.getElementById(
+    "typeBadge"
+);
+
+const counter =
+document.getElementById(
+    "counter"
+);
+
+const cardLabel =
+document.getElementById(
+    "cardLabel"
+);
+
+const cardGrid =
+document.getElementById(
+    "cardGrid"
+);
+
+const contextBox =
+document.getElementById(
+    "contextBox"
+);
+
+const search =
+document.getElementById(
+    "search"
+);
+
+const totalItems =
+document.getElementById(
+    "totalItems"
+);
+
+const wordCount =
+document.getElementById(
+    "wordCount"
+);
+
+const phraseCount =
+document.getElementById(
+    "phraseCount"
+);
+
+const questionCount =
+document.getElementById(
+    "questionCount"
+);
+
+const reviewedCount =
+document.getElementById(
+    "reviewedCount"
+);
+
+const progressBar =
+document.getElementById(
+    "progressBar"
+);
+
+const progressText =
+document.getElementById(
+    "progressText"
+);
+
+const libraryCount =
+document.getElementById(
+    "libraryCount"
+);
+
+
+/* =========================================================
+   FILTER DATA
+========================================================= */
+
+function getFilteredData(){
+
+    const q =
+    search.value
+    .toLowerCase()
+    .trim();
+
+    return data.filter(item => {
+
+        const typeMatch =
+
+            filter === "all" ||
+
+            item.type === filter;
+
+        const searchMatch =
+
+            item.en
+            .toLowerCase()
+            .includes(q)
+
+            ||
+
+            item.es
+            .toLowerCase()
+            .includes(q)
+
+            ||
+
+            item.pron
+            .toLowerCase()
+            .includes(q)
+
+            ||
+
+            (item.context || "")
+            .toLowerCase()
+            .includes(q);
+
+        return typeMatch && searchMatch;
+
+    });
+
+}
+
+
+/* =========================================================
+   TYPE
+========================================================= */
+
+function typeName(type){
+
+    if(type === "word"){
+        return "PALABRA";
+    }
+
+    if(type === "phrase"){
+        return "FRASE";
+    }
+
+    if(type === "sentence"){
+        return "ORACIÓN";
+    }
+
+    if(type === "question"){
+        return "PREGUNTA";
+    }
+
+    if(type === "answer"){
+        return "RESPUESTA";
+    }
+
+    return "REPASO";
+
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+function renderMainCard(){
+
+    const list =
+    getFilteredData();
+
+    if(list.length === 0){
+
+        mainText.textContent =
+        "Sin resultados";
+
+        pronunciation.textContent =
+        "";
+
+        contextBox.style.display =
+        "none";
+
+        typeBadge.textContent =
+        "—";
+
+        counter.textContent =
+        "0 / 0";
+
+        return;
+
+    }
+
+    if(
+        currentIndex >= list.length
+    ){
+        currentIndex = 0;
+    }
+
+    const item =
+    list[currentIndex];
+
+    typeBadge.textContent =
+    typeName(item.type);
+
+    counter.textContent =
+    `${currentIndex + 1} / ${list.length}`;
+
+    cardLabel.textContent =
+
+        language === "en"
+        ? "ENGLISH"
+        : "ESPAÑOL";
+
+    mainText.textContent =
+
+        language === "en"
+        ? item.en
+        : item.es;
+
+    pronunciation.textContent =
+
+        language === "en"
+        ? item.pron
+        : "";
+
+    if(item.context){
+
+        contextBox.textContent =
+        item.context;
+
+        contextBox.style.display =
+        "block";
+
+    }else{
+
+        contextBox.style.display =
+        "none";
+
+    }
+
+    hidden = false;
+
+    mainText.classList.remove(
+        "hidden-answer"
+    );
+
+    document
+    .getElementById(
+        "hideBtn"
+    )
+    .textContent =
+    "👁 Ocultar";
+
+}
+
+
+/* =========================================================
+   LIBRARY
+========================================================= */
+
+function renderLibrary(){
+
+    const list =
+    getFilteredData();
+
+    cardGrid.innerHTML =
+    "";
+
+    libraryCount.textContent =
+    `${list.length} elementos`;
+
+    if(!list.length){
+
+        cardGrid.innerHTML = `
+
+        <div class="empty">
+            No se encontraron resultados.
+        </div>
+
+        `;
+
+        return;
+
+    }
+
+    list.forEach(
+    (item,index)=>{
+
+        const card =
+        document.createElement(
+            "div"
+        );
+
+        card.className =
+        "mini-card";
+
+        const primary =
+
+            language === "en"
+            ? item.en
+            : item.es;
+
+        const secondary =
+
+            language === "en"
+            ? item.pron
+            : item.en;
+
+        card.innerHTML = `
+
+        <div>
+
+            <div class="mini-type">
+                ${typeName(item.type)}
+            </div>
+
+            <div class="mini-main">
+                ${primary}
+            </div>
+
+        </div>
+
+        <div class="mini-sub">
+            ${secondary}
+        </div>
+
+        `;
+
+        card.addEventListener(
+        "click",
+        ()=>{
+
+            currentIndex =
+            index;
+
+            renderMainCard();
+
+            window.scrollTo({
+
+                top:290,
+
+                behavior:"smooth"
+
+            });
+
+        });
+
+        cardGrid.appendChild(
+            card
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+function renderStats(){
+
+    totalItems.textContent =
+    data.length;
+
+    wordCount.textContent =
+    data.filter(
+        x => x.type === "word"
+    ).length;
+
+    phraseCount.textContent =
+    data.filter(
+        x =>
+        x.type === "phrase"
+        ||
+        x.type === "sentence"
+    ).length;
+
+    questionCount.textContent =
+    data.filter(
+        x =>
+        x.type === "question"
+        ||
+        x.type === "answer"
+    ).length;
+
+    reviewedCount.textContent =
+    reviewed.length;
+
+    const percent =
+    Math.round(
+
+        reviewed.length
+        /
+        data.length
+        *
+        100
+
+    );
+
+    progressBar.style.width =
+    percent + "%";
+
+    progressText.textContent =
+    `${percent}% completado · ${reviewed.length} de ${data.length}`;
+
+}
+
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
+
+document
+.querySelectorAll(
+    ".lang-btn"
+)
+.forEach(btn=>{
+
+    btn.addEventListener(
+    "click",
+    ()=>{
+
+        language =
+        btn.dataset.lang;
+
+        document
+        .querySelectorAll(
+            ".lang-btn"
+        )
+        .forEach(
+            b =>
+            b.classList.remove(
+                "active"
+            )
+        );
+
+        btn.classList.add(
+            "active"
+        );
+
+        renderMainCard();
+
+        renderLibrary();
+
+    });
+
+});
+
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+document
+.querySelectorAll(
+    ".filter"
+)
+.forEach(btn=>{
+
+    btn.addEventListener(
+    "click",
+    ()=>{
+
+        filter =
+        btn.dataset.filter;
+
+        currentIndex =
+        0;
+
+        document
+        .querySelectorAll(
+            ".filter"
+        )
+        .forEach(
+            b =>
+            b.classList.remove(
+                "active"
+            )
+        );
+
+        btn.classList.add(
+            "active"
+        );
+
+        renderMainCard();
+
+        renderLibrary();
+
+    });
+
+});
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+search.addEventListener(
+"input",
+()=>{
+
+    currentIndex =
+    0;
+
+    renderMainCard();
+
+    renderLibrary();
+
+});
+
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+document
+.getElementById(
+    "nextBtn"
+)
+.addEventListener(
+"click",
+()=>{
+
+    const list =
+    getFilteredData();
+
+    if(!list.length){
+        return;
+    }
+
+    currentIndex++;
+
+    if(
+        currentIndex >=
+        list.length
+    ){
+
+        currentIndex =
+        0;
+
+    }
+
+    renderMainCard();
+
+});
+
+
+/* =========================================================
+   PREVIOUS
+========================================================= */
+
+document
+.getElementById(
+    "prevBtn"
+)
+.addEventListener(
+"click",
+()=>{
+
+    const list =
+    getFilteredData();
+
+    if(!list.length){
+        return;
+    }
+
+    currentIndex--;
+
+    if(currentIndex < 0){
+
+        currentIndex =
+        list.length - 1;
+
+    }
+
+    renderMainCard();
+
+});
+
+
+/* =========================================================
+   RANDOM
+========================================================= */
+
+document
+.getElementById(
+    "randomBtn"
+)
+.addEventListener(
+"click",
+()=>{
+
+    const list =
+    getFilteredData();
+
+    if(!list.length){
+        return;
+    }
+
+    currentIndex =
+    Math.floor(
+
+        Math.random()
+        *
+        list.length
+
+    );
+
+    renderMainCard();
+
+});
+
+
+/* =========================================================
+   HIDE
+========================================================= */
+
+document
+.getElementById(
+    "hideBtn"
+)
+.addEventListener(
+"click",
+()=>{
+
+    hidden =
+    !hidden;
+
+    mainText.classList.toggle(
+
+        "hidden-answer",
+
+        hidden
+
+    );
+
+    document
+    .getElementById(
+        "hideBtn"
+    )
+    .textContent =
+
+        hidden
+        ? "👁 Mostrar"
+        : "👁 Ocultar";
+
+});
+
+
+/* =========================================================
+   REVIEWED
+========================================================= */
+
+document
+.getElementById(
+    "learnedBtn"
+)
+.addEventListener(
+"click",
+()=>{
+
+    const list =
+    getFilteredData();
+
+    if(!list.length){
+        return;
+    }
+
+    const current =
+    list[currentIndex];
+
+    const originalIndex =
+    data.indexOf(current);
+
+    if(
+        !reviewed.includes(
+            originalIndex
+        )
+    ){
+
+        reviewed.push(
+            originalIndex
+        );
+
+        localStorage.setItem(
+
+            "lesson03PremiumReviewed",
+
+            JSON.stringify(
+                reviewed
+            )
+
+        );
+
+    }
+
+    renderStats();
+
+    currentIndex++;
+
+    if(
+        currentIndex >=
+        list.length
+    ){
+
+        currentIndex =
+        0;
+
+    }
+
+    renderMainCard();
+
+});
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+document
+.getElementById(
+    "resetProgress"
+)
+.addEventListener(
+"click",
+()=>{
+
+    reviewed =
+    [];
+
+    localStorage.removeItem(
+        "lesson03PremiumReviewed"
+    );
+
+    renderStats();
+
+});
+
+
+/* =========================================================
+   SPEECH
+========================================================= */
+
+document
+.getElementById(
+    "speakBtn"
+)
+.addEventListener(
+"click",
+()=>{
+
+    const list =
+    getFilteredData();
+
+    if(!list.length){
+        return;
+    }
+
+    const item =
+    list[currentIndex];
+
+    if(
+        !(
+        "speechSynthesis"
+        in
+        window
+        )
+    ){
+
+        alert(
+            "Tu navegador no permite reproducción de voz."
+        );
+
+        return;
+
+    }
+
+    speechSynthesis.cancel();
+
+    const utterance =
+
+    new SpeechSynthesisUtterance(
+        item.en
+    );
+
+    utterance.lang =
+    "en-US";
+
+    utterance.rate =
+    0.75;
+
+    speechSynthesis.speak(
+        utterance
+    );
+
+});
+
+
+/* =========================================================
+   KEYBOARD
+========================================================= */
+
+document.addEventListener(
+"keydown",
+(e)=>{
+
+    if(
+        document.activeElement ===
+        search
+    ){
+        return;
+    }
+
+    if(
+        e.key ===
+        "ArrowRight"
+    ){
+
+        document
+        .getElementById(
+            "nextBtn"
+        )
+        .click();
+
+    }
+
+    if(
+        e.key ===
+        "ArrowLeft"
+    ){
+
+        document
+        .getElementById(
+            "prevBtn"
+        )
+        .click();
+
+    }
+
+    if(
+        e.key.toLowerCase()
+        ===
+        "r"
+    ){
+
+        document
+        .getElementById(
+            "randomBtn"
+        )
+        .click();
+
+    }
+
+    if(
+        e.key === " "
+    ){
+
+        e.preventDefault();
+
+        document
+        .getElementById(
+            "hideBtn"
+        )
+        .click();
+
+    }
+
+});
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+renderStats();
+
+renderMainCard();
+
+renderLibrary();
+
+</script>
+
+
+<a class="floating-next-class" href="clase4.html" aria-label="Ir a la clase 4">
+    <span>
+        <small>CLASE SIGUIENTE</small>
+        Clase 4 →
+    </span>
+</a>
+
+</body>
+</html>

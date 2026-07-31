@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#E60012">
+<title>English Review · Clase 08</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--red:#E60012;--red-dark:#bd0010;--red-soft:#fff0f1;--white:#fff;--bg:#f5f6f8;--text:#17191f;--muted:#70757f;--line:#e6e8ec;--success:#169c56;--success-soft:#eaf9f1;--blue:#1769e0;--blue-soft:#edf5ff;--shadow:0 18px 55px rgba(20,24,32,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,sans-serif;background:radial-gradient(circle at top left,rgba(230,0,18,.08),transparent 30%),var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+button,input{font:inherit}button{cursor:pointer}.app{max-width:1500px;margin:auto;padding:28px}
+.header{background:#fff;border-radius:28px;padding:26px 30px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:16px}.logo{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:var(--red);color:#fff;font-size:25px;font-weight:900;box-shadow:0 10px 30px rgba(230,0,18,.25)}
+.brand-text small{display:block;color:var(--red);font-size:13px;font-weight:900;letter-spacing:1.5px;margin-bottom:4px}.brand-text h1{font-size:26px;font-weight:900}.brand-text p{color:var(--muted);margin-top:4px;font-size:14px}
+.toolbar{margin-top:20px;background:#fff;border-radius:22px;padding:17px;display:grid;grid-template-columns:minmax(240px,1fr) auto;gap:16px;align-items:center;box-shadow:0 10px 35px rgba(0,0,0,.06)}
+.search-wrap{position:relative}.search-wrap span{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:#999;font-size:20px}.search{width:100%;border:1px solid var(--line);background:#f8f9fa;border-radius:15px;padding:15px 18px 15px 52px;font-size:16px;outline:none}.search:focus{background:#fff;border-color:rgba(230,0,18,.45);box-shadow:0 0 0 4px rgba(230,0,18,.06)}
+.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{border:1px solid var(--line);background:#fff;border-radius:13px;padding:12px 15px;font-weight:800;color:#555}.filter.active{background:#17191f;color:#fff;border-color:#17191f}
+.stats{margin-top:20px;display:grid;grid-template-columns:repeat(5,1fr);gap:15px}.stat{background:#fff;border-radius:20px;padding:20px;border:1px solid rgba(0,0,0,.04)}.stat-value{font-size:30px;line-height:1;font-weight:900}.stat-label{color:var(--muted);font-size:13px;font-weight:700;margin-top:8px}
+.review-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr);gap:20px;margin-top:20px}
+.study-panel{background:#fff;min-height:550px;border-radius:28px;padding:25px;box-shadow:var(--shadow);position:relative;overflow:hidden}.study-panel:before{content:"";position:absolute;width:240px;height:240px;background:rgba(230,0,18,.05);border-radius:50%;right:-80px;top:-100px}
+.study-top{display:flex;justify-content:space-between;align-items:center;gap:15px;position:relative;z-index:2;flex-wrap:wrap}.study-top-left,.study-top-right{display:flex;align-items:center;gap:10px;min-width:0}.study-top-right{margin-left:auto}
+.home-btn{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:9px 13px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--text);text-decoration:none;font-size:12px;font-weight:900;white-space:nowrap;box-shadow:0 5px 14px rgba(0,0,0,.04);transition:.2s}.home-btn:hover{transform:translateY(-2px);color:var(--red);border-color:rgba(230,0,18,.30)}
+.type-badge{background:var(--red-soft);color:var(--red);border-radius:999px;padding:9px 14px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:1px}.counter{color:var(--muted);font-weight:800;font-size:13px;white-space:nowrap}
+.language-switch{padding:5px;background:#f0f1f3;border-radius:14px;display:flex;gap:6px;flex-shrink:0}.lang-btn{border:0;padding:9px 13px;border-radius:10px;font-size:11px;font-weight:900;background:transparent;color:var(--muted);white-space:nowrap;transition:.2s}.lang-btn.active{background:var(--red);color:#fff;box-shadow:0 7px 20px rgba(230,0,18,.22)}
+.flash-card{min-height:360px;margin-top:22px;border:2px solid #f0f0f2;background:linear-gradient(145deg,#fff,#fafafa);border-radius:26px;padding:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transition:.3s}.flash-card:hover{border-color:rgba(230,0,18,.20)}
+.card-label{font-size:12px;font-weight:900;letter-spacing:2px;color:var(--red);margin-bottom:18px}.main-text{font-size:clamp(34px,5vw,64px);font-weight:900;line-height:1.08;letter-spacing:-2px;max-width:900px}.pronunciation{font-size:21px;color:var(--muted);margin-top:18px;font-weight:700}.context-box{margin-top:18px;padding:12px 16px;border-radius:14px;background:var(--blue-soft);color:var(--blue);font-weight:800;font-size:13px;display:none}.hidden-answer{filter:blur(13px);user-select:none}
+.study-actions{margin-top:20px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.action{border:0;padding:14px 18px;border-radius:14px;background:#f1f2f4;font-weight:900;color:#333;transition:.2s}.action:hover{transform:translateY(-2px)}.action.primary{background:var(--red);color:#fff}.action.success{background:var(--success-soft);color:var(--success)}
+.side{display:flex;flex-direction:column;gap:20px}.side-card{background:#fff;border-radius:24px;padding:23px;border:1px solid rgba(0,0,0,.04);box-shadow:0 10px 35px rgba(0,0,0,.05)}.side-title{font-size:15px;font-weight:900;margin-bottom:15px}.progress-wrap{height:12px;border-radius:999px;background:#eceef1;overflow:hidden}.progress-bar{height:100%;width:0;background:var(--red);border-radius:999px;transition:.3s}.progress-text{margin-top:10px;font-size:13px;color:var(--muted);font-weight:700}.tip{padding:15px;border-radius:16px;background:var(--red-soft);color:#4b2428;font-size:14px;line-height:1.7}
+.library{margin-top:20px;background:#fff;border-radius:28px;padding:25px;box-shadow:var(--shadow)}.library-header{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:20px}.library-header h2{font-size:22px}.library-header span{color:var(--muted);font-size:13px;font-weight:700}
+.card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.mini-card{min-height:145px;padding:20px;border:1px solid var(--line);border-radius:20px;background:#fff;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:.25s}.mini-card:hover{transform:translateY(-4px);border-color:rgba(230,0,18,.35);box-shadow:0 12px 25px rgba(0,0,0,.07)}.mini-type{font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--red)}.mini-main{font-size:22px;font-weight:900;line-height:1.15;margin-top:12px}.mini-sub{color:var(--muted);font-size:13px;margin-top:8px;font-weight:600}
+.floating-next-class{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:999;display:flex;align-items:center;gap:9px;padding:14px 18px;border-radius:17px;background:var(--red);color:#fff;text-decoration:none;font-size:14px;font-weight:900;line-height:1.15;box-shadow:0 16px 38px rgba(230,0,18,.28);transition:.22s}.floating-next-class:hover{transform:translateY(-3px);background:var(--red-dark)}.floating-next-class small{display:block;margin-bottom:3px;font-size:9px;font-weight:800;letter-spacing:.7px;opacity:.82}.empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted);font-weight:700}
+@media(max-width:1100px){.review-layout{grid-template-columns:1fr}.card-grid{grid-template-columns:repeat(3,1fr)}.stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:800px){.app{padding:15px}.toolbar{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.card-grid{grid-template-columns:repeat(2,1fr)}.flash-card{min-height:330px;padding:28px 20px}}
+@media(max-width:600px){.app{padding:10px}.header,.toolbar,.study-panel,.side-card,.library{border-radius:20px}.header{padding:17px}.logo{width:48px;height:48px;border-radius:14px;font-size:21px}.brand{gap:12px;min-width:0}.brand-text{min-width:0}.brand-text small{font-size:10px;letter-spacing:1px}.brand-text h1{font-size:18px;line-height:1.2}.brand-text p{font-size:12px;line-height:1.4}.toolbar{padding:12px;margin-top:12px;gap:10px}.filters{flex-wrap:nowrap;overflow-x:auto;padding-bottom:3px;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}.filter{flex:0 0 auto;padding:10px 12px;font-size:12px}.stats{margin-top:12px;gap:8px}.stat{padding:14px 12px;border-radius:16px}.stat-value{font-size:24px}.stat-label{font-size:11px}.review-layout{margin-top:12px;gap:12px}.study-panel{padding:14px}.study-top-left,.study-top-right{width:100%;justify-content:space-between}.study-top-right{margin-left:0}.lang-btn{padding:8px 10px;font-size:10px}.flash-card{min-height:260px;margin-top:14px;padding:24px 14px;border-radius:20px}.main-text{font-size:clamp(31px,10vw,45px);letter-spacing:-1px;overflow-wrap:anywhere}.pronunciation{font-size:18px;margin-top:13px}.study-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}.study-actions .action{width:100%;padding:12px 8px;font-size:12px}.study-actions #nextBtn{grid-column:1/-1}.side{gap:12px}.library{margin-top:12px;padding:15px}.library-header h2{font-size:18px}.card-grid{gap:9px}.mini-card{min-height:125px;padding:15px;border-radius:16px}.mini-main{font-size:18px}.floating-next-class{right:max(10px,env(safe-area-inset-right));bottom:max(10px,env(safe-area-inset-bottom));padding:12px 14px;border-radius:15px;font-size:12px}}
+@media(max-width:390px){.stats{grid-template-columns:1fr 1fr}.lang-btn{padding:7px 8px;font-size:9px}.home-btn,.type-badge{font-size:10px}.floating-next-class small{display:none}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="header">
+  <div class="brand">
+    <div class="logo">8</div>
+    <div class="brand-text">
+      <small>ENGLISH COURSE · A0 → B2</small>
+      <h1>Clase 08 · Sustantivos en inglés</h1>
+      <p>Nouns · personas, lugares, cosas e ideas</p>
+    </div>
+  </div>
+</header>
+
+<section class="toolbar">
+  <div class="search-wrap"><span>⌕</span><input id="search" class="search" placeholder="Buscar palabra, frase, pregunta o respuesta..."></div>
+  <div class="filters">
+    <button class="filter active" data-filter="all">Todo</button>
+    <button class="filter" data-filter="word">Palabras</button>
+    <button class="filter" data-filter="phrase">Frases</button>
+    <button class="filter" data-filter="sentence">Oraciones</button>
+    <button class="filter" data-filter="question">Preguntas</button>
+    <button class="filter" data-filter="answer">Respuestas</button>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stat"><div class="stat-value" id="totalItems">0</div><div class="stat-label">Total</div></div>
+  <div class="stat"><div class="stat-value" id="wordCount">0</div><div class="stat-label">Palabras</div></div>
+  <div class="stat"><div class="stat-value" id="phraseCount">0</div><div class="stat-label">Frases y oraciones</div></div>
+  <div class="stat"><div class="stat-value" id="questionCount">0</div><div class="stat-label">Preguntas y respuestas</div></div>
+  <div class="stat"><div class="stat-value" id="reviewedCount">0</div><div class="stat-label">Repasadas</div></div>
+</section>
+
+<section class="review-layout">
+  <div class="study-panel">
+    <div class="study-top">
+      <div class="study-top-left">
+        <a class="home-btn" href="index.html">← index</a>
+        <div class="type-badge" id="typeBadge">PALABRA</div>
+      </div>
+      <div class="study-top-right">
+        <div class="language-switch">
+          <button class="lang-btn active" data-lang="en">🇬🇧 ENGLISH</button>
+          <button class="lang-btn" data-lang="es">🇪🇸 ESPAÑOL</button>
+        </div>
+        <div class="counter" id="counter">1 / 1</div>
+      </div>
+    </div>
+
+    <div class="flash-card">
+      <div class="card-label" id="cardLabel">ENGLISH</div>
+      <div class="main-text" id="mainText">Student is a noun.</div>
+      <div class="pronunciation" id="pronunciation">stiudent is a náun</div>
+      <div class="context-box" id="contextBox"></div>
+    </div>
+
+    <div class="study-actions">
+      <button class="action" id="prevBtn">← Anterior</button>
+      <button class="action" id="speakBtn">🔊 Escuchar</button>
+      <button class="action" id="hideBtn">👁 Ocultar</button>
+      <button class="action success" id="learnedBtn">✓ Repasada</button>
+      <button class="action primary" id="nextBtn">Siguiente →</button>
+    </div>
+  </div>
+
+  <aside class="side">
+    <div class="side-card">
+      <div class="side-title">Progreso de repaso</div>
+      <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+      <div class="progress-text" id="progressText">0% completado</div>
+    </div>
+
+    <div class="side-card">
+      <div class="side-title">Modo de estudio</div>
+      <div style="display:grid;gap:10px">
+        <button class="action primary" id="randomBtn">🔀 Tarjeta aleatoria</button>
+        <button class="action" id="resetProgress">↻ Reiniciar progreso</button>
+      </div>
+    </div>
+
+    <div class="side-card">
+      <div class="side-title">Regla clave</div>
+      <div class="tip">
+        <b>NOUN = SUSTANTIVO</b><br><br>
+        Persona: <b>student</b><br>
+        Lugar: <b>city</b><br>
+        Cosa: <b>book</b><br>
+        Idea: <b>happiness</b><br><br>
+        Proper nouns llevan mayúscula:<br>
+        <b>Alvaro · Lima · Peru</b>.
+      </div>
+    </div>
+  </aside>
+</section>
+
+<section class="library">
+  <div class="library-header">
+    <h2>Biblioteca completa · Clase 08</h2>
+    <span id="libraryCount">0 elementos</span>
+  </div>
+  <div class="card-grid" id="cardGrid"></div>
+</section>
+</div>
+
+<a class="floating-next-class" href="clase9.html"><span><small>CLASE SIGUIENTE</small>Clase 9 →</span></a>
+
+<script>
+const data = [{"type": "word", "en": "noun", "es": "sustantivo", "pron": "náun", "context": ""}, {"type": "word", "en": "student", "es": "estudiante", "pron": "stiudent", "context": "Sustantivo contable de persona."}, {"type": "word", "en": "teacher", "es": "profesor / profesora", "pron": "tícher", "context": "Sustantivo contable de persona."}, {"type": "word", "en": "doctor", "es": "doctor / doctora", "pron": "dóktor", "context": ""}, {"type": "word", "en": "manager", "es": "gerente", "pron": "mánayer", "context": ""}, {"type": "word", "en": "employee", "es": "empleado / empleada", "pron": "emplóyi", "context": ""}, {"type": "word", "en": "worker", "es": "trabajador / trabajadora", "pron": "uórker", "context": ""}, {"type": "word", "en": "child", "es": "niño / niña", "pron": "chaild", "context": ""}, {"type": "word", "en": "father", "es": "padre", "pron": "fáder", "context": ""}, {"type": "word", "en": "mother", "es": "madre", "pron": "móder", "context": ""}, {"type": "word", "en": "city", "es": "ciudad", "pron": "síti", "context": "Sustantivo contable de lugar."}, {"type": "word", "en": "country", "es": "país", "pron": "kántri", "context": "Sustantivo contable de lugar."}, {"type": "word", "en": "company", "es": "empresa", "pron": "kómpani", "context": ""}, {"type": "word", "en": "office", "es": "oficina", "pron": "ófis", "context": ""}, {"type": "word", "en": "school", "es": "escuela", "pron": "skul", "context": ""}, {"type": "word", "en": "room", "es": "habitación", "pron": "rum", "context": ""}, {"type": "word", "en": "factory", "es": "fábrica", "pron": "fáktori", "context": ""}, {"type": "word", "en": "restaurant", "es": "restaurante", "pron": "réstorant", "context": ""}, {"type": "word", "en": "hospital", "es": "hospital", "pron": "jóspital", "context": ""}, {"type": "word", "en": "store", "es": "tienda", "pron": "stor", "context": ""}, {"type": "word", "en": "house", "es": "casa", "pron": "jaus", "context": ""}, {"type": "word", "en": "book", "es": "libro", "pron": "buk", "context": "Sustantivo contable."}, {"type": "word", "en": "phone", "es": "teléfono", "pron": "foun", "context": ""}, {"type": "word", "en": "computer", "es": "computadora", "pron": "kompiúter", "context": ""}, {"type": "word", "en": "table", "es": "mesa", "pron": "téibol", "context": ""}, {"type": "word", "en": "car", "es": "auto / carro", "pron": "kar", "context": ""}, {"type": "word", "en": "dog", "es": "perro", "pron": "dog", "context": ""}, {"type": "word", "en": "cat", "es": "gato", "pron": "kat", "context": ""}, {"type": "word", "en": "bird", "es": "ave / pájaro", "pron": "berd", "context": ""}, {"type": "word", "en": "fish", "es": "pez", "pron": "fish", "context": ""}, {"type": "word", "en": "water", "es": "agua", "pron": "uóter", "context": "Sustantivo no contable."}, {"type": "word", "en": "rice", "es": "arroz", "pron": "rais", "context": "Sustantivo no contable."}, {"type": "word", "en": "information", "es": "información", "pron": "informéishon", "context": "Sustantivo no contable."}, {"type": "word", "en": "money", "es": "dinero", "pron": "máni", "context": "Sustantivo no contable."}, {"type": "word", "en": "time", "es": "tiempo", "pron": "taim", "context": "Sustantivo abstracto."}, {"type": "word", "en": "work", "es": "trabajo", "pron": "uork", "context": "Abstracto / no contable."}, {"type": "word", "en": "love", "es": "amor", "pron": "lov", "context": "Sustantivo abstracto."}, {"type": "word", "en": "happiness", "es": "felicidad", "pron": "jápines", "context": "Sustantivo abstracto."}, {"type": "word", "en": "idea", "es": "idea", "pron": "aidía", "context": "Sustantivo contable."}, {"type": "phrase", "en": "common noun", "es": "sustantivo común", "pron": "kómon náun", "context": "Nombre general: city, student, company."}, {"type": "phrase", "en": "proper noun", "es": "sustantivo propio", "pron": "próper náun", "context": "Nombre específico: Lima, Alvaro, Peru."}, {"type": "phrase", "en": "countable noun", "es": "sustantivo contable", "pron": "káuntabol náun", "context": "Se puede contar."}, {"type": "phrase", "en": "uncountable noun", "es": "sustantivo no contable", "pron": "ankáuntabol náun", "context": "No se cuenta normalmente unidad por unidad."}, {"type": "phrase", "en": "concrete noun", "es": "sustantivo concreto", "pron": "konkrít náun", "context": "Se puede ver o tocar."}, {"type": "phrase", "en": "abstract noun", "es": "sustantivo abstracto", "pron": "ábstrakt náun", "context": "Idea, sentimiento o concepto."}, {"type": "phrase", "en": "one book", "es": "un libro", "pron": "uan buk", "context": "Contable singular."}, {"type": "phrase", "en": "two books", "es": "dos libros", "pron": "tu buks", "context": "Contable plural."}, {"type": "phrase", "en": "pieces of information", "es": "fragmentos / datos de información", "pron": "píses ov informéishon", "context": "Forma de contar information."}, {"type": "sentence", "en": "city → Lima", "es": "ciudad → Lima", "pron": "síti → Líma", "context": "Common noun → proper noun."}, {"type": "sentence", "en": "country → Peru", "es": "país → Perú", "pron": "kántri → Perú", "context": "Common noun → proper noun."}, {"type": "sentence", "en": "company → Ajinomoto", "es": "empresa → Ajinomoto", "pron": "kómpani → Ajinomoto", "context": "Common noun → proper noun."}, {"type": "sentence", "en": "student → Alvaro", "es": "estudiante → Álvaro", "pron": "stiudent → Álvaro", "context": "Common noun → proper noun."}, {"type": "sentence", "en": "English is important.", "es": "El inglés es importante.", "pron": "ínglish is impórtant", "context": "Los idiomas van con mayúscula."}, {"type": "sentence", "en": "Spanish is important.", "es": "El español es importante.", "pron": "spánish is impórtant", "context": "Los idiomas van con mayúscula."}, {"type": "sentence", "en": "Peru is a country.", "es": "Perú es un país.", "pron": "Perú is a kántri", "context": "Proper noun + common noun."}, {"type": "sentence", "en": "Lima is a city.", "es": "Lima es una ciudad.", "pron": "Líma is a síti", "context": "Proper noun + common noun."}, {"type": "sentence", "en": "Ajinomoto is a company.", "es": "Ajinomoto es una empresa.", "pron": "Ajinomoto is a kómpani", "context": "Proper noun + common noun."}, {"type": "sentence", "en": "I am a student.", "es": "Soy estudiante.", "pron": "ai am a stiudent", "context": "Student es un sustantivo de persona."}, {"type": "sentence", "en": "She is a teacher.", "es": "Ella es profesora.", "pron": "shi is a tícher", "context": "Teacher nombra una profesión."}, {"type": "sentence", "en": "He is a manager.", "es": "Él es gerente.", "pron": "ji is a mánayer", "context": "Manager es contable."}, {"type": "sentence", "en": "They are employees.", "es": "Ellos son empleados.", "pron": "dei ar emplóyis", "context": "Employees está en plural."}, {"type": "sentence", "en": "We are students.", "es": "Nosotros somos estudiantes.", "pron": "ui ar stiudents", "context": "Students es plural."}, {"type": "sentence", "en": "My father is here.", "es": "Mi padre está aquí.", "pron": "mai fáder is jíer", "context": "Father es sustantivo familiar."}, {"type": "sentence", "en": "Her mother is kind.", "es": "Su madre es amable.", "pron": "jer móder is kaind", "context": "Mother es persona."}, {"type": "sentence", "en": "The doctor is busy.", "es": "El doctor está ocupado.", "pron": "de dóktor is bízi", "context": "Doctor es ocupación."}, {"type": "sentence", "en": "The worker is ready.", "es": "El trabajador está listo.", "pron": "de uórker is rédi", "context": "Worker es persona."}, {"type": "sentence", "en": "The child is happy.", "es": "El niño está feliz.", "pron": "de chaild is jápi", "context": "Child es singular."}, {"type": "sentence", "en": "The office is big.", "es": "La oficina es grande.", "pron": "di ófis is big", "context": "Office es lugar."}, {"type": "sentence", "en": "The school is open.", "es": "La escuela está abierta.", "pron": "de skul is óupen", "context": "School es lugar."}, {"type": "sentence", "en": "The room is clean.", "es": "La habitación está limpia.", "pron": "de rum is klin", "context": "Room es lugar."}, {"type": "sentence", "en": "The factory is modern.", "es": "La fábrica es moderna.", "pron": "de fáktori is módern", "context": "Factory es lugar de trabajo."}, {"type": "sentence", "en": "The restaurant is good.", "es": "El restaurante es bueno.", "pron": "de réstorant is gud", "context": "Restaurant es lugar."}, {"type": "sentence", "en": "The hospital is near.", "es": "El hospital está cerca.", "pron": "de jóspital is níer", "context": "Hospital es lugar."}, {"type": "sentence", "en": "The store is small.", "es": "La tienda es pequeña.", "pron": "de stor is smol", "context": "Store es lugar."}, {"type": "sentence", "en": "The house is beautiful.", "es": "La casa es hermosa.", "pron": "de jaus is biútiful", "context": "House es lugar / cosa."}, {"type": "sentence", "en": "This is a book.", "es": "Este es un libro.", "pron": "dis is a buk", "context": "Book es cosa contable."}, {"type": "sentence", "en": "My phone is new.", "es": "Mi teléfono es nuevo.", "pron": "mai foun is niu", "context": "Phone es cosa."}, {"type": "sentence", "en": "The computer is fast.", "es": "La computadora es rápida.", "pron": "de kompiúter is fast", "context": "Computer es objeto."}, {"type": "sentence", "en": "The table is brown.", "es": "La mesa es marrón.", "pron": "de téibol is braun", "context": "Table es objeto."}, {"type": "sentence", "en": "Water is important.", "es": "El agua es importante.", "pron": "uóter is impórtant", "context": "Water es no contable."}, {"type": "sentence", "en": "Rice is food.", "es": "El arroz es comida.", "pron": "rais is fud", "context": "Rice es no contable."}, {"type": "sentence", "en": "Time is valuable.", "es": "El tiempo es valioso.", "pron": "taim is váliubol", "context": "Time es abstracto."}, {"type": "sentence", "en": "Love is powerful.", "es": "El amor es poderoso.", "pron": "lov is páuerful", "context": "Love es abstracto."}, {"type": "sentence", "en": "Work is important.", "es": "El trabajo es importante.", "pron": "uork is impórtant", "context": "Work es idea / actividad."}, {"type": "sentence", "en": "The information is correct.", "es": "La información es correcta.", "pron": "di informéishon is korékt", "context": "Information es no contable."}, {"type": "sentence", "en": "I have two books.", "es": "Tengo dos libros.", "pron": "ai jav tu buks", "context": "Books es contable."}, {"type": "sentence", "en": "I need water.", "es": "Necesito agua.", "pron": "ai nid uóter", "context": "Water es no contable."}, {"type": "sentence", "en": "She has three apples.", "es": "Ella tiene tres manzanas.", "pron": "shi jas zrí ápols", "context": "Apples es contable."}, {"type": "sentence", "en": "Rice is good.", "es": "El arroz es bueno.", "pron": "rais is gud", "context": "Rice es no contable."}, {"type": "sentence", "en": "We have ideas.", "es": "Tenemos ideas.", "pron": "ui jav aidías", "context": "Ideas es contable."}, {"type": "sentence", "en": "The information is useful.", "es": "La información es útil.", "pron": "di informéishon is iúsful", "context": "Information no se pluraliza normalmente."}, {"type": "question", "en": "What is a noun?", "es": "¿Qué es un sustantivo?", "pron": "uat is a náun", "context": ""}, {"type": "answer", "en": "A noun is a person, place, thing, animal, or idea.", "es": "Un sustantivo es una persona, lugar, cosa, animal o idea.", "pron": "a náun is a pérson, pleis, zing, ánimal, or aidía", "context": "Definición básica."}, {"type": "question", "en": "Is Lima a noun?", "es": "¿Lima es un sustantivo?", "pron": "is Líma a náun", "context": ""}, {"type": "answer", "en": "Yes. Lima is a proper noun.", "es": "Sí. Lima es un sustantivo propio.", "pron": "ies. Líma is a próper náun", "context": ""}, {"type": "question", "en": "Is book countable?", "es": "¿Book es contable?", "pron": "is buk káuntabol", "context": ""}, {"type": "answer", "en": "Yes. One book, two books.", "es": "Sí. Un libro, dos libros.", "pron": "ies. uan buk, tu buks", "context": ""}, {"type": "question", "en": "Is water countable?", "es": "¿Water es contable?", "pron": "is uóter káuntabol", "context": ""}, {"type": "answer", "en": "No. Water is uncountable.", "es": "No. Water es no contable.", "pron": "nou. uóter is ankáuntabol", "context": ""}, {"type": "question", "en": "What type of noun is Alvaro?", "es": "¿Qué tipo de sustantivo es Álvaro?", "pron": "uat taip ov náun is Álvaro", "context": ""}, {"type": "answer", "en": "Alvaro is a proper noun.", "es": "Álvaro es un sustantivo propio.", "pron": "Álvaro is a próper náun", "context": ""}, {"type": "sentence", "en": "My name is Alvaro.", "es": "Mi nombre es Álvaro.", "pron": "mai neim is Álvaro", "context": "Los nombres propios van con mayúscula."}];
+
+let language="en", filter="all", currentIndex=0, hidden=false;
+let reviewed=JSON.parse(localStorage.getItem("lesson08PremiumReviewed")||"[]");
+
+const $=id=>document.getElementById(id);
+const mainText=$("mainText"), pronunciation=$("pronunciation"), typeBadge=$("typeBadge"), counter=$("counter"), cardLabel=$("cardLabel"), cardGrid=$("cardGrid"), contextBox=$("contextBox"), search=$("search"), totalItems=$("totalItems"), wordCount=$("wordCount"), phraseCount=$("phraseCount"), questionCount=$("questionCount"), reviewedCount=$("reviewedCount"), progressBar=$("progressBar"), progressText=$("progressText"), libraryCount=$("libraryCount");
+
+function getFilteredData(){
+  const q=search.value.toLowerCase().trim();
+  return data.filter(item=>(filter==="all"||item.type===filter) && (item.en.toLowerCase().includes(q)||item.es.toLowerCase().includes(q)||item.pron.toLowerCase().includes(q)||(item.context||"").toLowerCase().includes(q)));
+}
+function typeName(type){return {word:"PALABRA",phrase:"FRASE",sentence:"ORACIÓN",question:"PREGUNTA",answer:"RESPUESTA"}[type]||"REPASO"}
+function renderMainCard(){
+  const list=getFilteredData();
+  if(!list.length){mainText.textContent="Sin resultados";pronunciation.textContent="";contextBox.style.display="none";typeBadge.textContent="—";counter.textContent="0 / 0";return}
+  if(currentIndex>=list.length)currentIndex=0;
+  const item=list[currentIndex];
+  typeBadge.textContent=typeName(item.type);
+  counter.textContent=`${currentIndex+1} / ${list.length}`;
+  cardLabel.textContent=language==="en"?"ENGLISH":"ESPAÑOL";
+  mainText.textContent=language==="en"?item.en:item.es;
+  pronunciation.textContent=language==="en"?item.pron:"";
+  if(item.context){contextBox.textContent=item.context;contextBox.style.display="block"}else contextBox.style.display="none";
+  hidden=false;mainText.classList.remove("hidden-answer");$("hideBtn").textContent="👁 Ocultar";
+}
+function renderLibrary(){
+  const list=getFilteredData();cardGrid.innerHTML="";libraryCount.textContent=`${list.length} elementos`;
+  if(!list.length){cardGrid.innerHTML='<div class="empty">No se encontraron resultados.</div>';return}
+  list.forEach((item,index)=>{
+    const card=document.createElement("div");card.className="mini-card";
+    const primary=language==="en"?item.en:item.es, secondary=language==="en"?item.pron:item.en;
+    card.innerHTML=`<div><div class="mini-type">${typeName(item.type)}</div><div class="mini-main">${primary}</div></div><div class="mini-sub">${secondary}</div>`;
+    card.onclick=()=>{currentIndex=index;renderMainCard();window.scrollTo({top:290,behavior:"smooth"})};
+    cardGrid.appendChild(card);
+  });
+}
+function renderStats(){
+  totalItems.textContent=data.length;
+  wordCount.textContent=data.filter(x=>x.type==="word").length;
+  phraseCount.textContent=data.filter(x=>x.type==="phrase"||x.type==="sentence").length;
+  questionCount.textContent=data.filter(x=>x.type==="question"||x.type==="answer").length;
+  reviewedCount.textContent=reviewed.length;
+  const percent=Math.round(reviewed.length/data.length*100);
+  progressBar.style.width=percent+"%";
+  progressText.textContent=`${percent}% completado · ${reviewed.length} de ${data.length}`;
+}
+document.querySelectorAll(".lang-btn").forEach(btn=>btn.onclick=()=>{language=btn.dataset.lang;document.querySelectorAll(".lang-btn").forEach(b=>b.classList.remove("active"));btn.classList.add("active");renderMainCard();renderLibrary()});
+document.querySelectorAll(".filter").forEach(btn=>btn.onclick=()=>{filter=btn.dataset.filter;currentIndex=0;document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");renderMainCard();renderLibrary()});
+search.oninput=()=>{currentIndex=0;renderMainCard();renderLibrary()};
+$("nextBtn").onclick=()=>{const list=getFilteredData();if(list.length){currentIndex=(currentIndex+1)%list.length;renderMainCard()}};
+$("prevBtn").onclick=()=>{const list=getFilteredData();if(list.length){currentIndex=(currentIndex-1+list.length)%list.length;renderMainCard()}};
+$("randomBtn").onclick=()=>{const list=getFilteredData();if(list.length){currentIndex=Math.floor(Math.random()*list.length);renderMainCard()}};
+$("hideBtn").onclick=()=>{hidden=!hidden;mainText.classList.toggle("hidden-answer",hidden);$("hideBtn").textContent=hidden?"👁 Mostrar":"👁 Ocultar"};
+$("learnedBtn").onclick=()=>{const list=getFilteredData();if(!list.length)return;const idx=data.indexOf(list[currentIndex]);if(!reviewed.includes(idx)){reviewed.push(idx);localStorage.setItem("lesson08PremiumReviewed",JSON.stringify(reviewed))}renderStats();currentIndex=(currentIndex+1)%list.length;renderMainCard()};
+$("resetProgress").onclick=()=>{reviewed=[];localStorage.removeItem("lesson08PremiumReviewed");renderStats()};
+$("speakBtn").onclick=()=>{const list=getFilteredData();if(!list.length)return;if(!("speechSynthesis" in window))return alert("Tu navegador no permite reproducción de voz.");speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(list[currentIndex].en);u.lang="en-US";u.rate=.75;speechSynthesis.speak(u)};
+document.addEventListener("keydown",e=>{if(document.activeElement===search)return;if(e.key==="ArrowRight")$("nextBtn").click();if(e.key==="ArrowLeft")$("prevBtn").click();if(e.key.toLowerCase()==="r")$("randomBtn").click();if(e.key===" "){e.preventDefault();$("hideBtn").click()}});
+renderStats();renderMainCard();renderLibrary();
+</script>
+</body>
+</html>

@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>English Review · Clase 53</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --red:#E60012;
+    --red-soft:#fff0f1;
+    --white:#ffffff;
+    --bg:#f5f6f8;
+    --text:#17191f;
+    --muted:#70757f;
+    --line:#e6e8ec;
+    --success:#169c56;
+    --success-soft:#eaf9f1;
+    --blue:#1769e0;
+    --blue-soft:#edf5ff;
+    --shadow:0 18px 55px rgba(20,24,32,.10);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(230,0,18,.08), transparent 30%),
+        var(--bg);
+    color:var(--text);
+    min-height:100vh;
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.app{
+    max-width:1500px;
+    margin:auto;
+    padding:28px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    background:var(--white);
+    border-radius:28px;
+    padding:26px 30px;
+    box-shadow:var(--shadow);
+    border:1px solid rgba(0,0,0,.04);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.logo{
+    width:58px;
+    height:58px;
+    border-radius:18px;
+    display:grid;
+    place-items:center;
+    background:var(--red);
+    color:white;
+    font-size:25px;
+    font-weight:900;
+    box-shadow:0 10px 30px rgba(230,0,18,.25);
+}
+
+.brand-text small{
+    display:block;
+    color:var(--red);
+    font-size:13px;
+    font-weight:900;
+    letter-spacing:1.5px;
+    margin-bottom:4px;
+}
+
+.brand-text h1{
+    font-size:26px;
+    font-weight:900;
+}
+
+.brand-text p{
+    color:var(--muted);
+    margin-top:4px;
+    font-size:14px;
+}
+
+/* =========================
+   LANGUAGE
+========================= */
+
+.language-switch{
+    padding:7px;
+    background:#f0f1f3;
+    border-radius:18px;
+    display:flex;
+    gap:6px;
+}
+
+.lang-btn{
+    border:0;
+    padding:14px 23px;
+    border-radius:13px;
+    font-size:14px;
+    font-weight:900;
+    background:transparent;
+    color:var(--muted);
+    transition:.25s ease;
+}
+
+.lang-btn.active{
+    background:var(--red);
+    color:white;
+    box-shadow:0 7px 20px rgba(230,0,18,.22);
+}
+
+/* =========================
+   TOOLBAR
+========================= */
+
+.toolbar{
+    margin-top:20px;
+    background:white;
+    border-radius:22px;
+    padding:17px;
+    display:grid;
+    grid-template-columns:minmax(240px,1fr) auto;
+    gap:16px;
+    align-items:center;
+    box-shadow:0 10px 35px rgba(0,0,0,.06);
+}
+
+.search-wrap{
+    position:relative;
+}
+
+.search-wrap span{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#999;
+    font-size:20px;
+}
+
+.search{
+    width:100%;
+    border:1px solid var(--line);
+    background:#f8f9fa;
+    border-radius:15px;
+    padding:15px 18px 15px 52px;
+    font-size:16px;
+    outline:none;
+}
+
+.search:focus{
+    background:white;
+    border-color:rgba(230,0,18,.45);
+    box-shadow:0 0 0 4px rgba(230,0,18,.06);
+}
+
+.filters{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.filter{
+    border:1px solid var(--line);
+    background:white;
+    border-radius:13px;
+    padding:12px 15px;
+    font-weight:800;
+    color:#555;
+}
+
+.filter.active{
+    background:#17191f;
+    color:white;
+    border-color:#17191f;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:15px;
+}
+
+.stat{
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    border:1px solid rgba(0,0,0,.04);
+}
+
+.stat-value{
+    font-size:30px;
+    line-height:1;
+    font-weight:900;
+}
+
+.stat-label{
+    color:var(--muted);
+    font-size:13px;
+    font-weight:700;
+    margin-top:8px;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.review-layout{
+    display:grid;
+    grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr);
+    gap:20px;
+    margin-top:20px;
+}
+
+.study-panel{
+    background:white;
+    min-height:550px;
+    border-radius:28px;
+    padding:25px;
+    box-shadow:var(--shadow);
+    position:relative;
+    overflow:hidden;
+}
+
+.study-panel::before{
+    content:"";
+    position:absolute;
+    width:240px;
+    height:240px;
+    background:rgba(230,0,18,.05);
+    border-radius:50%;
+    right:-80px;
+    top:-100px;
+}
+
+.study-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    position:relative;
+    z-index:2;
+}
+
+.type-badge{
+    background:var(--red-soft);
+    color:var(--red);
+    border-radius:999px;
+    padding:9px 14px;
+    font-size:12px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.counter{
+    color:var(--muted);
+    font-weight:800;
+    font-size:13px;
+}
+
+.flash-card{
+    min-height:360px;
+    margin-top:22px;
+    border:2px solid #f0f0f2;
+    background:linear-gradient(145deg,#fff,#fafafa);
+    border-radius:26px;
+    padding:40px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    transition:.3s;
+}
+
+.flash-card:hover{
+    border-color:rgba(230,0,18,.20);
+}
+
+.card-label{
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:2px;
+    color:var(--red);
+    margin-bottom:18px;
+}
+
+.main-text{
+    font-size:clamp(34px,5vw,64px);
+    font-weight:900;
+    line-height:1.08;
+    letter-spacing:-2px;
+    max-width:900px;
+}
+
+.pronunciation{
+    font-size:21px;
+    color:var(--muted);
+    margin-top:18px;
+    font-weight:700;
+}
+
+.context-box{
+    margin-top:18px;
+    padding:12px 16px;
+    border-radius:14px;
+    background:var(--blue-soft);
+    color:var(--blue);
+    font-weight:800;
+    font-size:13px;
+    display:none;
+}
+
+.hidden-answer{
+    filter:blur(13px);
+    user-select:none;
+}
+
+.study-actions{
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.action{
+    border:0;
+    padding:14px 18px;
+    border-radius:14px;
+    background:#f1f2f4;
+    font-weight:900;
+    color:#333;
+    transition:.2s;
+}
+
+.action:hover{
+    transform:translateY(-2px);
+}
+
+.action.primary{
+    background:var(--red);
+    color:white;
+}
+
+.action.success{
+    background:var(--success-soft);
+    color:var(--success);
+}
+
+/* =========================
+   SIDE
+========================= */
+
+.side{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.side-card{
+    background:white;
+    border-radius:24px;
+    padding:23px;
+    border:1px solid rgba(0,0,0,.04);
+    box-shadow:0 10px 35px rgba(0,0,0,.05);
+}
+
+.side-title{
+    font-size:15px;
+    font-weight:900;
+    margin-bottom:15px;
+}
+
+.progress-wrap{
+    height:12px;
+    border-radius:999px;
+    background:#eceef1;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:var(--red);
+    border-radius:999px;
+    transition:.3s;
+}
+
+.progress-text{
+    margin-top:10px;
+    font-size:13px;
+    color:var(--muted);
+    font-weight:700;
+}
+
+.tip{
+    padding:15px;
+    border-radius:16px;
+    background:var(--red-soft);
+    color:#4b2428;
+    font-size:14px;
+    line-height:1.6;
+}
+
+/* =========================
+   LIBRARY
+========================= */
+
+.library{
+    margin-top:20px;
+    background:white;
+    border-radius:28px;
+    padding:25px;
+    box-shadow:var(--shadow);
+}
+
+.library-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.library-header h2{
+    font-size:22px;
+}
+
+.library-header span{
+    color:var(--muted);
+    font-size:13px;
+    font-weight:700;
+}
+
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.mini-card{
+    min-height:145px;
+    padding:20px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.mini-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(230,0,18,.35);
+    box-shadow:0 12px 25px rgba(0,0,0,.07);
+}
+
+.mini-type{
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--red);
+}
+
+.mini-main{
+    font-size:22px;
+    font-weight:900;
+    line-height:1.15;
+    margin-top:12px;
+}
+
+.mini-sub{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:8px;
+    font-weight:600;
+}
+
+.empty{
+    grid-column:1/-1;
+    text-align:center;
+    padding:60px 20px;
+    color:var(--muted);
+    font-weight:700;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1100px){
+
+    .review-layout{
+        grid-template-columns:1fr;
+    }
+
+    .card-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .stats{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+@media(max-width:800px){
+
+    .app{
+        padding:15px;
+    }
+
+    .toolbar{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .card-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .flash-card{
+        min-height:330px;
+        padding:28px 20px;
+    }
+}
+
+@media(max-width:520px){
+
+    .card-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .language-switch{
+        width:100%;
+    }
+
+    .lang-btn{
+        flex:1;
+    }
+
+    .main-text{
+        font-size:38px;
+    }
+}
+
+/* =========================================================
+   NAVEGACIÓN PREMIUM + RESPONSIVE UNIVERSAL
+========================================================= */
+.study-top{
+    flex-wrap:wrap;
+}
+
+.study-top-left,
+.study-top-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:0;
+}
+
+.study-top-right{
+    margin-left:auto;
+}
+
+.board-language{
+    padding:5px;
+    border-radius:14px;
+    flex-shrink:0;
+}
+
+.board-language .lang-btn{
+    padding:9px 13px;
+    border-radius:10px;
+    font-size:11px;
+    white-space:nowrap;
+}
+
+.home-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:38px;
+    padding:9px 13px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:#fff;
+    color:var(--text);
+    text-decoration:none;
+    font-size:12px;
+    font-weight:900;
+    white-space:nowrap;
+    box-shadow:0 5px 14px rgba(0,0,0,.04);
+    transition:.2s ease;
+}
+
+.home-btn:hover{
+    transform:translateY(-2px);
+    color:var(--red);
+    border-color:rgba(230,0,18,.30);
+}
+
+.floating-next-class{
+    position:fixed;
+    right:max(18px, env(safe-area-inset-right));
+    bottom:max(18px, env(safe-area-inset-bottom));
+    z-index:999;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:14px 18px;
+    border-radius:17px;
+    background:var(--red);
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:900;
+    line-height:1.15;
+    box-shadow:0 16px 38px rgba(230,0,18,.28);
+    transition:.22s ease;
+}
+
+.floating-next-class:hover{
+    transform:translateY(-3px);
+}
+
+.floating-next-class small{
+    display:block;
+    margin-bottom:3px;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.7px;
+    opacity:.82;
+}
+
+/* Tablet */
+@media(max-width:900px){
+    .header{
+        padding:20px;
+    }
+
+    .brand-text h1{
+        font-size:22px;
+    }
+
+    .review-layout{
+        grid-template-columns:1fr;
+    }
+
+    .study-panel{
+        min-height:auto;
+    }
+
+    .study-top{
+        gap:12px;
+    }
+
+    .study-top-right{
+        margin-left:auto;
+    }
+
+    .flash-card{
+        min-height:300px;
+    }
+}
+
+/* Móvil */
+@media(max-width:600px){
+    body{
+        overflow-x:hidden;
+    }
+
+    .app{
+        width:100%;
+        padding:10px;
+    }
+
+    .header,
+    .toolbar,
+    .study-panel,
+    .side-card,
+    .library{
+        border-radius:20px;
+    }
+
+    .header{
+        padding:17px;
+    }
+
+    .logo{
+        width:48px;
+        height:48px;
+        border-radius:14px;
+        font-size:21px;
+    }
+
+    .brand{
+        gap:12px;
+        min-width:0;
+    }
+
+    .brand-text{
+        min-width:0;
+    }
+
+    .brand-text small{
+        font-size:10px;
+        letter-spacing:1px;
+    }
+
+    .brand-text h1{
+        font-size:18px;
+        line-height:1.2;
+    }
+
+    .brand-text p{
+        font-size:12px;
+        line-height:1.4;
+    }
+
+    .toolbar{
+        padding:12px;
+        margin-top:12px;
+        gap:10px;
+    }
+
+    .filters{
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        padding-bottom:3px;
+        scrollbar-width:none;
+    }
+
+    .filters::-webkit-scrollbar{
+        display:none;
+    }
+
+    .filter{
+        flex:0 0 auto;
+        padding:10px 12px;
+        font-size:12px;
+    }
+
+    .stats{
+        margin-top:12px;
+        gap:8px;
+    }
+
+    .stat{
+        padding:14px 12px;
+        border-radius:16px;
+    }
+
+    .stat-value{
+        font-size:24px;
+    }
+
+    .stat-label{
+        font-size:11px;
+    }
+
+    .review-layout{
+        margin-top:12px;
+        gap:12px;
+    }
+
+    .study-panel{
+        padding:14px;
+    }
+
+    .study-top{
+        align-items:stretch;
+    }
+
+    .study-top-left,
+    .study-top-right{
+        width:100%;
+        justify-content:space-between;
+    }
+
+    .study-top-right{
+        margin-left:0;
+    }
+
+    .board-language{
+        width:auto;
+    }
+
+    .board-language .lang-btn{
+        flex:0 0 auto;
+        padding:8px 10px;
+        font-size:10px;
+    }
+
+    .counter{
+        white-space:nowrap;
+    }
+
+    .flash-card{
+        min-height:260px;
+        margin-top:14px;
+        padding:24px 14px;
+        border-radius:20px;
+    }
+
+    .card-label{
+        margin-bottom:12px;
+    }
+
+    .main-text{
+        font-size:clamp(31px,10vw,45px);
+        letter-spacing:-1px;
+        overflow-wrap:anywhere;
+    }
+
+    .pronunciation{
+        font-size:18px;
+        margin-top:13px;
+    }
+
+    .study-actions{
+        display:grid;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:8px;
+        margin-top:12px;
+    }
+
+    .study-actions .action{
+        width:100%;
+        padding:12px 8px;
+        font-size:12px;
+    }
+
+    .study-actions #nextBtn{
+        grid-column:1/-1;
+    }
+
+    .side{
+        gap:12px;
+    }
+
+    .library{
+        margin-top:12px;
+        padding:15px;
+    }
+
+    .library-header{
+        align-items:flex-start;
+    }
+
+    .library-header h2{
+        font-size:18px;
+    }
+
+    .card-grid{
+        gap:9px;
+    }
+
+    .mini-card{
+        min-height:125px;
+        padding:15px;
+        border-radius:16px;
+    }
+
+    .mini-main{
+        font-size:18px;
+    }
+
+    .floating-next-class{
+        right:max(10px, env(safe-area-inset-right));
+        bottom:max(10px, env(safe-area-inset-bottom));
+        padding:12px 14px;
+        border-radius:15px;
+        font-size:12px;
+    }
+}
+
+/* Teléfonos muy estrechos */
+@media(max-width:390px){
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .study-top-right{
+        align-items:center;
+        gap:6px;
+    }
+
+    .board-language{
+        gap:3px;
+        padding:4px;
+    }
+
+    .board-language .lang-btn{
+        padding:7px 8px;
+        font-size:9px;
+    }
+
+    .home-btn,
+    .type-badge{
+        font-size:10px;
+    }
+
+    .floating-next-class small{
+        display:none;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header class="header">
+
+    <div class="brand">
+
+        <div class="logo">53</div>
+
+        <div class="brand-text">
+            <small>ENGLISH COURSE · A0 → B2</small>
+            <h1>Clase 53 · May, Might y Must</h1>
+            <p>Posibilidad · permiso · obligación · deducción</p>
+        </div>
+
+    </div>
+
+</header>
+
+
+<section class="toolbar">
+
+    <div class="search-wrap">
+
+        <span>⌕</span>
+
+        <input
+            id="search"
+            class="search"
+            type="text"
+            placeholder="Buscar palabra, frase, pregunta o respuesta..."
+        >
+
+    </div>
+
+    <div class="filters">
+
+        <button class="filter active" data-filter="all">Todo</button>
+        <button class="filter" data-filter="word">Palabras</button>
+        <button class="filter" data-filter="phrase">Frases</button>
+        <button class="filter" data-filter="sentence">Oraciones</button>
+        <button class="filter" data-filter="question">Preguntas</button>
+        <button class="filter" data-filter="answer">Respuestas</button>
+
+    </div>
+
+</section>
+
+
+<section class="stats">
+
+    <div class="stat">
+        <div class="stat-value" id="totalItems">0</div>
+        <div class="stat-label">Total</div>
+    </div>
+
+    <div class="stat">
+        <div class="stat-value" id="wordCount">0</div>
+        <div class="stat-label">Palabras</div>
+    </div>
+
+    <div class="stat">
+        <div class="stat-value" id="phraseCount">0</div>
+        <div class="stat-label">Frases y oraciones</div>
+    </div>
+
+    <div class="stat">
+        <div class="stat-value" id="questionCount">0</div>
+        <div class="stat-label">Preguntas y respuestas</div>
+    </div>
+
+    <div class="stat">
+        <div class="stat-value" id="reviewedCount">0</div>
+        <div class="stat-label">Repasadas</div>
+    </div>
+
+</section>
+
+
+<section class="review-layout">
+
+<div class="study-panel">
+
+    <div class="study-top">
+
+        <div class="study-top-left">
+            <a class="home-btn" href="index.html" aria-label="Regresar al inicio">
+                ← index
+            </a>
+
+            <div class="type-badge" id="typeBadge">
+                PALABRA
+            </div>
+        </div>
+
+        <div class="study-top-right">
+            <div class="language-switch board-language" aria-label="Cambiar idioma">
+                <button class="lang-btn active" data-lang="en">🇬🇧 ENGLISH</button>
+                <button class="lang-btn" data-lang="es">🇪🇸 ESPAÑOL</button>
+            </div>
+
+            <div class="counter" id="counter">
+                1 / 1
+            </div>
+        </div>
+
+    </div>
+
+    <div class="flash-card">
+
+        <div class="card-label" id="cardLabel">
+            ENGLISH
+        </div>
+
+        <div class="main-text" id="mainText">She might call later.</div>
+
+        <div class="pronunciation" id="pronunciation"></div>
+
+        <div class="context-box" id="contextBox"></div>
+
+    </div>
+
+    <div class="study-actions">
+
+        <button class="action" id="prevBtn">← Anterior</button>
+
+        <button class="action" id="speakBtn">
+            🔊 Escuchar
+        </button>
+
+        <button class="action" id="hideBtn">
+            👁 Ocultar
+        </button>
+
+        <button class="action success" id="learnedBtn">
+            ✓ Repasada
+        </button>
+
+        <button class="action primary" id="nextBtn">
+            Siguiente →
+        </button>
+
+    </div>
+
+</div>
+
+
+<aside class="side">
+
+    <div class="side-card">
+
+        <div class="side-title">
+            Progreso de repaso
+        </div>
+
+        <div class="progress-wrap">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="progress-text" id="progressText">
+            0% completado
+        </div>
+
+    </div>
+
+
+    <div class="side-card">
+
+        <div class="side-title">
+            Modo de estudio
+        </div>
+
+        <div style="display:grid;gap:10px;">
+
+            <button class="action primary" id="randomBtn">
+                🔀 Tarjeta aleatoria
+            </button>
+
+            <button class="action" id="resetProgress">
+                ↻ Reiniciar progreso
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="side-card">
+
+        <div class="side-title">
+            Regla clave
+        </div>
+
+        <div class="tip"><b>MAY / MIGHT / MUST</b><br><br>may = posibilidad / permiso<br>might = posibilidad más incierta<br>must = obligación / deducción fuerte</div>
+
+    </div>
+
+</aside>
+
+</section>
+
+
+<section class="library">
+
+    <div class="library-header">
+
+        <h2>Biblioteca completa · Clase 53</h2>
+
+        <span id="libraryCount">
+            0 elementos
+        </span>
+
+    </div>
+
+    <div class="card-grid" id="cardGrid"></div>
+
+</section>
+
+</div>
+
+
+<script>
+
+const data = [{"type": "sentence", "en": "She might call later.", "es": "Quizás llame más tarde.", "pron": "", "context": ""}, {"type": "sentence", "en": "We might be late.", "es": "Podríamos llegar tarde.", "pron": "", "context": ""}, {"type": "sentence", "en": "It might not work.", "es": "Puede que no funcione.", "pron": "", "context": ""}, {"type": "sentence", "en": "You must wear your ID card.", "es": "Debes usar tu fotocheck.", "pron": "", "context": ""}, {"type": "sentence", "en": "We must finish today.", "es": "Debemos terminar hoy.", "pron": "", "context": ""}, {"type": "sentence", "en": "Employees must follow the rules.", "es": "Los trabajadores deben seguir las reglas.", "pron": "", "context": ""}, {"type": "sentence", "en": "You mustn’t smoke here.", "es": "No debes fumar aquí.", "pron": "", "context": ""}, {"type": "sentence", "en": "Visitors mustn’t enter this area.", "es": "Los visitantes no deben entrar en esta área.", "pron": "", "context": ""}, {"type": "sentence", "en": "You mustn’t share your password.", "es": "No debes compartir tu contraseña.", "pron": "", "context": ""}, {"type": "sentence", "en": "It may rain later.", "es": "Puede que llueva más tarde.", "pron": "it mei rein léiter", "context": ""}, {"type": "sentence", "en": "She may be at home.", "es": "Puede que esté en casa.", "pron": "", "context": ""}, {"type": "question", "en": "May I come in?", "es": "¿Puedo entrar?", "pron": "mei ai kam in", "context": ""}, {"type": "question", "en": "May I ask a question?", "es": "¿Puedo hacer una pregunta?", "pron": "", "context": ""}, {"type": "sentence", "en": "He may not come.", "es": "Puede que no venga.", "pron": "ji mei not kam", "context": ""}, {"type": "word", "en": "may", "es": "puede que / puedo", "pron": "mei", "context": ""}, {"type": "word", "en": "might", "es": "quizá / podría", "pron": "mait", "context": ""}, {"type": "word", "en": "must", "es": "deber / tener que", "pron": "mast", "context": ""}, {"type": "sentence", "en": "She might come tonight.", "es": "Quizás venga esta noche.", "pron": "shi mait kam tunáit", "context": ""}, {"type": "sentence", "en": "You must wear a helmet.", "es": "Debes usar casco.", "pron": "iu mast uer a jélmet", "context": ""}, {"type": "sentence", "en": "He must be tired.", "es": "Debe estar cansado.", "pron": "ji mast bi táierd", "context": ""}, {"type": "sentence", "en": "You mustn't smoke here.", "es": "No debes fumar aquí.", "pron": "iu másent smouk jíer", "context": ""}, {"type": "sentence", "en": "You must not enter.", "es": "No debes entrar.", "pron": "iu mast not énter", "context": ""}, {"type": "sentence", "en": "She must be at work.", "es": "Ella debe estar en el trabajo.", "pron": "shi mast bi at uork", "context": ""}];
+
+/* =========================
+   STATE
+========================= */
+
+let language = "en";
+let filter = "all";
+let currentIndex = 0;
+let hidden = false;
+
+let reviewed =
+JSON.parse(
+    localStorage.getItem("lesson53PremiumReviewed") || "[]"
+);
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const mainText =
+document.getElementById("mainText");
+
+const pronunciation =
+document.getElementById("pronunciation");
+
+const typeBadge =
+document.getElementById("typeBadge");
+
+const counter =
+document.getElementById("counter");
+
+const cardLabel =
+document.getElementById("cardLabel");
+
+const cardGrid =
+document.getElementById("cardGrid");
+
+const contextBox =
+document.getElementById("contextBox");
+
+const search =
+document.getElementById("search");
+
+const totalItems =
+document.getElementById("totalItems");
+
+const wordCount =
+document.getElementById("wordCount");
+
+const phraseCount =
+document.getElementById("phraseCount");
+
+const questionCount =
+document.getElementById("questionCount");
+
+const reviewedCount =
+document.getElementById("reviewedCount");
+
+const progressBar =
+document.getElementById("progressBar");
+
+const progressText =
+document.getElementById("progressText");
+
+const libraryCount =
+document.getElementById("libraryCount");
+
+
+/* =========================
+   FILTER DATA
+========================= */
+
+function getFilteredData(){
+
+    const q =
+    search.value.toLowerCase().trim();
+
+    return data.filter(item => {
+
+        const typeMatch =
+            filter === "all" ||
+            item.type === filter;
+
+        const searchMatch =
+            item.en.toLowerCase().includes(q) ||
+            item.es.toLowerCase().includes(q) ||
+            item.pron.toLowerCase().includes(q) ||
+            (item.context || "")
+                .toLowerCase()
+                .includes(q);
+
+        return typeMatch && searchMatch;
+
+    });
+
+}
+
+
+/* =========================
+   TYPE NAME
+========================= */
+
+function typeName(type){
+
+    if(type === "word"){
+        return "PALABRA";
+    }
+
+    if(type === "phrase"){
+        return "FRASE";
+    }
+
+    if(type === "sentence"){
+        return "ORACIÓN";
+    }
+
+    if(type === "question"){
+        return "PREGUNTA";
+    }
+
+    if(type === "answer"){
+        return "RESPUESTA";
+    }
+
+    return "REPASO";
+
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+function renderMainCard(){
+
+    const list =
+    getFilteredData();
+
+    if(list.length === 0){
+
+        mainText.textContent =
+        "Sin resultados";
+
+        pronunciation.textContent = "";
+
+        contextBox.style.display =
+        "none";
+
+        typeBadge.textContent = "—";
+
+        counter.textContent =
+        "0 / 0";
+
+        return;
+    }
+
+    if(currentIndex >= list.length){
+        currentIndex = 0;
+    }
+
+    const item =
+    list[currentIndex];
+
+    typeBadge.textContent =
+    typeName(item.type);
+
+    counter.textContent =
+    `${currentIndex + 1} / ${list.length}`;
+
+    cardLabel.textContent =
+        language === "en"
+        ? "ENGLISH"
+        : "ESPAÑOL";
+
+    mainText.textContent =
+        language === "en"
+        ? item.en
+        : item.es;
+
+    pronunciation.textContent =
+        language === "en"
+        ? item.pron
+        : "";
+
+    if(item.context){
+
+        contextBox.textContent =
+        item.context;
+
+        contextBox.style.display =
+        "block";
+
+    }else{
+
+        contextBox.style.display =
+        "none";
+    }
+
+    hidden = false;
+
+    mainText.classList.remove(
+        "hidden-answer"
+    );
+
+    document
+    .getElementById("hideBtn")
+    .textContent =
+    "👁 Ocultar";
+
+}
+
+
+/* =========================
+   LIBRARY
+========================= */
+
+function renderLibrary(){
+
+    const list =
+    getFilteredData();
+
+    cardGrid.innerHTML = "";
+
+    libraryCount.textContent =
+    `${list.length} elementos`;
+
+    if(!list.length){
+
+        cardGrid.innerHTML = `
+            <div class="empty">
+                No se encontraron resultados.
+            </div>
+        `;
+
+        return;
+    }
+
+    list.forEach((item,index)=>{
+
+        const card =
+        document.createElement("div");
+
+        card.className =
+        "mini-card";
+
+        const primary =
+            language === "en"
+            ? item.en
+            : item.es;
+
+        const secondary =
+            language === "en"
+            ? item.pron
+            : item.en;
+
+        card.innerHTML = `
+
+            <div>
+
+                <div class="mini-type">
+                    ${typeName(item.type)}
+                </div>
+
+                <div class="mini-main">
+                    ${primary}
+                </div>
+
+            </div>
+
+            <div class="mini-sub">
+                ${secondary}
+            </div>
+
+        `;
+
+        card.addEventListener(
+        "click",
+        ()=>{
+
+            currentIndex =
+            index;
+
+            renderMainCard();
+
+            window.scrollTo({
+                top:290,
+                behavior:"smooth"
+            });
+
+        });
+
+        cardGrid.appendChild(card);
+
+    });
+
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+function renderStats(){
+
+    totalItems.textContent =
+    data.length;
+
+    wordCount.textContent =
+    data.filter(
+        x => x.type === "word"
+    ).length;
+
+    phraseCount.textContent =
+    data.filter(
+        x =>
+        x.type === "phrase" ||
+        x.type === "sentence"
+    ).length;
+
+    questionCount.textContent =
+    data.filter(
+        x =>
+        x.type === "question" ||
+        x.type === "answer"
+    ).length;
+
+    reviewedCount.textContent =
+    reviewed.length;
+
+    const percent =
+    Math.round(
+        reviewed.length /
+        data.length *
+        100
+    );
+
+    progressBar.style.width =
+    percent + "%";
+
+    progressText.textContent =
+    `${percent}% completado · ${reviewed.length} de ${data.length}`;
+
+}
+
+
+/* =========================
+   LANGUAGE
+========================= */
+
+document
+.querySelectorAll(".lang-btn")
+.forEach(btn=>{
+
+    btn.addEventListener(
+    "click",
+    ()=>{
+
+        language =
+        btn.dataset.lang;
+
+        document
+        .querySelectorAll(".lang-btn")
+        .forEach(
+            b =>
+            b.classList.remove("active")
+        );
+
+        btn.classList.add("active");
+
+        renderMainCard();
+        renderLibrary();
+
+    });
+
+});
+
+
+/* =========================
+   FILTERS
+========================= */
+
+document
+.querySelectorAll(".filter")
+.forEach(btn=>{
+
+    btn.addEventListener(
+    "click",
+    ()=>{
+
+        filter =
+        btn.dataset.filter;
+
+        currentIndex = 0;
+
+        document
+        .querySelectorAll(".filter")
+        .forEach(
+            b =>
+            b.classList.remove("active")
+        );
+
+        btn.classList.add("active");
+
+        renderMainCard();
+        renderLibrary();
+
+    });
+
+});
+
+
+/* =========================
+   SEARCH
+========================= */
+
+search.addEventListener(
+"input",
+()=>{
+
+    currentIndex = 0;
+
+    renderMainCard();
+    renderLibrary();
+
+});
+
+
+/* =========================
+   NEXT
+========================= */
+
+document
+.getElementById("nextBtn")
+.addEventListener(
+"click",
+()=>{
+
+    const list =
+    getFilteredData();
+
+    if(!list.length){
+        return;
+    }
+
+    currentIndex++;
+
+    if(currentIndex >= list.length){
+        currentIndex = 0;
+    }
+
+    renderMainCard();
+
+});
+
+
+/* =========================
+   PREVIOUS
+========================= */
+
+document
+.getElementById("prevBtn")
+.addEventListener(
+"click",
+()=>{
+
+    const list =
+    getFilteredData();
+
+    if(!list.length){
+        return;
+    }
+
+    currentIndex--;
+
+    if(currentIndex < 0){
+        currentIndex =
+        list.length - 1;
+    }
+
+    renderMainCard();
+
+});
+
+
+/* =========================
+   RANDOM
+========================= */
+
+document
+.getElementById("randomBtn")
+.addEventListener(
+"click",
+()=>{
+
+    const list =
+    getFilteredData();
+
+    if(!list.length){
+        return;
+    }
+
+    currentIndex =
+    Math.floor(
+        Math.random() *
+        list.length
+    );
+
+    renderMainCard();
+
+});
+
+
+/* =========================
+   HIDE
+========================= */
+
+document
+.getElementById("hideBtn")
+.addEventListener(
+"click",
+()=>{
+
+    hidden =
+    !hidden;
+
+    mainText.classList.toggle(
+        "hidden-answer",
+        hidden
+    );
+
+    document
+    .getElementById("hideBtn")
+    .textContent =
+        hidden
+        ? "👁 Mostrar"
+        : "👁 Ocultar";
+
+});
+
+
+/* =========================
+   LEARNED
+========================= */
+
+document
+.getElementById("learnedBtn")
+.addEventListener(
+"click",
+()=>{
+
+    const list =
+    getFilteredData();
+
+    if(!list.length){
+        return;
+    }
+
+    const current =
+    list[currentIndex];
+
+    const originalIndex =
+    data.indexOf(current);
+
+    if(
+        !reviewed.includes(
+            originalIndex
+        )
+    ){
+
+        reviewed.push(
+            originalIndex
+        );
+
+        localStorage.setItem(
+            "lesson53PremiumReviewed",
+            JSON.stringify(reviewed)
+        );
+
+    }
+
+    renderStats();
+
+    currentIndex++;
+
+    if(currentIndex >= list.length){
+        currentIndex = 0;
+    }
+
+    renderMainCard();
+
+});
+
+
+/* =========================
+   RESET
+========================= */
+
+document
+.getElementById("resetProgress")
+.addEventListener(
+"click",
+()=>{
+
+    reviewed = [];
+
+    localStorage.removeItem(
+        "lesson53PremiumReviewed"
+    );
+
+    renderStats();
+
+});
+
+
+/* =========================
+   SPEECH
+========================= */
+
+document
+.getElementById("speakBtn")
+.addEventListener(
+"click",
+()=>{
+
+    const list =
+    getFilteredData();
+
+    if(!list.length){
+        return;
+    }
+
+    const item =
+    list[currentIndex];
+
+    if(
+        !("speechSynthesis" in window)
+    ){
+
+        alert(
+            "Tu navegador no permite reproducción de voz."
+        );
+
+        return;
+    }
+
+    speechSynthesis.cancel();
+
+    const utterance =
+    new SpeechSynthesisUtterance(
+        item.en
+    );
+
+    utterance.lang =
+    "en-US";
+
+    utterance.rate =
+    0.75;
+
+    speechSynthesis.speak(
+        utterance
+    );
+
+});
+
+
+/* =========================
+   KEYBOARD
+========================= */
+
+document.addEventListener(
+"keydown",
+(e)=>{
+
+    if(
+        document.activeElement ===
+        search
+    ){
+        return;
+    }
+
+    if(
+        e.key === "ArrowRight"
+    ){
+
+        document
+        .getElementById("nextBtn")
+        .click();
+
+    }
+
+    if(
+        e.key === "ArrowLeft"
+    ){
+
+        document
+        .getElementById("prevBtn")
+        .click();
+
+    }
+
+    if(
+        e.key.toLowerCase() === "r"
+    ){
+
+        document
+        .getElementById("randomBtn")
+        .click();
+
+    }
+
+    if(
+        e.key === " "
+    ){
+
+        e.preventDefault();
+
+        document
+        .getElementById("hideBtn")
+        .click();
+
+    }
+
+});
+
+
+/* =========================
+   INIT
+========================= */
+
+renderStats();
+renderMainCard();
+renderLibrary();
+
+</script>
+
+
+<a class="floating-next-class" href="clase54.html" aria-label="Ir a la clase 54">
+    <span>
+        <small>CLASE SIGUIENTE</small>
+        Clase 54 →
+    </span>
+</a>
+
+</body>
+</html>

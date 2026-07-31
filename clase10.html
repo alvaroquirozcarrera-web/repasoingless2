@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#E60012">
+<title>English Review · Clase 10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--red:#E60012;--red-dark:#bd0010;--red-soft:#fff0f1;--white:#fff;--bg:#f5f6f8;--text:#17191f;--muted:#70757f;--line:#e6e8ec;--success:#169c56;--success-soft:#eaf9f1;--blue:#1769e0;--blue-soft:#edf5ff;--shadow:0 18px 55px rgba(20,24,32,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,sans-serif;background:radial-gradient(circle at top left,rgba(230,0,18,.08),transparent 30%),var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+button,input{font:inherit}button{cursor:pointer}.app{max-width:1500px;margin:auto;padding:28px}
+.header{background:#fff;border-radius:28px;padding:26px 30px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:16px}.logo{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:var(--red);color:#fff;font-size:25px;font-weight:900;box-shadow:0 10px 30px rgba(230,0,18,.25)}
+.brand-text small{display:block;color:var(--red);font-size:13px;font-weight:900;letter-spacing:1.5px;margin-bottom:4px}.brand-text h1{font-size:26px;font-weight:900}.brand-text p{color:var(--muted);margin-top:4px;font-size:14px}
+.toolbar{margin-top:20px;background:#fff;border-radius:22px;padding:17px;display:grid;grid-template-columns:minmax(240px,1fr) auto;gap:16px;align-items:center;box-shadow:0 10px 35px rgba(0,0,0,.06)}
+.search-wrap{position:relative}.search-wrap span{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:#999;font-size:20px}.search{width:100%;border:1px solid var(--line);background:#f8f9fa;border-radius:15px;padding:15px 18px 15px 52px;font-size:16px;outline:none}.search:focus{background:#fff;border-color:rgba(230,0,18,.45);box-shadow:0 0 0 4px rgba(230,0,18,.06)}
+.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{border:1px solid var(--line);background:#fff;border-radius:13px;padding:12px 15px;font-weight:800;color:#555}.filter.active{background:#17191f;color:#fff;border-color:#17191f}
+.stats{margin-top:20px;display:grid;grid-template-columns:repeat(5,1fr);gap:15px}.stat{background:#fff;border-radius:20px;padding:20px;border:1px solid rgba(0,0,0,.04)}.stat-value{font-size:30px;line-height:1;font-weight:900}.stat-label{color:var(--muted);font-size:13px;font-weight:700;margin-top:8px}
+.review-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr);gap:20px;margin-top:20px}
+.study-panel{background:#fff;min-height:550px;border-radius:28px;padding:25px;box-shadow:var(--shadow);position:relative;overflow:hidden}.study-panel:before{content:"";position:absolute;width:240px;height:240px;background:rgba(230,0,18,.05);border-radius:50%;right:-80px;top:-100px}
+.study-top{display:flex;justify-content:space-between;align-items:center;gap:15px;position:relative;z-index:2;flex-wrap:wrap}.study-top-left,.study-top-right{display:flex;align-items:center;gap:10px;min-width:0}.study-top-right{margin-left:auto}
+.home-btn{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:9px 13px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--text);text-decoration:none;font-size:12px;font-weight:900;white-space:nowrap;box-shadow:0 5px 14px rgba(0,0,0,.04);transition:.2s}.home-btn:hover{transform:translateY(-2px);color:var(--red);border-color:rgba(230,0,18,.30)}
+.type-badge{background:var(--red-soft);color:var(--red);border-radius:999px;padding:9px 14px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:1px}.counter{color:var(--muted);font-weight:800;font-size:13px;white-space:nowrap}
+.language-switch{padding:5px;background:#f0f1f3;border-radius:14px;display:flex;gap:6px;flex-shrink:0}.lang-btn{border:0;padding:9px 13px;border-radius:10px;font-size:11px;font-weight:900;background:transparent;color:var(--muted);white-space:nowrap;transition:.2s}.lang-btn.active{background:var(--red);color:#fff;box-shadow:0 7px 20px rgba(230,0,18,.22)}
+.flash-card{min-height:360px;margin-top:22px;border:2px solid #f0f0f2;background:linear-gradient(145deg,#fff,#fafafa);border-radius:26px;padding:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transition:.3s}.flash-card:hover{border-color:rgba(230,0,18,.20)}
+.card-label{font-size:12px;font-weight:900;letter-spacing:2px;color:var(--red);margin-bottom:18px}.main-text{font-size:clamp(34px,5vw,64px);font-weight:900;line-height:1.08;letter-spacing:-2px;max-width:900px}.pronunciation{font-size:21px;color:var(--muted);margin-top:18px;font-weight:700}.context-box{margin-top:18px;padding:12px 16px;border-radius:14px;background:var(--blue-soft);color:var(--blue);font-weight:800;font-size:13px;display:none}.hidden-answer{filter:blur(13px);user-select:none}
+.study-actions{margin-top:20px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.action{border:0;padding:14px 18px;border-radius:14px;background:#f1f2f4;font-weight:900;color:#333;transition:.2s}.action:hover{transform:translateY(-2px)}.action.primary{background:var(--red);color:#fff}.action.success{background:var(--success-soft);color:var(--success)}
+.side{display:flex;flex-direction:column;gap:20px}.side-card{background:#fff;border-radius:24px;padding:23px;border:1px solid rgba(0,0,0,.04);box-shadow:0 10px 35px rgba(0,0,0,.05)}.side-title{font-size:15px;font-weight:900;margin-bottom:15px}.progress-wrap{height:12px;border-radius:999px;background:#eceef1;overflow:hidden}.progress-bar{height:100%;width:0;background:var(--red);border-radius:999px;transition:.3s}.progress-text{margin-top:10px;font-size:13px;color:var(--muted);font-weight:700}.tip{padding:15px;border-radius:16px;background:var(--red-soft);color:#4b2428;font-size:14px;line-height:1.7}
+.library{margin-top:20px;background:#fff;border-radius:28px;padding:25px;box-shadow:var(--shadow)}.library-header{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:20px}.library-header h2{font-size:22px}.library-header span{color:var(--muted);font-size:13px;font-weight:700}
+.card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.mini-card{min-height:145px;padding:20px;border:1px solid var(--line);border-radius:20px;background:#fff;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:.25s}.mini-card:hover{transform:translateY(-4px);border-color:rgba(230,0,18,.35);box-shadow:0 12px 25px rgba(0,0,0,.07)}.mini-type{font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--red)}.mini-main{font-size:22px;font-weight:900;line-height:1.15;margin-top:12px}.mini-sub{color:var(--muted);font-size:13px;margin-top:8px;font-weight:600}
+.floating-next-class{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:999;display:flex;align-items:center;gap:9px;padding:14px 18px;border-radius:17px;background:var(--red);color:#fff;text-decoration:none;font-size:14px;font-weight:900;line-height:1.15;box-shadow:0 16px 38px rgba(230,0,18,.28);transition:.22s}.floating-next-class:hover{transform:translateY(-3px);background:var(--red-dark)}.floating-next-class small{display:block;margin-bottom:3px;font-size:9px;font-weight:800;letter-spacing:.7px;opacity:.82}.empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted);font-weight:700}
+@media(max-width:1100px){.review-layout{grid-template-columns:1fr}.card-grid{grid-template-columns:repeat(3,1fr)}.stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:800px){.app{padding:15px}.toolbar{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.card-grid{grid-template-columns:repeat(2,1fr)}.flash-card{min-height:330px;padding:28px 20px}}
+@media(max-width:600px){.app{padding:10px}.header,.toolbar,.study-panel,.side-card,.library{border-radius:20px}.header{padding:17px}.logo{width:48px;height:48px;border-radius:14px;font-size:21px}.brand{gap:12px;min-width:0}.brand-text{min-width:0}.brand-text small{font-size:10px;letter-spacing:1px}.brand-text h1{font-size:18px;line-height:1.2}.brand-text p{font-size:12px;line-height:1.4}.toolbar{padding:12px;margin-top:12px;gap:10px}.filters{flex-wrap:nowrap;overflow-x:auto;padding-bottom:3px;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}.filter{flex:0 0 auto;padding:10px 12px;font-size:12px}.stats{margin-top:12px;gap:8px}.stat{padding:14px 12px;border-radius:16px}.stat-value{font-size:24px}.stat-label{font-size:11px}.review-layout{margin-top:12px;gap:12px}.study-panel{padding:14px}.study-top-left,.study-top-right{width:100%;justify-content:space-between}.study-top-right{margin-left:0}.lang-btn{padding:8px 10px;font-size:10px}.flash-card{min-height:260px;margin-top:14px;padding:24px 14px;border-radius:20px}.main-text{font-size:clamp(31px,10vw,45px);letter-spacing:-1px;overflow-wrap:anywhere}.pronunciation{font-size:18px;margin-top:13px}.study-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}.study-actions .action{width:100%;padding:12px 8px;font-size:12px}.study-actions #nextBtn{grid-column:1/-1}.side{gap:12px}.library{margin-top:12px;padding:15px}.library-header h2{font-size:18px}.card-grid{gap:9px}.mini-card{min-height:125px;padding:15px;border-radius:16px}.mini-main{font-size:18px}.floating-next-class{right:max(10px,env(safe-area-inset-right));bottom:max(10px,env(safe-area-inset-bottom));padding:12px 14px;border-radius:15px;font-size:12px}}
+@media(max-width:390px){.stats{grid-template-columns:1fr 1fr}.lang-btn{padding:7px 8px;font-size:9px}.home-btn,.type-badge{font-size:10px}.floating-next-class small{display:none}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="header">
+  <div class="brand">
+    <div class="logo">10</div>
+    <div class="brand-text">
+      <small>ENGLISH COURSE · A0 → B2</small>
+      <h1>Clase 10 · Singular y Plural</h1>
+      <p>Singular · plural · reglas y excepciones</p>
+    </div>
+  </div>
+</header>
+
+<section class="toolbar">
+  <div class="search-wrap"><span>⌕</span><input id="search" class="search" placeholder="Buscar palabra, frase, pregunta o respuesta..."></div>
+  <div class="filters">
+    <button class="filter active" data-filter="all">Todo</button>
+    <button class="filter" data-filter="word">Palabras</button>
+    <button class="filter" data-filter="phrase">Frases</button>
+    <button class="filter" data-filter="sentence">Oraciones</button>
+    <button class="filter" data-filter="question">Preguntas</button>
+    <button class="filter" data-filter="answer">Respuestas</button>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stat"><div class="stat-value" id="totalItems">0</div><div class="stat-label">Total</div></div>
+  <div class="stat"><div class="stat-value" id="wordCount">0</div><div class="stat-label">Palabras</div></div>
+  <div class="stat"><div class="stat-value" id="phraseCount">0</div><div class="stat-label">Frases y oraciones</div></div>
+  <div class="stat"><div class="stat-value" id="questionCount">0</div><div class="stat-label">Preguntas y respuestas</div></div>
+  <div class="stat"><div class="stat-value" id="reviewedCount">0</div><div class="stat-label">Repasadas</div></div>
+</section>
+
+<section class="review-layout">
+  <div class="study-panel">
+    <div class="study-top">
+      <div class="study-top-left">
+        <a class="home-btn" href="index.html">← index</a>
+        <div class="type-badge" id="typeBadge">PALABRA</div>
+      </div>
+      <div class="study-top-right">
+        <div class="language-switch">
+          <button class="lang-btn active" data-lang="en">🇬🇧 ENGLISH</button>
+          <button class="lang-btn" data-lang="es">🇪🇸 ESPAÑOL</button>
+        </div>
+        <div class="counter" id="counter">1 / 1</div>
+      </div>
+    </div>
+
+    <div class="flash-card">
+      <div class="card-label" id="cardLabel">ENGLISH</div>
+      <div class="main-text" id="mainText">I have two books.</div>
+      <div class="pronunciation" id="pronunciation">ai jav tu buks</div>
+      <div class="context-box" id="contextBox"></div>
+    </div>
+
+    <div class="study-actions">
+      <button class="action" id="prevBtn">← Anterior</button>
+      <button class="action" id="speakBtn">🔊 Escuchar</button>
+      <button class="action" id="hideBtn">👁 Ocultar</button>
+      <button class="action success" id="learnedBtn">✓ Repasada</button>
+      <button class="action primary" id="nextBtn">Siguiente →</button>
+    </div>
+  </div>
+
+  <aside class="side">
+    <div class="side-card">
+      <div class="side-title">Progreso de repaso</div>
+      <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+      <div class="progress-text" id="progressText">0% completado</div>
+    </div>
+
+    <div class="side-card">
+      <div class="side-title">Modo de estudio</div>
+      <div style="display:grid;gap:10px">
+        <button class="action primary" id="randomBtn">🔀 Tarjeta aleatoria</button>
+        <button class="action" id="resetProgress">↻ Reiniciar progreso</button>
+      </div>
+    </div>
+
+    <div class="side-card">
+      <div class="side-title">Regla clave</div>
+      <div class="tip">
+        <b>SINGULAR = 1 · PLURAL = 2+</b><br><br>
+        book → <b>books</b><br>
+        box → <b>boxes</b><br>
+        city → <b>cities</b><br>
+        child → <b>children</b><br><br>
+        Número mayor que 1 → plural.
+      </div>
+    </div>
+  </aside>
+</section>
+
+<section class="library">
+  <div class="library-header">
+    <h2>Biblioteca completa · Clase 10</h2>
+    <span id="libraryCount">0 elementos</span>
+  </div>
+  <div class="card-grid" id="cardGrid"></div>
+</section>
+</div>
+
+<a class="floating-next-class" href="clase11.html"><span><small>CLASE SIGUIENTE</small>Clase 11 →</span></a>
+
+<script>
+const data = [{"type": "word", "en": "singular", "es": "singular", "pron": "sínguiular", "context": "Una sola persona, cosa, animal, lugar o idea."}, {"type": "word", "en": "plural", "es": "plural", "pron": "plúral", "context": "Dos o más elementos."}, {"type": "word", "en": "book", "es": "libro", "pron": "buk", "context": "Plural regular: books."}, {"type": "word", "en": "student", "es": "estudiante", "pron": "stiudent", "context": "Plural regular: students."}, {"type": "word", "en": "teacher", "es": "profesor / profesora", "pron": "tícher", "context": "Plural regular: teachers."}, {"type": "word", "en": "apple", "es": "manzana", "pron": "ápol", "context": "Plural regular: apples."}, {"type": "word", "en": "box", "es": "caja", "pron": "boks", "context": "Plural con -es: boxes."}, {"type": "word", "en": "class", "es": "clase", "pron": "klas", "context": "Plural con -es: classes."}, {"type": "word", "en": "city", "es": "ciudad", "pron": "síti", "context": "Consonante + y: cities."}, {"type": "word", "en": "family", "es": "familia", "pron": "fámili", "context": "Consonante + y: families."}, {"type": "word", "en": "child", "es": "niño / niña", "pron": "chaild", "context": "Plural irregular: children."}, {"type": "word", "en": "person", "es": "persona", "pron": "pérson", "context": "Plural común: people."}, {"type": "word", "en": "man", "es": "hombre", "pron": "man", "context": "Plural irregular: men."}, {"type": "word", "en": "woman", "es": "mujer", "pron": "wúman", "context": "Plural irregular: women."}, {"type": "word", "en": "tooth", "es": "diente", "pron": "tuz", "context": "Plural irregular: teeth."}, {"type": "word", "en": "foot", "es": "pie", "pron": "fut", "context": "Plural irregular: feet."}, {"type": "word", "en": "mouse", "es": "ratón", "pron": "maus", "context": "Plural irregular: mice."}, {"type": "word", "en": "goose", "es": "ganso", "pron": "gus", "context": "Plural irregular: geese."}, {"type": "word", "en": "fish", "es": "pez", "pron": "fish", "context": "Puede mantenerse igual en plural."}, {"type": "word", "en": "sheep", "es": "oveja", "pron": "ship", "context": "Misma forma en singular y plural."}, {"type": "word", "en": "deer", "es": "ciervo", "pron": "dir", "context": "Misma forma en singular y plural."}, {"type": "phrase", "en": "+ s", "es": "agrega -s", "pron": "plus es", "context": "Regla plural más común."}, {"type": "phrase", "en": "+ es", "es": "agrega -es", "pron": "plus íes", "context": "Para s, ss, sh, ch, x, z."}, {"type": "phrase", "en": "consonant + y → ies", "es": "consonante + y → ies", "pron": "kónsonant plus uai tu ais", "context": "city → cities."}, {"type": "phrase", "en": "vowel + y → +s", "es": "vocal + y → +s", "pron": "váuel plus uai plus es", "context": "boy → boys."}, {"type": "phrase", "en": "f / fe → ves", "es": "f / fe → ves", "pron": "ef / ef-i tu ves", "context": "Solo en algunas palabras."}, {"type": "phrase", "en": "irregular plural", "es": "plural irregular", "pron": "iréguiular plúral", "context": "No sigue la regla normal."}, {"type": "phrase", "en": "one book", "es": "un libro", "pron": "uan buk", "context": "Singular."}, {"type": "phrase", "en": "two books", "es": "dos libros", "pron": "tu buks", "context": "Plural."}, {"type": "phrase", "en": "many apples", "es": "muchas manzanas", "pron": "méni ápols", "context": "Plural."}, {"type": "phrase", "en": "a book", "es": "un libro", "pron": "a buk", "context": "A/an solo con singular contable."}, {"type": "phrase", "en": "books", "es": "libros", "pron": "buks", "context": "Plural sin a/an."}, {"type": "sentence", "en": "one book → two books", "es": "un libro → dos libros", "pron": "uan buk → tu buks", "context": "Book es regular."}, {"type": "sentence", "en": "one car → three cars", "es": "un auto → tres autos", "pron": "uan kar → zri kars", "context": "Car + s."}, {"type": "sentence", "en": "a student → students", "es": "un estudiante → estudiantes", "pron": "a stiudent → stiudents", "context": "Se elimina a y se agrega -s."}, {"type": "sentence", "en": "a teacher → teachers", "es": "un profesor → profesores", "pron": "a tícher → tíchers", "context": "Plural regular."}, {"type": "sentence", "en": "a table → tables", "es": "una mesa → mesas", "pron": "a téibol → téibols", "context": "Plural regular."}, {"type": "sentence", "en": "a phone → phones", "es": "un teléfono → teléfonos", "pron": "a foun → founs", "context": "Plural regular."}, {"type": "sentence", "en": "a bag → bags", "es": "una mochila → mochilas", "pron": "a bag → bags", "context": "Plural regular."}, {"type": "sentence", "en": "a friend → friends", "es": "un amigo → amigos", "pron": "a frend → frends", "context": "Plural regular."}, {"type": "sentence", "en": "a room → rooms", "es": "una habitación → habitaciones", "pron": "a rum → rums", "context": "Plural simple."}, {"type": "sentence", "en": "a pencil → pencils", "es": "un lápiz → lápices", "pron": "a pénsol → pénsols", "context": "Plural regular."}, {"type": "sentence", "en": "one box → two boxes", "es": "una caja → dos cajas", "pron": "uan boks → tu bókses", "context": "Termina en x."}, {"type": "sentence", "en": "one bus → two buses", "es": "un bus → dos buses", "pron": "uan bos → tu bó-ses", "context": "Termina en s."}, {"type": "sentence", "en": "one class → two classes", "es": "una clase → dos clases", "pron": "uan klas → tu kláses", "context": "Termina en ss."}, {"type": "sentence", "en": "one dish → two dishes", "es": "un plato → dos platos", "pron": "uan dish → tu díshes", "context": "Termina en sh."}, {"type": "sentence", "en": "one watch → two watches", "es": "un reloj → dos relojes", "pron": "uan uach → tu uáches", "context": "Termina en ch."}, {"type": "sentence", "en": "one quiz → two quizzes", "es": "un quiz → dos quizzes", "pron": "uan kuis → tu kuíses", "context": "Duplica z + es."}, {"type": "sentence", "en": "one fox → two foxes", "es": "un zorro → dos zorros", "pron": "uan foks → tu fókses", "context": "Termina en x."}, {"type": "sentence", "en": "one brush → two brushes", "es": "un cepillo → dos cepillos", "pron": "uan brosh → tu bróshes", "context": "Termina en sh."}, {"type": "sentence", "en": "one match → two matches", "es": "un partido → dos partidos", "pron": "uan mach → tu máches", "context": "Termina en ch."}, {"type": "sentence", "en": "one glass → two glasses", "es": "un vaso → dos vasos", "pron": "uan glas → tu gláses", "context": "Termina en ss."}, {"type": "sentence", "en": "city → cities", "es": "ciudad → ciudades", "pron": "síti → sítis", "context": "Consonante + y."}, {"type": "sentence", "en": "baby → babies", "es": "bebé → bebés", "pron": "béibi → béibis", "context": "Consonante + y."}, {"type": "sentence", "en": "family → families", "es": "familia → familias", "pron": "fámili → fámilis", "context": "Consonante + y."}, {"type": "sentence", "en": "company → companies", "es": "empresa → empresas", "pron": "kómpani → kómpanis", "context": "Consonante + y."}, {"type": "sentence", "en": "country → countries", "es": "país → países", "pron": "kántri → kántris", "context": "Consonante + y."}, {"type": "sentence", "en": "story → stories", "es": "historia → historias", "pron": "stóri → stóris", "context": "Consonante + y."}, {"type": "sentence", "en": "party → parties", "es": "fiesta → fiestas", "pron": "párti → pártis", "context": "Consonante + y."}, {"type": "sentence", "en": "activity → activities", "es": "actividad → actividades", "pron": "aktiviti → aktivitis", "context": "Consonante + y."}, {"type": "sentence", "en": "responsibility → responsibilities", "es": "responsabilidad → responsabilidades", "pron": "risponsabíliti → risponsabílitis", "context": "Consonante + y."}, {"type": "sentence", "en": "dictionary → dictionaries", "es": "diccionario → diccionarios", "pron": "dikshoneri → dikshoneris", "context": "Consonante + y."}, {"type": "sentence", "en": "boy → boys", "es": "niño → niños", "pron": "boi → bois", "context": "Vocal + y."}, {"type": "sentence", "en": "day → days", "es": "día → días", "pron": "dei → deis", "context": "Vocal + y."}, {"type": "sentence", "en": "key → keys", "es": "llave → llaves", "pron": "ki → kis", "context": "Vocal + y."}, {"type": "sentence", "en": "wife → wives", "es": "esposa → esposas", "pron": "uaif → uaivs", "context": "Algunas palabras cambian f/fe por ves."}, {"type": "sentence", "en": "life → lives", "es": "vida → vidas", "pron": "laif → laivs", "context": ""}, {"type": "sentence", "en": "knife → knives", "es": "cuchillo → cuchillos", "pron": "naif → naivs", "context": ""}, {"type": "sentence", "en": "wolf → wolves", "es": "lobo → lobos", "pron": "uolf → uolvs", "context": ""}, {"type": "sentence", "en": "roof → roofs", "es": "techo → techos", "pron": "ruf → rufs", "context": "Excepción: solo agrega -s."}, {"type": "sentence", "en": "man → men", "es": "hombre → hombres", "pron": "man → men", "context": "Irregular."}, {"type": "sentence", "en": "woman → women", "es": "mujer → mujeres", "pron": "wúman → wímen", "context": "Irregular."}, {"type": "sentence", "en": "child → children", "es": "niño → niños", "pron": "chaild → chíldren", "context": "Irregular."}, {"type": "sentence", "en": "person → people", "es": "persona → personas", "pron": "pérson → pípol", "context": "Plural común."}, {"type": "sentence", "en": "tooth → teeth", "es": "diente → dientes", "pron": "tuz → tiz", "context": "oo → ee."}, {"type": "sentence", "en": "foot → feet", "es": "pie → pies", "pron": "fut → fit", "context": "oo → ee."}, {"type": "sentence", "en": "mouse → mice", "es": "ratón → ratones", "pron": "maus → mais", "context": "Irregular."}, {"type": "sentence", "en": "goose → geese", "es": "ganso → gansos", "pron": "gus → gis", "context": "Irregular."}, {"type": "sentence", "en": "ox → oxen", "es": "buey → bueyes", "pron": "oks → óksen", "context": "Irregular poco común."}, {"type": "sentence", "en": "die → dice", "es": "dado → dados", "pron": "dai → dais", "context": "Irregular."}, {"type": "sentence", "en": "one fish → two fish", "es": "un pez → dos peces", "pron": "uan fish → tu fish", "context": "Misma forma."}, {"type": "sentence", "en": "one sheep → three sheep", "es": "una oveja → tres ovejas", "pron": "uan ship → zri ship", "context": "Misma forma."}, {"type": "sentence", "en": "one deer → many deer", "es": "un ciervo → muchos ciervos", "pron": "uan dir → méni dir", "context": "Misma forma."}, {"type": "sentence", "en": "I have two books.", "es": "Tengo dos libros.", "pron": "ai jav tu buks", "context": "Número > 1 normalmente exige plural."}, {"type": "sentence", "en": "They are students.", "es": "Ellos son estudiantes.", "pron": "dei ar stiudents", "context": "Plural."}, {"type": "sentence", "en": "The boxes are big.", "es": "Las cajas son grandes.", "pron": "da bókses ar big", "context": "Boxes + are."}, {"type": "sentence", "en": "My classes are today.", "es": "Mis clases son hoy.", "pron": "mai kláses ar tudéi", "context": "Classes plural."}, {"type": "sentence", "en": "Peru has many cities.", "es": "Perú tiene muchas ciudades.", "pron": "Perú jas méni sítis", "context": "Cities plural."}, {"type": "sentence", "en": "Families are important.", "es": "Las familias son importantes.", "pron": "fámilis ar impórtant", "context": "Familias en general."}, {"type": "sentence", "en": "The children are happy.", "es": "Los niños están felices.", "pron": "da chíldren ar jápi", "context": "Children irregular."}, {"type": "sentence", "en": "People are here.", "es": "Las personas están aquí.", "pron": "pípol ar jíer", "context": "People ya es plural."}, {"type": "sentence", "en": "The men are doctors.", "es": "Los hombres son doctores.", "pron": "da men ar dóktors", "context": "Men irregular."}, {"type": "sentence", "en": "The women are engineers.", "es": "Las mujeres son ingenieras.", "pron": "da wímen ar enyeníers", "context": "Women irregular."}, {"type": "sentence", "en": "I like books.", "es": "Me gustan los libros en general.", "pron": "ai laik buks", "context": "General: sin the."}, {"type": "sentence", "en": "Dogs are friendly.", "es": "Los perros son amigables.", "pron": "dogs ar fréndli", "context": "General: sin the."}, {"type": "phrase", "en": "this book", "es": "este libro", "pron": "dis buk", "context": "Singular."}, {"type": "phrase", "en": "these books", "es": "estos libros", "pron": "diz buks", "context": "Plural."}, {"type": "phrase", "en": "that car", "es": "ese auto", "pron": "dat kar", "context": "Singular."}, {"type": "phrase", "en": "those cars", "es": "esos autos", "pron": "dous kars", "context": "Plural."}, {"type": "phrase", "en": "books /s/", "es": "books con sonido /s/", "pron": "buks", "context": "Después de sonido sordo."}, {"type": "phrase", "en": "cars /z/", "es": "cars con sonido /z/", "pron": "karz", "context": "Después de sonido con vibración."}, {"type": "phrase", "en": "classes /ɪz/", "es": "classes con sílaba extra", "pron": "kláses", "context": "Después de s, sh, ch, x, z."}, {"type": "phrase", "en": "cats", "es": "gatos", "pron": "kats", "context": "Plural /s/."}, {"type": "phrase", "en": "dogs", "es": "perros", "pron": "dogz", "context": "Plural /z/."}, {"type": "phrase", "en": "watches", "es": "relojes", "pron": "uáches", "context": "Plural /ɪz/."}, {"type": "question", "en": "What is this?", "es": "¿Qué es esto?", "pron": "uat is dis", "context": "Singular."}, {"type": "answer", "en": "It is a book.", "es": "Es un libro.", "pron": "it is a buk", "context": ""}, {"type": "question", "en": "What are these?", "es": "¿Qué son estos?", "pron": "uat ar diz", "context": "Plural."}, {"type": "answer", "en": "They are books.", "es": "Son libros.", "pron": "dei ar buks", "context": ""}, {"type": "question", "en": "How many books do you have?", "es": "¿Cuántos libros tienes?", "pron": "jau méni buks du iu jav", "context": "How many + plural countable noun."}, {"type": "answer", "en": "I have three books.", "es": "Tengo tres libros.", "pron": "ai jav zri buks", "context": ""}, {"type": "question", "en": "How many students are here?", "es": "¿Cuántos estudiantes hay aquí?", "pron": "jau méni stiudents ar jíer", "context": ""}, {"type": "answer", "en": "There are three students.", "es": "Hay tres estudiantes.", "pron": "der ar zri stiudents", "context": ""}, {"type": "sentence", "en": "a book", "es": "un libro", "pron": "a buk", "context": "No: a books."}, {"type": "sentence", "en": "two books", "es": "dos libros", "pron": "tu buks", "context": "No: two book."}, {"type": "sentence", "en": "children", "es": "niños", "pron": "chíldren", "context": "No: childs."}, {"type": "sentence", "en": "people", "es": "personas", "pron": "pípol", "context": "No: peoples en uso común."}, {"type": "sentence", "en": "cities", "es": "ciudades", "pron": "sítis", "context": "No: citys."}, {"type": "sentence", "en": "boxes", "es": "cajas", "pron": "bókses", "context": "No: boxs."}, {"type": "sentence", "en": "three women", "es": "tres mujeres", "pron": "zri wímen", "context": "No: three woman."}];
+
+let language="en", filter="all", currentIndex=0, hidden=false;
+let reviewed=JSON.parse(localStorage.getItem("lesson10PremiumReviewed")||"[]");
+
+const $=id=>document.getElementById(id);
+const mainText=$("mainText"), pronunciation=$("pronunciation"), typeBadge=$("typeBadge"), counter=$("counter"), cardLabel=$("cardLabel"), cardGrid=$("cardGrid"), contextBox=$("contextBox"), search=$("search"), totalItems=$("totalItems"), wordCount=$("wordCount"), phraseCount=$("phraseCount"), questionCount=$("questionCount"), reviewedCount=$("reviewedCount"), progressBar=$("progressBar"), progressText=$("progressText"), libraryCount=$("libraryCount");
+
+function getFilteredData(){
+  const q=search.value.toLowerCase().trim();
+  return data.filter(item=>(filter==="all"||item.type===filter) && (item.en.toLowerCase().includes(q)||item.es.toLowerCase().includes(q)||item.pron.toLowerCase().includes(q)||(item.context||"").toLowerCase().includes(q)));
+}
+function typeName(type){return {word:"PALABRA",phrase:"FRASE",sentence:"ORACIÓN",question:"PREGUNTA",answer:"RESPUESTA"}[type]||"REPASO"}
+function renderMainCard(){
+  const list=getFilteredData();
+  if(!list.length){mainText.textContent="Sin resultados";pronunciation.textContent="";contextBox.style.display="none";typeBadge.textContent="—";counter.textContent="0 / 0";return}
+  if(currentIndex>=list.length)currentIndex=0;
+  const item=list[currentIndex];
+  typeBadge.textContent=typeName(item.type);
+  counter.textContent=`${currentIndex+1} / ${list.length}`;
+  cardLabel.textContent=language==="en"?"ENGLISH":"ESPAÑOL";
+  mainText.textContent=language==="en"?item.en:item.es;
+  pronunciation.textContent=language==="en"?item.pron:"";
+  if(item.context){contextBox.textContent=item.context;contextBox.style.display="block"}else contextBox.style.display="none";
+  hidden=false;mainText.classList.remove("hidden-answer");$("hideBtn").textContent="👁 Ocultar";
+}
+function renderLibrary(){
+  const list=getFilteredData();cardGrid.innerHTML="";libraryCount.textContent=`${list.length} elementos`;
+  if(!list.length){cardGrid.innerHTML='<div class="empty">No se encontraron resultados.</div>';return}
+  list.forEach((item,index)=>{
+    const card=document.createElement("div");card.className="mini-card";
+    const primary=language==="en"?item.en:item.es, secondary=language==="en"?item.pron:item.en;
+    card.innerHTML=`<div><div class="mini-type">${typeName(item.type)}</div><div class="mini-main">${primary}</div></div><div class="mini-sub">${secondary}</div>`;
+    card.onclick=()=>{currentIndex=index;renderMainCard();window.scrollTo({top:290,behavior:"smooth"})};
+    cardGrid.appendChild(card);
+  });
+}
+function renderStats(){
+  totalItems.textContent=data.length;
+  wordCount.textContent=data.filter(x=>x.type==="word").length;
+  phraseCount.textContent=data.filter(x=>x.type==="phrase"||x.type==="sentence").length;
+  questionCount.textContent=data.filter(x=>x.type==="question"||x.type==="answer").length;
+  reviewedCount.textContent=reviewed.length;
+  const percent=Math.round(reviewed.length/data.length*100);
+  progressBar.style.width=percent+"%";
+  progressText.textContent=`${percent}% completado · ${reviewed.length} de ${data.length}`;
+}
+document.querySelectorAll(".lang-btn").forEach(btn=>btn.onclick=()=>{language=btn.dataset.lang;document.querySelectorAll(".lang-btn").forEach(b=>b.classList.remove("active"));btn.classList.add("active");renderMainCard();renderLibrary()});
+document.querySelectorAll(".filter").forEach(btn=>btn.onclick=()=>{filter=btn.dataset.filter;currentIndex=0;document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");renderMainCard();renderLibrary()});
+search.oninput=()=>{currentIndex=0;renderMainCard();renderLibrary()};
+$("nextBtn").onclick=()=>{const list=getFilteredData();if(list.length){currentIndex=(currentIndex+1)%list.length;renderMainCard()}};
+$("prevBtn").onclick=()=>{const list=getFilteredData();if(list.length){currentIndex=(currentIndex-1+list.length)%list.length;renderMainCard()}};
+$("randomBtn").onclick=()=>{const list=getFilteredData();if(list.length){currentIndex=Math.floor(Math.random()*list.length);renderMainCard()}};
+$("hideBtn").onclick=()=>{hidden=!hidden;mainText.classList.toggle("hidden-answer",hidden);$("hideBtn").textContent=hidden?"👁 Mostrar":"👁 Ocultar"};
+$("learnedBtn").onclick=()=>{const list=getFilteredData();if(!list.length)return;const idx=data.indexOf(list[currentIndex]);if(!reviewed.includes(idx)){reviewed.push(idx);localStorage.setItem("lesson10PremiumReviewed",JSON.stringify(reviewed))}renderStats();currentIndex=(currentIndex+1)%list.length;renderMainCard()};
+$("resetProgress").onclick=()=>{reviewed=[];localStorage.removeItem("lesson10PremiumReviewed");renderStats()};
+$("speakBtn").onclick=()=>{const list=getFilteredData();if(!list.length)return;if(!("speechSynthesis" in window))return alert("Tu navegador no permite reproducción de voz.");speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(list[currentIndex].en);u.lang="en-US";u.rate=.75;speechSynthesis.speak(u)};
+document.addEventListener("keydown",e=>{if(document.activeElement===search)return;if(e.key==="ArrowRight")$("nextBtn").click();if(e.key==="ArrowLeft")$("prevBtn").click();if(e.key.toLowerCase()==="r")$("randomBtn").click();if(e.key===" "){e.preventDefault();$("hideBtn").click()}});
+renderStats();renderMainCard();renderLibrary();
+</script>
+</body>
+</html>
